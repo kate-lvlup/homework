@@ -5,14 +5,13 @@ class LessonFourTaskOne {
         int[] valueArray;
         valueArray = new int[10];
         for (int i = 0; i < valueArray.length; i++) {
-            valueArray[i] = (int) (1 + Math.random() * 9);
+            valueArray[i] = (int)(Math.random() * 200 - 100);
             System.out.println("Array element [" + i + "]: " + valueArray[i]);
         }
-        int valueSum = 0;
         for (int i = 0; i < valueArray.length; i++) {
-            valueSum = valueSum + valueArray[i];
+            valueArray[i] = Math.abs(valueArray[i]);
+            System.out.println("ABS Array element [" + i + "]: " + valueArray[i]);
         }
-        System.out.println("Sum of array values: " + valueSum);
         int valueSumMath = 0;
         for (int i = 0; i < valueArray.length; i++) {
             valueSumMath = Math.addExact(valueSumMath, valueArray[i]);

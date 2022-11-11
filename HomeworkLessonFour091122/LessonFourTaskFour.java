@@ -10,10 +10,9 @@ class LessonFourTaskFour {
         }
         int valueSum = 0;
         for (int i = 0; i < valueArray.length; i++) {
-            valueSum += valueArray[i];
+            valueSum += Math.pow(valueArray[i], 2);
+            System.out.println(valueSum);
         }
-        int valuePow = 0;
-        valuePow += Math.pow(valueSum, 2);
-        System.out.println("Sum of array elements to the second power: " + valuePow);
+        System.out.println("Sum of array elements to the second power: " + valueSum);
     }
 }

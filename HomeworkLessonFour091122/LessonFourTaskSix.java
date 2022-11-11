@@ -7,12 +7,16 @@ class LessonFourTaskSix {
         Scanner myScan = new Scanner(System.in);
         System.out.println("Enter the number:");
         int num = myScan.nextInt();
-        int[] valueArray;
-        valueArray = new int[num];
-        int valueNum = num;
-        for (int i = 0; i < num; i++, valueNum--) {
-            valueArray[i] = valueNum;
-            System.out.println("Array element [" + i + "]: " + valueArray[i]);
+        if (num < 1) {
+            System.out.println("The number must be absolute!!!");
+        } else {
+            int[] valueArray;
+            valueArray = new int[num];
+            int valueNum = num;
+            for (int i = 0; i < num; i++, valueNum--) {
+                valueArray[i] = valueNum;
+                System.out.println("Array element [" + i + "]: " + valueArray[i]);
+            }
         }
     }
 }

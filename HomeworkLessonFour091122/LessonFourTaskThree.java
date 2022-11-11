@@ -8,17 +8,15 @@ class LessonFourTaskThree {
         System.out.println("Enter the number:");
         int num = myScan.nextInt();
         int valueSum = 0;
-        if (num <= 0) {
-            System.out.println("You entered an invalid number");
-        }
-        if (num == 1) {
-            System.out.println("Sum: " + num);
-        }
         if (num > 1) {
             for (int i = 1; i < num + 1; i++) {
                 valueSum = valueSum + i;
             }
             System.out.println("Sum: " + valueSum);
+        } else if (num == 1) {
+            System.out.println("Sum: " + num);
+        } else {
+            System.out.println("You entered an invalid number");
         }
     }
 }

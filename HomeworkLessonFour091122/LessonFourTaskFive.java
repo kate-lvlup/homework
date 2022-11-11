@@ -8,7 +8,6 @@ class LessonFourTaskFive {
             valueArray[i] = (int) (1 + Math.random() * 9);
             System.out.println("Array element [" + i + "]: " + valueArray[i]);
         }
-        int valueSum = 0;
         int valueMin = valueArray[0];
         for (int i = 0; i < valueArray.length; i++) {
             if (valueMin > valueArray[i]) {

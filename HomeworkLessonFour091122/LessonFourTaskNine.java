@@ -11,12 +11,12 @@ class LessonFourTaskNine {
             System.out.println("Array element [" + i + "]: " + valueArray[i]);
         }
         int positiveSum = 0;
-        int negativeSum = 0;
+        int negativeCalc = 0;
         for (int i = 0; i < valueArray.length; i++) {
             if (valueArray[i] >= 0) {
                 positiveSum++;
             } else {
-                negativeSum++;
+               negativeCalc =  Math.addExact(negativeCalc, valueArray[i]);
             }
         }
         System.out.println();
@@ -24,7 +24,7 @@ class LessonFourTaskNine {
         int[] valueArrayTwoElements;
         valueArrayTwoElements = new int[2];
         valueArrayTwoElements[0] = positiveSum;
-        valueArrayTwoElements[1] = negativeSum;
+        valueArrayTwoElements[1] = negativeCalc;
         for (int i = 0; i < valueArrayTwoElements.length; i++) {
             System.out.println("Array element [" + i + "]: " + valueArrayTwoElements[i]);
         }
