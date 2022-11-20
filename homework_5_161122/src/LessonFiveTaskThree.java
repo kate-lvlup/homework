@@ -8,13 +8,11 @@ public class LessonFiveTaskThree {
         if (valueArray.length == 0) {
             System.out.println("Array length: " + 0);
         } else {
-            for (int i = 0; i < valueArray.length; i++) {
-                valueArray[i] = Math.random() * 20 - 10;
-                System.out.println("Array element [" + i + "]: " + valueArray[i]);
-            }
             double valueSum = 0;
             for (int i = 0; i < valueArray.length; i++) {
+                valueArray[i] = Math.random() * 20 - 10;
                 valueSum += valueArray[i];
+                System.out.println("Array element [" + i + "]: " + valueArray[i]);
             }
             System.out.println("Sum of all array elements: " + valueSum);
         }

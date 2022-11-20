@@ -53,10 +53,6 @@ public class LessonFiveTaskEight {
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 valueArrayThree[i][j] = valueArrayOne[i][j] + valueArrayTwo[i][j];
-            }
-        }
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
                 System.out.print(valueArrayThree[i][j] + ", ");
             }
             System.out.println();

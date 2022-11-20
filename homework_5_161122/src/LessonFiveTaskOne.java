@@ -10,11 +10,9 @@ public class LessonFiveTaskOne {
         int valueArrayLength = valueScanner.nextInt();
         System.out.println("Enter the elements of the new array");
         int[] valueInputArray = new int[valueArrayLength];
-        for (int i = 0; i < valueArrayLength; i++) {
-            valueInputArray[i] = valueScanner.nextInt();
-        }
         int valueSum = 0;
         for (int i = 0; i < valueArrayLength; i++) {
+            valueInputArray[i] = valueScanner.nextInt();
             valueSum += valueInputArray[i];
         }
         System.out.println("Arithmetical mean: " + valueSum / valueArrayLength);
