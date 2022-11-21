@@ -5,7 +5,6 @@ public class Box {
     double height;
     double length;
     double width;
-    double volume;
 
     public double setHeight(double height) {
         return this.height = height;
@@ -32,7 +31,6 @@ public class Box {
     }
 
     public double calcVolume() {
-        return this.volume = height * length * width;
+        return height * length * width;
     }
 }
-

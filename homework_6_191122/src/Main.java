@@ -26,29 +26,28 @@ public class Main {
         System.out.println("Side A: " + triangle1.getSideA());
         triangle1.setSideB(19);
         System.out.println("Side B: " + triangle1.getSideB());
-        triangle1.setBaseTriangle(10.5);
-        System.out.println("Base of Triangle: " + triangle1.getBaseTriangle());
+        triangle1.setSideC(10.5);
+        System.out.println("Side C: " + triangle1.getSideC());
         System.out.println("Perimeter: " + triangle1.getPerimeter());
-        System.out.println("Height of Triangle: " + triangle1.getHeightTriangle());
         System.out.println("Area of Triangle: " + triangle1.getAreaTriangle());
         System.out.println();
         System.out.println("************* Task4 'Employee' *************");
-        Employee employee1 = new Employee("0001", "Kate", "Yalanska", 100000);
+        Employee employee1 = new Employee("0001", "Kate", "Yalanska", 11000);
         Employee employee2 = new Employee("0002", "Peter", "Parker", 5000);
         System.out.println("Employee1");
         System.out.println("ID employee1: " + employee1.getId());
         System.out.println("First Name employee1: " + employee1.getFirstName());
         System.out.println("Last Name employee1: " + employee1.getLastName());
         System.out.println("Salary employee1: " + employee1.getSalary());
-        System.out.println("The salary for employee1 increased by: " + employee1.getRaiseSalary(10));
-        System.out.println("New annual salary for employee1: " + employee1.getYearSalary());
+        System.out.println("The salary for employee1 increased by: " + employee1.getRaiseSalary(5));
+        System.out.println("Annual salary for employee1: " + employee1.getYearSalary());
         System.out.println();
         System.out.println("Employee2");
         System.out.println("ID employee2: " + employee2.getId());
         System.out.println("First Name employee2: " + employee2.getFirstName());
         System.out.println("Last Name employee2: " + employee2.getLastName());
         System.out.println("Salary employee2: " + employee2.getSalary());
-        System.out.println("The salary for employee2 increased by: " + employee2.getRaiseSalary(20));
-        System.out.println("New annual salary for employee2: " + employee2.getYearSalary());
+        System.out.println("The salary for employee2 increased by: " + employee2.getRaiseSalary(15));
+        System.out.println("Annual salary for employee2: " + employee2.getYearSalary());
     }
 }

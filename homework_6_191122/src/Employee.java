@@ -8,7 +8,6 @@ public class Employee {
     String firstName;
     String lastName;
     double salary;
-    double saldoSalary;
 
     Employee(String id, String firstName, String lastName, double salary) {
         this.id = id;
@@ -34,10 +33,10 @@ public class Employee {
     }
 
     public double getRaiseSalary(double percent) {
-        return this.saldoSalary = percent / 100 * salary;
+        return percent / 100 * salary;
     }
 
     public double getYearSalary() {
-        return (salary + saldoSalary) * 12;
+        return salary * 12;
     }
 }

@@ -3,11 +3,7 @@
 public class Triangle {
     double sideA;
     double sideB;
-    double baseTriangle;
-    double perimeter;
-
-    double heightTriangle;
-    double areaTriangle;
+    double sideC;
 
     public double setSideA(double sideA) {
         return this.sideA = sideA;
@@ -25,25 +21,19 @@ public class Triangle {
         return sideB;
     }
 
-    public double setBaseTriangle(double baseTriangle) {
-        return this.baseTriangle = baseTriangle;
+    public double setSideC(double sideC) {
+        return this.sideC = sideC;
     }
 
-    public double getBaseTriangle() {
-        return baseTriangle;
+    public double getSideC() {
+        return sideC;
     }
 
     public double getPerimeter() {
-        return this.perimeter = sideA + sideB + baseTriangle;
+        return sideA + sideB + sideC;
     }
-
-
-    public double getHeightTriangle() {
-        return this.heightTriangle = 2 / baseTriangle * Math.sqrt((perimeter / 2) * (perimeter / 2 - sideA) * (perimeter / 2 - sideB) * (perimeter / 2 - baseTriangle));
-    }
-
 
     public double getAreaTriangle() {
-        return this.areaTriangle = 1.0 / 2.0 * baseTriangle * heightTriangle;
+        return Math.sqrt(((sideA + sideB + sideC) / 2) * ((sideA + sideB + sideC) / 2 - sideA) * ((sideA + sideB + sideC) / 2 - sideB) * ((sideA + sideB + sideC) / 2 - sideC));
     }
 }

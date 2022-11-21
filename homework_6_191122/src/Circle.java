@@ -3,7 +3,6 @@
 
 public class Circle {
     double radius;
-    double areaCircle;
 
     public double setRadius(double radius) {
         return this.radius = radius;
@@ -14,6 +13,6 @@ public class Circle {
     }
 
     public double getAreaCircle() {
-        return this.areaCircle = Math.PI * Math.pow(radius, 2);
+        return Math.PI * Math.pow(radius, 2);
     }
 }
