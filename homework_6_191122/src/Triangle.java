@@ -34,6 +34,7 @@ public class Triangle {
     }
 
     public double getAreaTriangle() {
-        return Math.sqrt(((sideA + sideB + sideC) / 2) * ((sideA + sideB + sideC) / 2 - sideA) * ((sideA + sideB + sideC) / 2 - sideB) * ((sideA + sideB + sideC) / 2 - sideC));
+        double halfPerimeter = (sideA + sideB + sideC) / 2;
+        return Math.sqrt(halfPerimeter * (halfPerimeter - sideA) * (halfPerimeter - sideB) * (halfPerimeter - sideC));
     }
 }

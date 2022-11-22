@@ -33,7 +33,9 @@ public class Employee {
     }
 
     public double getIncreaseSalary(double percent) {
-        return percent / 100 * salary;
+        double increaseAmount = percent / 100 * salary;
+        salary += increaseAmount;
+        return salary;
     }
 
     public double getAnnualSalary() {

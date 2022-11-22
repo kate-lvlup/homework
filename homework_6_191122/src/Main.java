@@ -39,7 +39,7 @@ public class Main {
         System.out.println("First Name employee1: " + employee1.getFirstName());
         System.out.println("Last Name employee1: " + employee1.getLastName());
         System.out.println("Salary employee1: " + employee1.getSalary());
-        System.out.println("The salary for employee1 increased by: " + employee1.getIncreaseSalary(5));
+        System.out.println("Increased salary for employee1: " + employee1.getIncreaseSalary(5));
         System.out.println("Annual salary for employee1: " + employee1.getAnnualSalary());
         System.out.println();
         System.out.println("Employee2");
@@ -47,7 +47,7 @@ public class Main {
         System.out.println("First Name employee2: " + employee2.getFirstName());
         System.out.println("Last Name employee2: " + employee2.getLastName());
         System.out.println("Salary employee2: " + employee2.getSalary());
-        System.out.println("The salary for employee2 increased by: " + employee2.getIncreaseSalary(15));
+        System.out.println("Increased salary for employee2: " + employee2.getIncreaseSalary(15));
         System.out.println("Annual salary for employee2: " + employee2.getAnnualSalary());
     }
 }
