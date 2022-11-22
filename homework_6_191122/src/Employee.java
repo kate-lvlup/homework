@@ -32,11 +32,11 @@ public class Employee {
         return salary;
     }
 
-    public double getRaiseSalary(double percent) {
+    public double getIncreaseSalary(double percent) {
         return percent / 100 * salary;
     }
 
-    public double getYearSalary() {
+    public double getAnnualSalary() {
         return salary * 12;
     }
 }
