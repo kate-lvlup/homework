@@ -9,11 +9,7 @@ public class Triangle {
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;
-        if (Math.pow(sideA, 2) + Math.pow(sideB, 2) == Math.pow(sideC, 2)) {
-            System.out.println("The triangle is right angled");
-        } else {
-            System.out.println("The triangle is not a right triangle. Sides are set incorrectly");
-        }
+        verifyPythagoras();
     }
 
     public int getSideA() {

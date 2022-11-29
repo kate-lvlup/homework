@@ -1,7 +1,5 @@
 package products;
 
-import java.sql.SQLOutput;
-
 public class Product {
     protected int weight;
     protected int size;
