@@ -16,7 +16,7 @@ public class Plum extends Fruit {
         System.out.println("Plum smells");
     }
 
-    public void growInUkraine() {
+    public void growingPlace() {
         System.out.println("Plum grows on a tree");
     }
 

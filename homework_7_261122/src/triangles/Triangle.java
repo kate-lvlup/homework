@@ -5,28 +5,27 @@ public class Triangle {
     int sideB;
     int sideC;
 
-    public void setSideA(int sideA) {
+    public Triangle(int sideA, int sideB, int sideC) {
         this.sideA = sideA;
-    }
-
-    public void getSideA() {
-        System.out.println("Side A: " + sideA);
-    }
-
-    public void setSideB(int sideB) {
         this.sideB = sideB;
-    }
-
-    public void getSideB() {
-        System.out.println("Side B: " + sideB);
-    }
-
-    public void setSideC(int sideC) {
         this.sideC = sideC;
+        if (Math.pow(sideA, 2) + Math.pow(sideB, 2) == Math.pow(sideC, 2)) {
+            System.out.println("The triangle is right angled");
+        } else {
+            System.out.println("The triangle is not a right triangle. Sides are set incorrectly");
+        }
     }
 
-    public void getSideC() {
-        System.out.println("Side C: " + sideC);
+    public int getSideA() {
+        return sideA;
+    }
+
+    public int getSideB() {
+        return sideB;
+    }
+
+    public int getSideC() {
+        return sideC;
     }
 
     public void getPerimeter() {

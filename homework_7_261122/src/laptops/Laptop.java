@@ -13,20 +13,20 @@ public class Laptop {
         this.butteryAmount = butteryAmount;
     }
 
-    public void getBrand() {
-        System.out.println("Brand: " + brand);
+    public String getBrand() {
+        return brand;
     }
 
-    public void getIsTurnedOn() {
-        System.out.println("IsTurnedOn: " + isTurnedOn);
+    public boolean getIsTurnedOn() {
+        return isTurnedOn;
     }
 
-    public void getWelcomePhrase() {
-        System.out.println("Welcome Phrase: " + welcomePhrase);
+    public String getWelcomePhrase() {
+        return welcomePhrase;
     }
 
-    public void getButteryAmount() {
-        System.out.println("Buttery amount: " + butteryAmount);
+    public int getButteryAmount() {
+        return butteryAmount;
     }
 
     public void TurnOn() {

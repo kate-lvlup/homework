@@ -18,7 +18,7 @@ public class Fruit extends Product {
         System.out.println("Fruit smells");
     }
 
-    public void growInUkraine() {
+    public void growingPlace() {
         System.out.println("Fruit grow on a tree");
     }
 

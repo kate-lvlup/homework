@@ -15,8 +15,8 @@ public class Product {
         this.withBone = withBone;
     }
 
-    public void growInUkraine() {
-        System.out.println("Product is grown in Ukraine");
+    public void growingPlace() {
+        System.out.println("Product is grown on Earth");
     }
 
     public int getWeight() {

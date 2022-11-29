@@ -15,7 +15,7 @@ public class Vegetable extends Product {
         System.out.println("Vegetable is good for health");
     }
 
-    public void growInUkraine() {
+    public void growingPlace() {
         System.out.println("Vegetable grow on the ground");
     }
 }

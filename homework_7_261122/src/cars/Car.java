@@ -17,43 +17,38 @@ public class Car {
         this.brand = brand;
     }
 
-    public void getMaxSpeed() {
-        System.out.println("Max speed: " + maxSpeed);
+    public int getMaxSpeed() {
+        return maxSpeed;
     }
 
-    public void getFuelAmount() {
-        System.out.println("Fuel amount: " + fuelAmount);
+    public int getFuelAmount() {
+        return fuelAmount;
     }
 
-    public void getProductionYear() {
-        System.out.println("Production year: " + productionYear);
+    public int getProductionYear() {
+        return productionYear;
     }
 
-    public void getPrice() {
-        System.out.println("Price: " + price);
+    public double getPrice() {
+        return price;
     }
 
-    public void getBrand() {
-        System.out.println("Brand: " + brand);
+    public String getBrand() {
+        return brand;
     }
 
     public void setCurrentSpeed(int currentSpeed) {
         this.currentSpeed = currentSpeed;
     }
 
-    public void getCurrentSpeed() {
-        System.out.println("Current speed: " + currentSpeed);
-    }
-
-    public void getIsEngineStarted() {
-        System.out.println("Is Engine Started: " + isEngineStarted);
+    public int getCurrentSpeed() {
+        return currentSpeed;
     }
 
     public void startStopEngine() {
         if (isEngineStarted) {
             isEngineStarted = false;
-            currentSpeed = 0;
-            System.out.println("Car engine is stopped and current speed is 0");
+            System.out.println("Car engine is stopped");
         } else {
             isEngineStarted = true;
             System.out.println("Car engine is started");
