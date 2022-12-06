@@ -105,7 +105,9 @@ public class Address {
 
     @Override
     public int hashCode() {
-        return Objects.hash(postcode);
+        int result = 1;
+        result = 31 * result + Integer.hashCode(postcode);
+        return result;
     }
 
     @Override
