@@ -105,7 +105,7 @@ public class Address {
 
     @Override
     public int hashCode() {
-        return this.postcode;
+        return Objects.hash(postcode);
     }
 
     @Override
