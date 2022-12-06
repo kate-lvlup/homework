@@ -1,6 +1,6 @@
 package animals;
 
-public class Lion extends Cat implements Runnable{
+public class Lion extends Cat implements Eatable, Runnable, Singable, Swimmable{
     @Override
     public void swim() {
         System.out.println("Lion is swimming");

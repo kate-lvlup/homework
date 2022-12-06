@@ -1,11 +1,11 @@
 package pizzas;
 
-public class PickUpPoint extends Pizza {
+public class PizzaPickUp extends PizzaStore {
     private boolean paid;
     private String buyerPhone;
     private String[] phones;
 
-    public PickUpPoint(String type, int size, boolean withPineapple, boolean paid, String buyerPhone, String[] phones) {
+    public PizzaPickUp(String type, int size, boolean withPineapple, boolean paid, String buyerPhone, String[] phones) {
         super(type, size, withPineapple);
         this.paid = paid;
         this.buyerPhone = buyerPhone;

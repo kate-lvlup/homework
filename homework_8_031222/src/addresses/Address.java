@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public class Address {
     String country;
-    String postcode;
+    int postcode;
     String city;
     String street;
     String homeNumber;
@@ -19,7 +19,7 @@ public class Address {
     public Address() {
     }
 
-    public Address(String country, String postcode, String city, String street, String homeNumber,
+    public Address(String country, int postcode, String city, String street, String homeNumber,
                    int flatNumber, int floor, int block) {
         this.country = country;
         this.postcode = postcode;
@@ -39,11 +39,11 @@ public class Address {
         return country;
     }
 
-    public void setPostcode(String postcode) {
+    public void setPostcode(int postcode) {
         this.postcode = postcode;
     }
 
-    public String getPostcode() {
+    public int getPostcode() {
         return postcode;
     }
 
@@ -100,12 +100,12 @@ public class Address {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Address address = (Address) o;
-        return Objects.equals(country, address.country) && Objects.equals(postcode, address.postcode) && Objects.equals(city, address.city) && Objects.equals(street, address.street);
+        return this.postcode == address.postcode && this.postcode != 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(country, postcode, city, street);
+        return this.postcode;
     }
 
     @Override

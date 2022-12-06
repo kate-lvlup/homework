@@ -3,7 +3,7 @@
 
 package animals;
 
-public class Animal implements Runnable {
+public class Animal implements Eatable, Flyable, Runnable, Singable, Swimmable {
 
 
     @Override

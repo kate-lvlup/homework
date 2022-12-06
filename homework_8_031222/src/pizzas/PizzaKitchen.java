@@ -1,11 +1,11 @@
 package pizzas;
 
-public class Kitchen extends Pizza {
+public class PizzaKitchen extends PizzaStore {
 
     private int time;
     private String box;
 
-    public Kitchen(String type, int size, boolean withPineapple, int time, String box) {
+    public PizzaKitchen(String type, int size, boolean withPineapple, int time, String box) {
         super(type, size, withPineapple);
         this.time = time;
         this.box = box;

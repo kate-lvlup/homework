@@ -1,6 +1,6 @@
 package animals;
 
-public class Eagle extends Bird implements Runnable {
+public class Eagle extends Bird implements Eatable, Flyable, Runnable, Singable {
 
     @Override
     public void fly() {

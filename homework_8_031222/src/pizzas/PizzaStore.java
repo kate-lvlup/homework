@@ -4,13 +4,13 @@
 
 package pizzas;
 
-public abstract class Pizza {
+public abstract class PizzaStore {
 
     protected String type;
     protected int size;
     protected boolean withPineapple;
 
-    Pizza(String type, int size, boolean withPineapple) {
+    PizzaStore(String type, int size, boolean withPineapple) {
         this.type = type;
         this.size = size;
         this.withPineapple = withPineapple;
