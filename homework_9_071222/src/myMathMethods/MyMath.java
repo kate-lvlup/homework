@@ -59,22 +59,18 @@ public class MyMath {
 
     //    находнения большего целого числа, меньшего целого числа - округление(на вход число с плавающей точкой)
     public static double maxValue(double x, double y) {
-        x = Math.round(x);
-        y = Math.round(y);
         if (x >= y) {
-            return x;
+            return Math.round(x);
         } else {
-            return y;
+            return Math.round(y);
         }
     }
 
     public static double minValue(double x, double y) {
-        x = Math.round(x);
-        y = Math.round(y);
         if (x <= y) {
-            return x;
+            return Math.round(x);
         } else {
-            return y;
+            return Math.round(y);
         }
     }
 

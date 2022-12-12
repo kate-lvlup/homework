@@ -28,8 +28,8 @@ public class Main {
         System.out.println(math1.division(2.5d, 3.6666d));
         System.out.println(math1.maxValue(2, 3));
         System.out.println(math1.minValue(2, 3));
-        System.out.println(math1.maxValue(2.5d, 3.6666d));
-        System.out.println(math1.minValue(2.5d, 3.6666d));
+        System.out.println(math1.maxValue(2.5d, 2.6));
+        System.out.println(math1.minValue(2.5d, 2.6));
         System.out.println(math1.powValue(2, 3));
         System.out.println(math1.percentValue(400.555d, 10.5d));
         System.out.println(math1.sqrtValue(16));

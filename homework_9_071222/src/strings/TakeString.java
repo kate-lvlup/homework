@@ -9,10 +9,9 @@ public class TakeString {
 
     public static int numberVowels(String string) {
         int number = 0;
-        char[] charArray = string.toCharArray();
+        char[] charArray = string.toLowerCase().toCharArray();
         for (int i = 0; i < charArray.length; i++) {
-            if (charArray[i] == 65 || charArray[i] == 69 || charArray[i] == 73 || charArray[i] == 79 || charArray[i] == 85
-                    || charArray[i] == 89 || charArray[i] == 97 || charArray[i] == 101 || charArray[i] == 105
+            if (charArray[i] == 97 || charArray[i] == 101 || charArray[i] == 105
                     || charArray[i] == 111 || charArray[i] == 117 || charArray[i] == 121) {
                 number++;
             }
