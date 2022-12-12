@@ -24,7 +24,7 @@ public class Main {
         System.out.println(math1.subtraction(2.5d, 3.6666d));
         System.out.println(math1.multiplication(2, 3));
         System.out.println(math1.multiplication(2.5d, 3.6666d));
-        System.out.println(math1.division(2, 3));
+        System.out.println(math1.division(4, 5));
         System.out.println(math1.division(2.5d, 3.6666d));
         System.out.println(math1.maxValue(2, 3));
         System.out.println(math1.minValue(2, 3));
