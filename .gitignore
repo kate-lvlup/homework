@@ -10,3 +10,9 @@ out/
 # ignore .class extention
 *.class
 
+**/.idea
+
+**/out
+
+**/*.iml
+
