@@ -132,30 +132,9 @@ public class RegistrationApp {
         return password.matches("[a-zA-Z0-9]{4,}");
     }
 
-    public  static  boolean validatePassword(String password){
+    public static boolean validatePassword(String password) {
         return password.matches("^(?=.*[!@#$%])(?=\\S+$).{4,}$");
     }
-
-
-//    //TODO RegEx
-//    public static boolean validatePassword(String password) {
-//        char[] symbolsArray = new char[]{'!', '@', '#', '$', '%'};
-//        char[] passwordChars = password.toCharArray();
-//        if (password.length() < 4) {
-//            return false;
-//        } else {
-//            for (int i = 0; i < passwordChars.length; i++) {
-//                for (int j = 0; j < symbolsArray.length; j++) {
-//                    if (passwordChars[i] == symbolsArray[j]) {
-//                        System.out.println(passwordChars[i]);
-//                        return true;
-//
-//                    }
-//                }
-//            }
-//        }
-//        return false;
-//    }
 
     public static boolean validateDate(String text) {
         SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
