@@ -6,8 +6,8 @@
 import java.util.Scanner;
 
 public class GameApp {
-    static int countPlayer = 0;
-    static int countComputer = 0;
+    int countPlayer = 0;
+    int countComputer = 0;
 
     public void runGameApp() {
         Scanner scanner = new Scanner(System.in);
@@ -16,84 +16,67 @@ public class GameApp {
         while (exit) {
             System.out.println("Let's play, make your choice: stone - press 1, scissors - press 2, paper - press 3, to exit press 4.");
             int input = scanner.nextInt();
+            int choiceComputer = randomChoice();
+            if (input == choiceComputer) {
+                System.out.println("Draw between players!");
+                System.out.println();
+                printScore();
+                System.out.println();
+            }
             switch (input) {
                 case 1:
-                    System.out.println("Your choice: stone");
-                    int choiceComputer1 = GameApp.randomChoice();
-                    if (choiceComputer1 == 1) {
-                        System.out.println("Computer choice: stone");
-                        System.out.println("Draw between players!");
-                        System.out.println();
-                        GameApp.count();
-                        System.out.println();
-                    } else if (choiceComputer1 == 2) {
+                    if (choiceComputer == 2) {
                         System.out.println("Computer choice: scissors");
                         System.out.println("You win!");
                         System.out.println();
                         countPlayer++;
-                        GameApp.count();
+                        printScore();
                         System.out.println();
-                    } else if (choiceComputer1 == 3) {
+                    } else if (choiceComputer == 3) {
                         System.out.println("Computer choice: paper");
                         System.out.println("You lost!");
                         System.out.println();
                         countComputer++;
-                        GameApp.count();
+                        printScore();
                         System.out.println();
                     }
-                    GameApp.restartGame();
+                    restartGame();
                     break;
                 case 2:
-                    System.out.println("Your choice: scissors");
-                    int choiceComputer2 = GameApp.randomChoice();
-                    if (choiceComputer2 == 1) {
+                    if (choiceComputer == 1) {
                         System.out.println("Computer choice: stone");
                         System.out.println("You lost!");
                         System.out.println();
                         countComputer++;
-                        GameApp.count();
+                        printScore();
                         System.out.println();
-                    } else if (choiceComputer2 == 2) {
-                        System.out.println("Computer choice: scissors");
-                        System.out.println("Draw between players!");
-                        System.out.println();
-                        GameApp.count();
-                        System.out.println();
-                    } else if (choiceComputer2 == 3) {
+                    } else if (choiceComputer == 3) {
                         System.out.println("Computer choice: paper");
                         System.out.println("You win!");
                         System.out.println();
                         countPlayer++;
-                        GameApp.count();
+                        printScore();
                         System.out.println();
                     }
-                    GameApp.restartGame();
+                    restartGame();
                     break;
                 case 3:
-                    System.out.println("Your choice: paper");
-                    int choiceComputer3 = GameApp.randomChoice();
-                    if (choiceComputer3 == 1) {
+                    if (choiceComputer == 1) {
                         System.out.println("Computer choice: stone");
                         System.out.println("You win!");
                         System.out.println();
                         countPlayer++;
-                        GameApp.count();
+                        printScore();
                         System.out.println();
-                    } else if (choiceComputer3 == 2) {
+                    } else if (choiceComputer == 2) {
                         System.out.println("Computer choice: scissors");
                         System.out.println("You lost!");
                         System.out.println();
                         countComputer++;
-                        GameApp.count();
-                        System.out.println();
-                    } else if (choiceComputer3 == 3) {
-                        System.out.println("Computer choice: paper");
-                        System.out.println("Draw between players!");
-                        System.out.println();
-                        GameApp.count();
+                        printScore();
                         System.out.println();
                     }
-                    GameApp.restartGame();
+                    restartGame();
                     break;
                 case 4:
                     exit = false;
@@ -107,12 +90,12 @@ public class GameApp {
         }
     }
 
-    public static int randomChoice() {
+    public int randomChoice() {
         int random = (int) (1 + Math.random() * 3);
         return random;
     }
 
-    private static void restartGame() {
+    private void restartGame() {
         Scanner scanner = new Scanner(System.in);
         boolean exit = true;
         while (exit) {
@@ -120,7 +103,6 @@ public class GameApp {
             int input = scanner.nextInt();
             switch (input) {
                 case 1:
-                    System.out.println("Super!");
                     System.out.println();
                     exit = false;
                     break;
@@ -137,7 +119,7 @@ public class GameApp {
         }
     }
 
-    private static void count() {
+    private void printScore() {
         System.out.println("Player Points: " + countPlayer + "\n" + "Computer Points: " + countComputer);
     }
 

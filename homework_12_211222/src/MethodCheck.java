@@ -11,7 +11,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Palindrome {
+public class MethodCheck {
     Scanner scanner = new Scanner(System.in);
 
     //    метод проверки строки на полиндрома
@@ -26,11 +26,9 @@ public class Palindrome {
         for (int i = 0; i < number; i++) {
             charArray1[i] = charArray[i];
         }
-        System.out.println();
         for (int i = charArray.length, j = 0; j < number; i--, j++) {
             charArray2[j] = charArray[i - 1];
         }
-        System.out.println();
         boolean result = true;
         for (int i = 0; i < number; i++) {
             if (charArray1[i] == charArray2[i]) {
@@ -94,9 +92,6 @@ public class Palindrome {
         String input = scanner.nextLine();
         char[] charArray = input.toCharArray();
         Arrays.sort(charArray);
-        for (int i = 0; i < charArray.length; i++) {
-            System.out.println(charArray[i]);
-        }
         String s = String.valueOf(charArray);
         for (int i = 0; i < charArray.length; i += (s.lastIndexOf(charArray[i]) - s.indexOf(charArray[i]) + 1)) {
             System.out.println(charArray[i] + "(" + (s.lastIndexOf(charArray[i]) - s.indexOf(charArray[i]) + 1) + ")");
@@ -127,5 +122,4 @@ public class Palindrome {
         input = new StringBuilder(input).reverse().toString();
         System.out.println(input);
     }
-
 }
