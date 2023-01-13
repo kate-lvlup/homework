@@ -24,11 +24,7 @@ public class Main {
         }
         System.out.println();
         System.out.println("Task6");
-        try {
-            TestException.divideByZero();
-        } catch (ArithmeticException exception) {
-            exception.printStackTrace();
-        }
+        TestException.divideByZero();
         System.out.println();
         System.out.println("Task7");
         Data.readData();

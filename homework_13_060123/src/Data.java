@@ -22,14 +22,13 @@ public class Data {
         int[] array = new int[10];
         System.out.println("Enter the numbers:");
         int i = 0;
-        int j;
         try {
             for (i = 0; i < array.length; i++) {
                 array[i] = scanner.nextInt();
             }
         } catch (InputMismatchException e) {
             int[] array2 = new int[i];
-            for (j = i - 1; j >= 0; j--, i--) {
+            for (int j = i - 1; j >= 0; j--, i--) {
                 array2[j] = array[i - 1];
             }
             for (i = 0; i < array2.length; i++) {

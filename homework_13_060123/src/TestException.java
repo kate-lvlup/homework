@@ -61,9 +61,11 @@ public class TestException extends Exception {
     }
 
     public static void divideByZero() {
-        int res = 5 / 0;
-        System.out.println(res);
+        try {
+            int res = 5 / 0;
+            System.out.println(res);
+        } catch (ArithmeticException exception) {
+            exception.printStackTrace();
+        }
     }
-
-
 }
