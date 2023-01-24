@@ -38,10 +38,8 @@ public class MethodsImplementation {
         System.out.print("Enter file name: ");
         String fileName = scanner.nextLine();
         File file = new File(fileName);
-        BufferedWriter bufferedWriter = null;
-        ;
-        try {
-            bufferedWriter = new BufferedWriter(new FileWriter(file, true));
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true))
+        ) {
             System.out.print("How many lines do you want to fill?: ");
             int numberRows = scanner.nextInt();
             System.out.println("Fill in the file: ");
@@ -58,12 +56,6 @@ public class MethodsImplementation {
             bufferedWriter.write(lines);
         } catch (IOException e) {
             System.out.println(e);
-        } finally {
-            try {
-                bufferedWriter.close();
-            } catch (IOException e) {
-                System.out.println(e);
-            }
         }
     }
 
@@ -72,9 +64,8 @@ public class MethodsImplementation {
         System.out.print("Enter file name: ");
         String fileName = scanner.nextLine();
         File file = new File(fileName);
-        BufferedReader bufferedReader = null;
-        try {
-            bufferedReader = new BufferedReader(new FileReader(file));
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))
+        ) {
             StringBuilder stringBuilder = new StringBuilder();
             while (true) {
                 int i;
@@ -87,12 +78,6 @@ public class MethodsImplementation {
             System.out.println(stringBuilder);
         } catch (IOException e) {
             System.out.println(e);
-        } finally {
-            try {
-                bufferedReader.close();
-            } catch (IOException e) {
-                System.out.println(e);
-            }
         }
     }
 
@@ -112,25 +97,17 @@ public class MethodsImplementation {
         } catch (IOException e) {
             System.out.println(e);
         }
-        BufferedWriter bufferedWriter = null;
-        try {
-            bufferedWriter = new BufferedWriter(new FileWriter(file, true));
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true))
+        ) {
             bufferedWriter.write("First line\n");
             bufferedWriter.write("Second line\n");
             bufferedWriter.write("Third line\n");
         } catch (IOException e) {
             System.out.println(e);
-        } finally {
-            try {
-                bufferedWriter.close();
-            } catch (IOException e) {
-                System.out.println(e);
-            }
         }
-        BufferedReader bufferedReader = null;
         String line = null;
-        try {
-            bufferedReader = new BufferedReader(new FileReader(file));
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))
+        ) {
             int count = 0;
             StringBuilder stringBuilder = new StringBuilder();
             line = null;
@@ -146,12 +123,6 @@ public class MethodsImplementation {
             System.out.println("Characters: " + count);
         } catch (IOException e) {
             System.out.println(e);
-        } finally {
-            try {
-                bufferedReader.close();
-            } catch (IOException e) {
-                System.out.println(e);
-            }
         }
         String newLine = line.replace("\n", " ");
         String[] arrString = newLine.split(" ");
@@ -173,20 +144,12 @@ public class MethodsImplementation {
         } catch (IOException e) {
             System.out.println(e);
         }
-        BufferedWriter bufferedWriter = null;
-        try {
-            bufferedWriter = new BufferedWriter(new FileWriter(file));
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file))) {
             bufferedWriter.write("First line\n");
             bufferedWriter.write("Second line\n");
             bufferedWriter.write("Third line\n");
         } catch (IOException e) {
             System.out.println(e);
-        } finally {
-            try {
-                bufferedWriter.close();
-            } catch (IOException e) {
-                System.out.println(e);
-            }
         }
         file.renameTo(new File("NewNameFile.txt"));
     }
@@ -198,11 +161,10 @@ public class MethodsImplementation {
 //    Пользователь вводит текст из консоли
     public static void newLineTransition() {
         File file = new File("TextFileTask6.txt");
-        BufferedWriter bufferedWriter = null;
-        try {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true))
+        ) {
             file.createNewFile();
             System.out.println(file + " is created");
-            bufferedWriter = new BufferedWriter(new FileWriter(file, true));
             System.out.println("Enter the text:");
             Scanner scanner = new Scanner(System.in);
             String line = scanner.nextLine();
@@ -223,16 +185,8 @@ public class MethodsImplementation {
             bufferedWriter.write(line2);
         } catch (IOException e) {
             System.out.println(e);
-        } finally {
-            try {
-                bufferedWriter.close();
-            } catch (IOException e) {
-                System.out.println(e);
-            }
         }
-        BufferedReader bufferedReader = null;
-        try {
-            bufferedReader = new BufferedReader(new FileReader(file));
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
             StringBuilder stringBuilder = new StringBuilder();
             while (true) {
                 int i;
@@ -245,12 +199,6 @@ public class MethodsImplementation {
             System.out.println(stringBuilder);
         } catch (IOException e) {
             System.out.println(e);
-        } finally {
-            try {
-                bufferedReader.close();
-            } catch (IOException e) {
-                System.out.println(e);
-            }
         }
     }
 
@@ -261,26 +209,18 @@ public class MethodsImplementation {
 //    удалив все гласные из строки.
     public static void copyFile() {
         File file = new File("original.txt");
-        BufferedWriter bufferedWriter = null;
         String line = "";
-        try {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true))
+        ) {
             file.createNewFile();
-            bufferedWriter = new BufferedWriter(new FileWriter(file, true));
             bufferedWriter.write("HellO from text filE");
         } catch (IOException e) {
             System.out.println(e);
-        } finally {
-            try {
-                bufferedWriter.close();
-            } catch (IOException e) {
-                System.out.println(e);
-            }
         }
-        BufferedReader bufferedReader = null;
         File fileCopy = new File("originalCOPY.txt");
-        BufferedWriter bufferedWriter2 = null;
-        try {
-            bufferedReader = new BufferedReader(new FileReader(file));
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+             BufferedWriter bufferedWriter2 = new BufferedWriter(new FileWriter(fileCopy))
+        ) {
             int i;
             do {
                 i = bufferedReader.read();
@@ -289,18 +229,10 @@ public class MethodsImplementation {
                 }
             } while (i != -1);
             System.out.println(line);
-            bufferedWriter2 = new BufferedWriter(new FileWriter(fileCopy));
             String newline = line.replaceAll("[aeiouAEIOU]", "");
             bufferedWriter2.write(newline);
         } catch (IOException e) {
             System.out.println(e);
-        } finally {
-            try {
-                bufferedReader.close();
-                bufferedWriter2.close();
-            } catch (IOException e) {
-                System.out.println(e);
-            }
         }
     }
 
@@ -312,13 +244,11 @@ public class MethodsImplementation {
         File file1 = new File("firstTestFile.txt");
         File file2 = new File("secondTestFile.txt");
         File file3 = new File("thirdTestFile.txt");
-        BufferedReader bufferedReader1 = null;
-        BufferedReader bufferedReader2 = null;
-        BufferedReader bufferedReader3 = null;
-        try {
-            bufferedReader1 = new BufferedReader(new FileReader(file1));
-            bufferedReader2 = new BufferedReader(new FileReader(file2));
-            bufferedReader3 = new BufferedReader(new FileReader(file3));
+
+        try (BufferedReader bufferedReader1 = new BufferedReader(new FileReader(file1));
+             BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
+             BufferedReader bufferedReader3 = new BufferedReader(new FileReader(file3));
+        ) {
             int i;
             int j;
             int k;
@@ -355,15 +285,6 @@ public class MethodsImplementation {
             }
         } catch (IOException e) {
             System.out.println("File not found");
-        } finally {
-            try {
-                bufferedReader1.close();
-                bufferedReader2.close();
-                bufferedReader3.close();
-            } catch (IOException e) {
-                System.out.println(e);
-                ;
-            }
         }
     }
 
@@ -371,13 +292,10 @@ public class MethodsImplementation {
         File file1 = new File("1.png");
         File file2 = new File("2.png");
         File file3 = new File("3.png");
-        BufferedInputStream bufferedInputStream1 = null;
-        BufferedInputStream bufferedInputStream2 = null;
-        BufferedInputStream bufferedInputStream3 = null;
-        try {
-            bufferedInputStream1 = new BufferedInputStream(new FileInputStream(file1));
-            bufferedInputStream2 = new BufferedInputStream(new FileInputStream(file2));
-            bufferedInputStream3 = new BufferedInputStream(new FileInputStream(file3));
+        try (BufferedInputStream bufferedInputStream1 = new BufferedInputStream(new FileInputStream(file1));
+             BufferedInputStream bufferedInputStream2 = new BufferedInputStream(new FileInputStream(file2));
+             BufferedInputStream bufferedInputStream3 = new BufferedInputStream(new FileInputStream(file3))
+        ) {
             int i;
             int j;
             int k;
@@ -396,14 +314,6 @@ public class MethodsImplementation {
             }
         } catch (IOException e) {
             System.out.println("File is not found");
-        } finally {
-            try {
-                bufferedInputStream1.close();
-                bufferedInputStream2.close();
-                bufferedInputStream3.close();
-            } catch (IOException e) {
-                System.out.println(e);
-            }
         }
     }
 }

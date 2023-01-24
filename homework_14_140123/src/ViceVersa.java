@@ -9,29 +9,21 @@ import java.io.*;
 public class ViceVersa {
     public static void createFile() {
         File file = new File("TextFileTask5.txt");
-        BufferedWriter bufferedWriter = null;
-        try {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file))
+        ) {
             file.createNewFile();
-            bufferedWriter = new BufferedWriter(new FileWriter(file));
             bufferedWriter.write("First line\n");
             bufferedWriter.write("Second line\n");
             bufferedWriter.write("Third line\n");
         } catch (IOException e) {
             System.out.println(e);
-        } finally {
-            try {
-                bufferedWriter.close();
-            } catch (IOException e) {
-                System.out.println(e);
-            }
         }
     }
 
     public static void printStrings() {
         File file = new File("TextFileTask5.txt");
-        BufferedReader bufferedReader = null;
-        try {
-            bufferedReader = new BufferedReader(new FileReader(file));
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))
+        ) {
             StringBuilder stringBuilder = new StringBuilder();
             String string = null;
             while (true) {
@@ -52,13 +44,6 @@ public class ViceVersa {
             }
         } catch (IOException e) {
             System.out.println(e);
-        } finally {
-            try {
-                bufferedReader.close();
-            } catch (IOException e) {
-                System.out.println(e);
-            }
         }
-
     }
 }

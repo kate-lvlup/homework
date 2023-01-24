@@ -25,7 +25,6 @@ public class Main {
         System.out.println("********Task8********");
         MethodsImplementation.compareTextFiles();
         MethodsImplementation.compareFiles();
-
     }
 }
 
