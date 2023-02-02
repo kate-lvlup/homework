@@ -1,3 +1,6 @@
+import org.w3c.dom.Node;
+
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
@@ -199,6 +202,28 @@ public class MyLinkedList<T> {
     public void clear() {
         first = last = null;
         size = 0;
+    }
+
+
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
+            MyNode<T> current = first;
+
+            @Override
+            public boolean hasNext() {
+                return current!= null;
+            }
+
+            @Override
+            public T next() {
+                if (hasNext()) {
+                    T element = current.element;
+                    current = current.next;
+                    return element;
+                }
+                return null;
+            }
+        };
     }
 
     @Override

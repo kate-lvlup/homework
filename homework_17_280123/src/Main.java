@@ -1,3 +1,8 @@
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+
 public class Main {
     public static void main(String[] args) {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
@@ -23,5 +28,10 @@ public class Main {
         System.out.println(myLinkedList.isEmpty());
         myLinkedList.clear();
         System.out.println(myLinkedList.isEmpty());
+
+        Iterator <String> iterator = myLinkedList.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
     }
 }
