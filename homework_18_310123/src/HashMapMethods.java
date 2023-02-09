@@ -3,9 +3,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class HashMapMethods {
-
-    //    Java Collection: HashMap Exercises [12 exercises with solution]
-//1. Write a Java program to associate the specified value with the specified key in a HashMap.
+    //1. Write a Java program to associate the specified value with the specified key in a HashMap.
     public static void putKeyValueHashMap() {
         Map<Integer, String> hashMap = new HashMap<>();
         hashMap.put(1, "White");

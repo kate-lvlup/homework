@@ -1,8 +1,7 @@
 import java.util.*;
 
 public class TreeMapMethods {
-    //    Java Collection: TreeMap Exercises [26 exercises with solution]
-//1. Write a Java program to associate the specified value with the specified key in a Tree Map.
+    //1. Write a Java program to associate the specified value with the specified key in a Tree Map.
     public static void putKeyValueTreeMap() {
         Map<Integer, String> treeMap = new TreeMap<>();
         treeMap.put(5, "Yellow");
