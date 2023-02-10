@@ -25,6 +25,7 @@ public class Main {
         System.out.println(arrayList.isEmpty());
         System.out.println(arrayList.size());
         arrayList.clear();
+        System.out.println(arrayList);
         System.out.println(arrayList.isEmpty());
         System.out.println(arrayList.size());
     }

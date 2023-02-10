@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class MyArrayList<T> {
-    private static final int DEFAULT_CAPACITY = 5;
+    private static final int DEFAULT_CAPACITY = 10;
     private Object[] arrayElements;
     private int size;
 
@@ -147,12 +147,7 @@ public class MyArrayList<T> {
      * @return {@code true} if list is empty, {@code false} otherwise
      */
     public boolean isEmpty() {
-        if (size == 0) {
-            return true;
-        } else {
-            return false;
-        }
-//        return size == 0; // or so it is possible in one line
+        return size == 0;
     }
 
     /**
@@ -175,3 +170,5 @@ public class MyArrayList<T> {
         return Arrays.toString(arrayElements);
     }
 }
+
+
