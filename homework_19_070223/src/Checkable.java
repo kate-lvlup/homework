@@ -1,3 +1,3 @@
-public interface People {
+public interface Checkable {
     boolean check(Person person);
 }

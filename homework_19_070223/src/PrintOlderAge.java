@@ -1,4 +1,4 @@
-public class PrintOlderAge implements People {
+public class PrintOlderAge implements Checkable {
     @Override
     public boolean check(Person person) {
         return person.getAge() > 17;

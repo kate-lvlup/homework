@@ -1,4 +1,4 @@
-public class PrintYoungerAgeMan implements People {
+public class PrintYoungerAgeMan implements Checkable {
 
     @Override
     public boolean check(Person person) {

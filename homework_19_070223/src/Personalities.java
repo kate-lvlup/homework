@@ -1,6 +1,17 @@
 import java.util.ArrayList;
 import java.util.List;
 
+// Создать класс Person в котором будут поля age, gender, name. Создать вспомагательный класс,
+// в котором создать список Личностей, заполнить его произвольно и  реализовать последавательно методы
+// которые будут выводить на екран :
+// 1) Всех девушек
+// 2) Всех старше n возраста
+// 3) Всех мужчин младше n возраста
+// Проверить как работает,  далее создать метод который оптимизирует предидущие методы
+// через реализацию интерфейса(который так же нужно создать. Для каждого кейса своя реализации через класс)
+// Далее проверить как это работает с анонимными классами
+// Далее заменить анонимные классы на лямбды.
+
 public class Personalities {
     public static void main(String[] args) {
         Person person1 = new Person(19, 'w', "Katy");
@@ -31,21 +42,21 @@ public class Personalities {
         personalities.printCheck(personList, new PrintYoungerAgeMan());
 
         System.out.println("*****************************");
-        personalities.printCheck(personList, new People() {
+        personalities.printCheck(personList, new Checkable() {
             @Override
             public boolean check(Person person) {
                 return person.getGender() == 'w';
             }
         });
         System.out.println();
-        personalities.printCheck(personList, new People() {
+        personalities.printCheck(personList, new Checkable() {
             @Override
             public boolean check(Person person) {
                 return person.getAge() > 17;
             }
         });
         System.out.println();
-        personalities.printCheck(personList, new People() {
+        personalities.printCheck(personList, new Checkable() {
             @Override
             public boolean check(Person person) {
                 return person.getAge() < 23 && person.getGender() == 'm';
@@ -84,7 +95,7 @@ public class Personalities {
         }
     }
 
-    public void printCheck(List<Person> personList, People people) {
+    public void printCheck(List<Person> personList, Checkable people) {
         for (Person person : personList) {
             if (people.check(person)) {
                 System.out.println(person);
