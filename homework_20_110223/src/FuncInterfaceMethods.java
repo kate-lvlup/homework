@@ -24,12 +24,7 @@ public class FuncInterfaceMethods {
 
     // Task1
     public static Supplier<String> returnJavaWord() {
-        return new Supplier<String>() {
-            @Override
-            public String get() {
-                return "Java";
-            }
-        };
+        return () -> "Java";
     }
 
     // Task2
@@ -43,87 +38,51 @@ public class FuncInterfaceMethods {
 
     // Task3
     public static BiFunction<String, Integer, String> returnStringNTimes() {
-        return new BiFunction<String, Integer, String>() {
-            @Override
-            public String apply(String s, Integer integer) {
-                StringBuilder stringBuilder = new StringBuilder();
-                for (int i = 0; i < integer; i++) {
-                    stringBuilder.append(s);
-                }
-                return stringBuilder.toString();
+        return (s, integer) -> {
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int i = 0; i < integer; i++) {
+                stringBuilder.append(s);
             }
+            return stringBuilder.toString();
         };
     }
 
     // Task4
     public static Function<BigDecimal, String> returnStringWithSymbolAndBigDecimal() {
-        return new Function<BigDecimal, String>() {
-            @Override
-            public String apply(BigDecimal bigDecimal) {
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append("$" + bigDecimal);
-                return String.valueOf(stringBuilder);
-            }
+        return bigDecimal -> {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("$" + bigDecimal);
+            return String.valueOf(stringBuilder);
         };
     }
 
     // Task5
     public static Predicate<String> checkStringRange(int min, int max) {
-        return new Predicate<String>() {
-            @Override
-            public boolean test(String s) {
-                return s.length() >= min && s.length() <= max;
-            }
-        };
+        return s -> s.length() >= min && s.length() <= max;
     }
 
     // Task6
     public static IntSupplier returnRandomInt() {
-        return new IntSupplier() {
-            @Override
-            public int getAsInt() {
-                return (int) (Math.random() * 10);
-            }
-        };
+        return () -> (int) (Math.random() * 10);
     }
 
     // Task7
     public static IntUnaryOperator returnRandomIntWithinRange() {
-        return new IntUnaryOperator() {
-            @Override
-            public int applyAsInt(int operand) {
-                return (int) (Math.random() * operand);
-            }
-        };
+        return operand -> (int) (Math.random() * operand);
     }
 
     // Task8
     public static IntUnaryOperator returnIntToPowOfItself() {
-        return new IntUnaryOperator() {
-            @Override
-            public int applyAsInt(int operand) {
-                return (int) Math.pow(operand, operand);
-            }
-        };
+        return operand -> (int) Math.pow(operand, operand);
     }
 
     // Task9
     public static ToIntFunction<String> returnStringLength() {
-        return new ToIntFunction<String>() {
-            @Override
-            public int applyAsInt(String value) {
-                return value.length();
-            }
-        };
+        return value -> value.length();
     }
 
     // Task10
     public static Consumer<String> printString() {
-        return new Consumer<String>() {
-            @Override
-            public void accept(String s) {
-                System.out.println(s);
-            }
-        };
+        return s -> System.out.println(s);
     }
 }
