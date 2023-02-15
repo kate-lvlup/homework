@@ -162,8 +162,7 @@ public class MyArrayList<T> {
      */
     public void clear() {
         size = 0;
-        arrayElements = new Object[DEFAULT_CAPACITY];
-        for (int i = 0; i < DEFAULT_CAPACITY; i++) {
+        for (int i = 0; i < arrayElements.length; i++) {
             arrayElements[i] = null;
         }
     }
