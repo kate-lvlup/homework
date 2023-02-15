@@ -28,5 +28,6 @@ public class Main {
         System.out.println(arrayList);
         System.out.println(arrayList.isEmpty());
         System.out.println(arrayList.size());
+        System.out.println(arrayList);
     }
 }

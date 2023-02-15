@@ -163,6 +163,9 @@ public class MyArrayList<T> {
     public void clear() {
         size = 0;
         arrayElements = new Object[DEFAULT_CAPACITY];
+        for (int i = 0; i < DEFAULT_CAPACITY; i++) {
+            arrayElements[i] = null;
+        }
     }
 
     @Override
