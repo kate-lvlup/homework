@@ -30,18 +30,8 @@ public class AccountUtils {
     public static List<Account> returnListAccountsWithBalanceGreater1000(List<Account> accountList) {
         List<Account> newAccountList = new ArrayList<>();
         accountList.stream()
-                .filter(new Predicate<Account>() {
-                    @Override
-                    public boolean test(Account account) {
-                        return account.getBalance() > 1000;
-                    }
-                })
-                .forEach(new Consumer<Account>() {
-                    @Override
-                    public void accept(Account account) {
-                        newAccountList.add(account);
-                    }
-                });
+                .filter(account -> account.getBalance() > 1000)
+                .forEach(account -> newAccountList.add(account));
         return newAccountList;
     }
 
@@ -49,24 +39,9 @@ public class AccountUtils {
     public static List<String> returnListFirstLastNameInBrazil(List<Account> accountList) {
         List<String> newAccountList = new ArrayList<>();
         accountList.stream()
-                .filter(new Predicate<Account>() {
-                    @Override
-                    public boolean test(Account account) {
-                        return account.getCountry() == "Brazil";
-                    }
-                })
-                .map(new Function<Account, String>() {
-                    @Override
-                    public String apply(Account account) {
-                        return account.getFirstName() + " + " + account.getLastName();
-                    }
-                })
-                .forEach(new Consumer<String>() {
-                    @Override
-                    public void accept(String s) {
-                        newAccountList.add(s);
-                    }
-                });
+                .filter(account -> account.getCountry() == "Brazil")
+                .map(account -> account.getFirstName() + " + " + account.getLastName())
+                .forEach(s -> newAccountList.add(s));
         return newAccountList;
     }
 
@@ -74,28 +49,22 @@ public class AccountUtils {
     public static Optional<Account> returnOptionalAccountWithLargestBalance(List<Account> accountList) {
         Optional<Account> optional;
         return optional = accountList.stream()
-                .sorted(new Comparator<Account>() {
-                    @Override
-                    public int compare(Account o1, Account o2) {
-                        if (o1.getBalance() > o2.getBalance()) {
-                            return 1;
-                        } else if (o1.getBalance() < o2.getBalance()) {
-                            return -1;
-                        } else {
-                            return 0;
-                        }
+                .sorted((o1, o2) -> {
+                    if (o1.getBalance() > o2.getBalance()) {
+                        return 1;
+                    } else if (o1.getBalance() < o2.getBalance()) {
+                        return -1;
+                    } else {
+                        return 0;
                     }
                 })
-                .max(new Comparator<Account>() {
-                    @Override
-                    public int compare(Account o1, Account o2) {
-                        if (o1.getBalance() > o2.getBalance()) {
-                            return 1;
-                        } else if (o1.getBalance() < o2.getBalance()) {
-                            return -1;
-                        } else {
-                            return 0;
-                        }
+                .max((o1, o2) -> {
+                    if (o1.getBalance() > o2.getBalance()) {
+                        return 1;
+                    } else if (o1.getBalance() < o2.getBalance()) {
+                        return -1;
+                    } else {
+                        return 0;
                     }
                 });
     }
@@ -104,17 +73,7 @@ public class AccountUtils {
     public static void returnAllUsersWithSpecMonthOfBirth(List<Account> accountList, int monthInt) {
         List<Account> newAccountList = new ArrayList<>();
         accountList.stream()
-                .filter(new Predicate<Account>() {
-                    @Override
-                    public boolean test(Account account) {
-                        return account.getBirthday().getMonth() + 1 == monthInt;
-                    }
-                }).forEach(new Consumer<Account>() {
-                    @Override
-                    public void accept(Account account) {
-                        newAccountList.add(account);
-                    }
-                });
+                .filter(account -> account.getBirthday().getMonth() + 1 == monthInt).forEach(account -> newAccountList.add(account));
         for (Account element : newAccountList) {
             System.out.println(element);
         }
@@ -124,12 +83,7 @@ public class AccountUtils {
     public static int returnNumberOfAccountsWithFemaleGender(List<Account> accountList) {
         int count = 0;
         return count = (int) accountList.stream()
-                .filter(new Predicate<Account>() {
-                    @Override
-                    public boolean test(Account account) {
-                        return account.getGender() == 'w';
-                    }
-                })
+                .filter(account -> account.getGender() == 'w')
                 .count();
     }
 
@@ -137,60 +91,25 @@ public class AccountUtils {
     public static Optional<Double> returnTotalAmountOnAccountsJohnson(List<Account> accountList) {
         Optional<Double> sum;
         return sum = accountList.stream()
-                .filter(new Predicate<Account>() {
-                    @Override
-                    public boolean test(Account account) {
-                        return account.getLastName() == "Johnson";
-                    }
-                })
-                .map(new Function<Account, Double>() {
-                    @Override
-                    public Double apply(Account account) {
-                        return account.getBalance();
-                    }
-                })
-                .reduce(new BinaryOperator<Double>() {
-                    @Override
-                    public Double apply(Double double1, Double double2) {
-                        return double1 + double2;
-                    }
-                });
+                .filter(account -> account.getLastName() == "Johnson")
+                .map(account -> account.getBalance())
+                .reduce((double1, double2) -> double1 + double2);
     }
 
     //Method7
     public static List<Account> returnSortedListOfUsersByLastThenFirstName(List<Account> accountList) {
         List<Account> newAccountList = new ArrayList<>();
         accountList.stream()
-                .sorted(new Comparator<Account>() {
-                    @Override
-                    public int compare(Account o1, Account o2) {
-                        return o1.getFirstName().compareTo(o2.getFirstName());
-                    }
-                })
-                .sorted(new Comparator<Account>() {
-                    @Override
-                    public int compare(Account o1, Account o2) {
-                        return o1.getLastName().compareTo(o2.getLastName());
-                    }
-                })
-                .forEach(new Consumer<Account>() {
-                    @Override
-                    public void accept(Account account) {
-                        newAccountList.add(account);
-                    }
-                });
+                .sorted((o1, o2) -> o1.getFirstName().compareTo(o2.getFirstName()))
+                .sorted((o1, o2) -> o1.getLastName().compareTo(o2.getLastName()))
+                .forEach(account -> newAccountList.add(account));
         return newAccountList;
     }
 
     //Method8
     public static void returnGroupedMapByCountry(List<Account> accountList) {
         Map<String, List<Account>> newGroupMap = new HashMap<>();
-        newGroupMap = accountList.stream().collect(Collectors.groupingBy(new Function<Account, String>() {
-            @Override
-            public String apply(Account account) {
-                return account.getCountry();
-            }
-        }));
+        newGroupMap = accountList.stream().collect(Collectors.groupingBy(account -> account.getCountry()));
 
         for (Map.Entry<String, List<Account>> element : newGroupMap.entrySet()) {
             System.out.println(element.getKey());
@@ -204,20 +123,13 @@ public class AccountUtils {
     //Method9
     public static int returnNumberOfAccountsWithAgeAbove30Years(List<List<Account>> listOfListsOfAccounts) {
         return (int) listOfListsOfAccounts.stream()
-                .flatMap(new Function<List<Account>, Stream<?>>() {
-                    @Override
-                    public Stream<?> apply(List<Account> accountList) {
-                        return accountList.stream().filter(new Predicate<Account>() {
-                            @Override
-                            public boolean test(Account account) {
-                                Date date = new Date();
-                                return date.getYear() - account.getBirthday().getYear() > 30;
-                            }
-                        });
-                    }
-                })
+                .flatMap((Function<List<Account>, Stream<?>>) accountList -> accountList.stream().filter(account -> {
+                    Date date = new Date();
+                    return date.getYear() - account.getBirthday().getYear() > 30;
+                }))
                 .count();
     }
+
 }
 
 
