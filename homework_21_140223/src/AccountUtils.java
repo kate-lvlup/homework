@@ -17,9 +17,8 @@
 //9) Реализовать метод который принимает список списков акаунтов (List<List<Account>>)
 // который считает кол-во акаунтов с возрастом 30+ лет.  В примере создать три разных списка акакунтов
 
+import java.time.LocalDate;
 import java.util.*;
-import java.util.function.BinaryOperator;
-import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -28,36 +27,22 @@ import java.util.stream.Stream;
 public class AccountUtils {
     //Method1
     public static List<Account> returnListAccountsWithBalanceGreater1000(List<Account> accountList) {
-        List<Account> newAccountList = new ArrayList<>();
-        accountList.stream()
+        return accountList.stream()
                 .filter(account -> account.getBalance() > 1000)
-                .forEach(account -> newAccountList.add(account));
-        return newAccountList;
+                .collect(Collectors.toList());
     }
 
     //Method2
     public static List<String> returnListFirstLastNameInBrazil(List<Account> accountList) {
-        List<String> newAccountList = new ArrayList<>();
-        accountList.stream()
-                .filter(account -> account.getCountry() == "Brazil")
+        return accountList.stream()
+                .filter(account -> account.getCountry().equals("Brazil"))
                 .map(account -> account.getFirstName() + " + " + account.getLastName())
-                .forEach(s -> newAccountList.add(s));
-        return newAccountList;
+                .collect(Collectors.toList());
     }
 
     //Method3
     public static Optional<Account> returnOptionalAccountWithLargestBalance(List<Account> accountList) {
-        Optional<Account> optional;
-        return optional = accountList.stream()
-                .sorted((o1, o2) -> {
-                    if (o1.getBalance() > o2.getBalance()) {
-                        return 1;
-                    } else if (o1.getBalance() < o2.getBalance()) {
-                        return -1;
-                    } else {
-                        return 0;
-                    }
-                })
+        return accountList.stream()
                 .max((o1, o2) -> {
                     if (o1.getBalance() > o2.getBalance()) {
                         return 1;
@@ -71,46 +56,44 @@ public class AccountUtils {
 
     //Method4
     public static void returnAllUsersWithSpecMonthOfBirth(List<Account> accountList, int monthInt) {
-        List<Account> newAccountList = new ArrayList<>();
-        accountList.stream()
-                .filter(account -> account.getBirthday().getMonth() + 1 == monthInt).forEach(account -> newAccountList.add(account));
-        for (Account element : newAccountList) {
+        accountList = accountList.stream()
+                .filter(new Predicate<Account>() {
+                    @Override
+                    public boolean test(Account account) {
+                        return account.getBirthday().getMonthValue() == monthInt;
+                    }
+                }).collect(Collectors.toList());
+        for (Account element : accountList) {
             System.out.println(element);
         }
     }
 
     //Method5
-    public static int returnNumberOfAccountsWithFemaleGender(List<Account> accountList) {
-        int count = 0;
-        return count = (int) accountList.stream()
+    public static long returnNumberOfAccountsWithFemaleGender(List<Account> accountList) {
+        return accountList.stream()
                 .filter(account -> account.getGender() == 'w')
                 .count();
     }
 
     //Method6
-    public static Optional<Double> returnTotalAmountOnAccountsJohnson(List<Account> accountList) {
-        Optional<Double> sum;
-        return sum = accountList.stream()
-                .filter(account -> account.getLastName() == "Johnson")
+    public static Double returnTotalAmountOnAccountsJohnson(List<Account> accountList) {
+        return accountList.stream()
+                .filter(account -> account.getLastName().equals("Johnson"))
                 .map(account -> account.getBalance())
-                .reduce((double1, double2) -> double1 + double2);
+                .reduce(0.0, (double1, double2) -> double1 + double2);
     }
 
     //Method7
     public static List<Account> returnSortedListOfUsersByLastThenFirstName(List<Account> accountList) {
-        List<Account> newAccountList = new ArrayList<>();
-        accountList.stream()
-                .sorted((o1, o2) -> o1.getFirstName().compareTo(o2.getFirstName()))
-                .sorted((o1, o2) -> o1.getLastName().compareTo(o2.getLastName()))
-                .forEach(account -> newAccountList.add(account));
-        return newAccountList;
+        return accountList.stream()
+                .sorted(Comparator.comparing((Account account) -> account.getLastName()).thenComparing(account1 -> account1.getFirstName()))
+                .collect(Collectors.toList());
     }
 
     //Method8
     public static void returnGroupedMapByCountry(List<Account> accountList) {
         Map<String, List<Account>> newGroupMap = new HashMap<>();
         newGroupMap = accountList.stream().collect(Collectors.groupingBy(account -> account.getCountry()));
-
         for (Map.Entry<String, List<Account>> element : newGroupMap.entrySet()) {
             System.out.println(element.getKey());
             for (Account account : element.getValue()) {
@@ -118,18 +101,20 @@ public class AccountUtils {
             }
             System.out.println();
         }
+//        Another solution by teacher!!!
+//        newGroupMap.entrySet()
+//                .forEach(x -> System.out.println(x));
     }
 
     //Method9
-    public static int returnNumberOfAccountsWithAgeAbove30Years(List<List<Account>> listOfListsOfAccounts) {
-        return (int) listOfListsOfAccounts.stream()
+    public static long returnNumberOfAccountsWithAgeAbove30Years(List<List<Account>> listOfListsOfAccounts) {
+        return listOfListsOfAccounts.stream()
                 .flatMap((Function<List<Account>, Stream<?>>) accountList -> accountList.stream().filter(account -> {
-                    Date date = new Date();
-                    return date.getYear() - account.getBirthday().getYear() > 30;
+                    LocalDate localDate = LocalDate.now();
+                    return localDate.getYear() - account.getBirthday().getYear() > 30;
                 }))
                 .count();
     }
-
 }
 
 

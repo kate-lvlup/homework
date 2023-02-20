@@ -1,12 +1,10 @@
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Account {
     private String firstName;
     private String lastName;
     private String country;
-    private Date birthday;
+    private LocalDate birthday;
     private double balance;
     private char gender;
 
@@ -42,17 +40,12 @@ public class Account {
         this.country = country;
     }
 
-    public Date getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthdayString) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            this.birthday = simpleDateFormat.parse(birthdayString);
-        } catch (ParseException e) {
-            System.out.println(e);
-        }
+    public void setBirthday(int year, int month, int day) {
+        this.birthday = LocalDate.of(year, month, day);
     }
 
     public double getBalance() {
