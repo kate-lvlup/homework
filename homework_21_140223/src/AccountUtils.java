@@ -43,26 +43,13 @@ public class AccountUtils {
     //Method3
     public static Optional<Account> returnOptionalAccountWithLargestBalance(List<Account> accountList) {
         return accountList.stream()
-                .max((o1, o2) -> {
-                    if (o1.getBalance() > o2.getBalance()) {
-                        return 1;
-                    } else if (o1.getBalance() < o2.getBalance()) {
-                        return -1;
-                    } else {
-                        return 0;
-                    }
-                });
+                .max(Comparator.comparing(Account::getBalance));
     }
 
     //Method4
     public static void returnAllUsersWithSpecMonthOfBirth(List<Account> accountList, int monthInt) {
         accountList = accountList.stream()
-                .filter(new Predicate<Account>() {
-                    @Override
-                    public boolean test(Account account) {
-                        return account.getBirthday().getMonthValue() == monthInt;
-                    }
-                }).collect(Collectors.toList());
+                .filter(account -> account.getBirthday().getMonthValue() == monthInt).collect(Collectors.toList());
         for (Account element : accountList) {
             System.out.println(element);
         }
@@ -109,10 +96,8 @@ public class AccountUtils {
     //Method9
     public static long returnNumberOfAccountsWithAgeAbove30Years(List<List<Account>> listOfListsOfAccounts) {
         return listOfListsOfAccounts.stream()
-                .flatMap((Function<List<Account>, Stream<?>>) accountList -> accountList.stream().filter(account -> {
-                    LocalDate localDate = LocalDate.now();
-                    return localDate.getYear() - account.getBirthday().getYear() > 30;
-                }))
+                .flatMap(accountList -> accountList.stream()
+                        .filter(account -> LocalDate.now().getYear() - account.getBirthday().getYear() > 30))
                 .count();
     }
 }
