@@ -1,0 +1,9 @@
+0,Jenbl0,qwerty!,Black,Elsie,1999-01-07,black0@gmail.com,+380631112233,true
+1,Isabr1,qwerty@,Wradley,Jay,1999-02-08,bradley1@gmail.com,,false
+2,Elsham2,qwerty#,Samilton,Elsie,2003-09-22,samilton2@ukr.net,+380631112244,true
+3,Jayjohn3,qwerty$,Johnson,Jay,1999-01-24,johnson3@mail.ua,,true
+4,Domwilk4,qwerty%,Wilkinson,Dominic,1965-09-15,wilkinson4@mail.com,+380631112255,false
+5,Selrod5,qwerty%,Rodriguez,Jay,1999-02-10,rodriguez5@yep.uk,,true
+6,Jonsega6,qwerty!,Sega,Elsie,1997-06-17,vega6@york.com,+380631112266,true
+7,Paywinters7,qwerty#,Winters,Payton,1999-02-19,winters7@york.com,+380631112299,false
+8,Adam666,qwerty@#,Sendler,Adam,2000-02-13,adam77@gmail.com,+380634445566,true
