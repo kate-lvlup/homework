@@ -1,4 +1,4 @@
-import java.util.Date;
+import java.time.LocalDate;
 
 public class User {
     int id;
@@ -6,7 +6,7 @@ public class User {
     String password;
     String lastName;
     String firstName;
-    Date date;
+    LocalDate date;
     String email;
     String phoneNumber;
     String address;
@@ -52,11 +52,11 @@ public class User {
         this.firstName = firstName;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -97,8 +97,15 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
                 ", date=" + date +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", address='" + address + '\'' +
+                ", isAvailable=" + isAvailable +
                 '}';
     }
+
 }
