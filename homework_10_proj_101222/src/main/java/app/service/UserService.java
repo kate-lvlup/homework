@@ -64,28 +64,28 @@ public class UserService {
     }
 
     //    Method1: Get a list of all the usernames in the list of Users.
-    public static List<String> getListOfUsernames(List<User> users) {
+    public List<String> getListOfUsernames(List<User> users) {
         return users.stream()
                 .map(user -> user.getUsername())
                 .collect(toList());
     }
 
     //    Method2: Filter the list of User objects to only include users whose last name starts with "S".
-    public static List<User> getListOfUserWithLastNameStartWithS(List<User> users) {
+    public List<User> getListOfUserWithLastNameStartWithChar(List<User> users, char character) {
         return users.stream()
-                .filter(user -> user.getLastName().charAt(0) == 'S')
+                .filter(user -> user.getLastName().charAt(0) == character)
                 .collect(toList());
     }
 
     //    Method3: Get a list of all the User objects in the list that have an email address ending in ".com"
-    public static List<User> getListOfUserEmailEndingCom(List<User> users) {
+    public List<User> filterByMailEndingWithString(List<User> users, String string) {
         return users.stream()
-                .filter(user -> user.getEmail().endsWith(".com"))
+                .filter(user -> user.getEmail().endsWith(string))
                 .collect(toList());
     }
 
     //    Method4: Get a list of all the User objects in the list that are available
-    public static List<User> getListOfUserIsAvailable(List<User> users) {
+    public List<User> getListOfUserIsAvailable(List<User> users) {
         return users.stream()
                 .filter(user -> user.isAvailable())
                 .collect(toList());
@@ -93,7 +93,7 @@ public class UserService {
 
     //    Method5: Filter the list of User objects to only include users whose phoneNumber value is not null or empty,
     //    and convert the resulting list to a set.
-    public static Set<User> getSetOfUserWithPhoneNumber(List<User> users) {
+    public Set<User> getSetOfUserWithPhoneNumber(List<User> users) {
         return users.stream()
                 .filter(user -> user.getPhoneNumber() != null)
                 .filter(user -> !user.getPhoneNumber().equals(""))
@@ -102,7 +102,7 @@ public class UserService {
 
     //    Method6: Group the User objects in the list by their firstName field (ignoring case),
     //    and then print sorting each group by their lastName field (ignoring case).
-    public static void printGroupedUsers(List<User> users) {
+    public void printGroupedUsers(List<User> users) {
         Map<String, List<User>> groupUsersMap = users.stream()
                 .collect(Collectors.groupingBy(user -> user.getFirstName()));
 
@@ -116,17 +116,16 @@ public class UserService {
 
     //    Method7:  Find the User objects in the list that have a firstName field that matches a given regular expression
     //    pattern, and return them sorted by their lastName field (ignoring case).
-    public static List<User> getSortUserGroupedByPattern(List<User> users, String patternStr) {
-        Pattern pattern = Pattern.compile(patternStr);
+    public List<User> getSortUserGroupedByPattern(List<User> users, String patternStr) {
         return users.stream()
-                .filter(user -> user.getFirstName().matches(String.valueOf(pattern)))
+                .filter(user -> user.getFirstName().matches(patternStr))
                 .sorted((User user1, User user2) -> user1.getLastName().compareToIgnoreCase(user2.getLastName()))
                 .collect(Collectors.toList());
     }
 
     //    Method8:  Find the User object in the list with the earliest date field,
     //    and return a Map containing the id as key and birthdate as value of that object.
-    public static Map<Integer, LocalDate> getEarliestDateUserInfo(List<User> users) {
+    public Map<Integer, LocalDate> getEarliestDateUserInfo(List<User> users) {
         Map<Integer, LocalDate> earliestDateUserInfoMap = users.stream()
                 .sorted(Comparator.comparing(user -> user.getDate()))
                 .findFirst()
@@ -138,7 +137,7 @@ public class UserService {
     //    Method9:  Find the User objects in the list that have a date field in the same year as a given date,
     //    and then group them by the month of their date field,
     //    and return a Map where the key is the month and the value is a list of User objects with that month.
-    public static Map<Month, List<User>> getGropedUserByMonthWithExactYear(List<User> users, LocalDate localDate) {
+    public Map<Month, List<User>> getGropedUserByMonthWithExactYear(List<User> users, LocalDate localDate) {
         Map<Month, List<User>> gropedUserByMonthWithExactYearMap = users.stream()
                 .filter(user -> user.getDate().getYear() == localDate.getYear())
                 .collect(Collectors.groupingBy(user -> user.getDate().getMonth()));

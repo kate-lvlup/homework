@@ -112,27 +112,27 @@ public class UserUtils {
         }
     }
 
-    public static boolean validateUsername(String password) {
+    public boolean validateUsername(String password) {
         return password.matches("[a-zA-Z0-9]{4,}");
     }
 
-    public static boolean validatePassword(String password) {
+    public boolean validatePassword(String password) {
         return password.matches("^(?=.*[!@#$%])(?=\\S+$).{4,}$");
     }
 
-    public static boolean validateDate(String text) {
+    public boolean validateDate(String date) {
         SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         df.setLenient(false);
         try {
-            df.parse(text);
+            df.parse(date);
             return true;
         } catch (ParseException ex) {
             return false;
         }
     }
 
-    public static boolean validateEmail(String email) {
-        return email.matches("\\w+@[a-zA-Z]+\\.[a-zA-Z]+");
+    public boolean validateEmail(String email) {
+        return email.matches("\\w+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+");
     }
 
     public boolean validatePhoneNumber(String number) {

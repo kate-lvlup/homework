@@ -53,14 +53,14 @@ public class RegistrationApp {
                     }
                     case 4 -> {
                         System.out.println("Filter the list of User objects to only include users whose last name starts with 'S': ");
-                        for (User user : userService.getListOfUserWithLastNameStartWithS(users)) {
+                        for (User user : userService.getListOfUserWithLastNameStartWithChar(users, 'S')) {
                             System.out.println(user);
                         }
                         System.out.println();
                     }
                     case 5 -> {
                         System.out.println("Get a list of all the User objects in the list that have an email address ending in '.com': ");
-                        for (User user : userService.getListOfUserEmailEndingCom(users)) {
+                        for (User user : userService.filterByMailEndingWithString(users, ".com")) {
                             System.out.println(user);
                         }
                         System.out.println();
