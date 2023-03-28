@@ -9,12 +9,15 @@ add_button.addEventListener("click", () => {
     const item_span = document.createElement('span')
     item_span.className = "todo-text"
 
-    list_item.addEventListener('click', () => {
-        item_span.style.textDecoration = 'line-through'
-    })
+    let isLineThrough = false;
+    item_span.addEventListener('click', () => {
 
-    list_item.addEventListener('dblclick', () => {
-        item_span.style.textDecoration = 'none'
+        if (isLineThrough) {
+            item_span.style.textDecoration = 'none';
+        } else {
+            item_span.style.textDecoration = 'line-through';
+        }
+        isLineThrough = !isLineThrough;
     })
 
     const input_text = document.querySelector('.task_input')
