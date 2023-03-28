@@ -1,0 +1,79 @@
+body {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.page {
+    padding: 40px;
+    background-color: #f3f6f9;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.table {
+    max-width: 1200px !important;
+    padding: 24px;
+    border-radius: 16px;
+    background-color: #ffffff;
+    border: 1px solid #e0e3e7;
+}
+
+.table-header {
+    margin-bottom: 16px;
+}
+
+.title-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.table-title {
+    margin-top: 0 !important;
+}
+
+.add-btn {
+    width: 25%;
+    background-color: #32b001 !important;
+}
+
+.grid-table {
+    display: grid;
+    grid-column-gap: 16px;
+    grid-template-columns: 1.5fr 1fr 1.5fr 1fr 0.7fr;
+    align-items: center;
+    padding-left: 6px;
+}
+
+.table-list-item {
+    background-color: #f3f6f9;
+    padding: 8px 0 8px 6px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+.item-user {
+    display: flex;
+    align-items: center;
+}
+
+.item-user i {
+    font-size: 24px;
+    transform: translateY(-3px);
+}
+
+.item-user span {
+    margin-left: 32px;
+    line-height: 1;
+}
+
+.item-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.item-actions button {
+    padding: 4px 8px !important;
+}
