@@ -62,15 +62,11 @@ WHERE phone_number IS NOT NULL;
 -- 6.Sort users by last name, and firstname
 SELECT *
 FROM public.user
-ORDER BY lastname, firstname ASC;
+ORDER BY lastname, firstname;
 
 
 -- 7.Find the User objects in the list that have a firstName field that matches a given regular expression pattern
-SELECT *, (SELECT SUBSTRING(firstname, '[a-zA-Z]{5,}'))
-FROM public.user;
-
-SELECT *, (SELECT regexp_match(firstname, '[a-zA-Z]{5,}'))
-FROM public.user;
+SELECT * FROM public.user WHERE SUBSTRING(firstname, '[a-zA-Z]{5,}') = firstname;
 
 SELECT *
 FROM public.user
@@ -82,10 +78,6 @@ FROM public.user
 WHERE birthday = (SELECT MIN(birthday) FROM public.user);
 
 -- 9.Find the User objects in the list that have a date field in the same year as a given date, and then count their amount
-SELECT *
-FROM public.user
-where date_part('YEAR',birthday)='1999';
-
 SELECT COUNT(birthday)
 FROM public.user
 where date_part('YEAR',birthday)='1999';
