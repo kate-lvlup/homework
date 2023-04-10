@@ -1,0 +1,62 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.block {
+    margin-top: 100px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 450px;
+    background-color: rgba(220, 241, 222, 0.76);
+}
+
+.title-header{
+    font-family: "Lucida Console";
+    color: #1b8854;
+    text-shadow: 3px 5px 6px #6C9;
+    text-align: center;
+}
+
+.block-input {
+    width: 450px;
+    padding: 0 32px;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 5px;
+    justify-content: space-between;
+}
+
+.task_input{
+    width: 325px;
+    border-radius: 6px;
+}
+
+.tasks {
+    width: 450px;
+}
+
+.task_line {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.todo-text {
+    display: flex;
+    align-items: center;
+}
+
+
+.button-group {
+    padding-right: 32px;
+}
+
+.task-style{
+    margin: 0 3px;
+}
