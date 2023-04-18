@@ -1,8 +1,12 @@
 package app.service;
 
 import app.User;
+import app.dao.UserDao;
 
 import java.io.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
@@ -12,6 +16,18 @@ import java.util.stream.Collectors;
 import static java.util.stream.Collectors.toList;
 
 public class UserService {
+
+    public final UserDao userDao = new UserDao();
+
+    //    public UserService(UserDao userDao){
+//        this.userDao = userDao;
+//    }
+    public boolean saveUser(User user) {
+        boolean result = userDao.createUser(user);
+        return result;
+    }
+
+
     public void saveUser(User user, File file) {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true))) {
             bufferedWriter.write(user.getId() + ",");
@@ -27,6 +43,7 @@ public class UserService {
             System.out.println(e);
         }
     }
+
     public List<User> loadUsers(File file) {
         List<User> users = new ArrayList<>();
         if (!file.exists()) {
