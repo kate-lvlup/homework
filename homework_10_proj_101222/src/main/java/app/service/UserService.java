@@ -19,12 +19,8 @@ public class UserService {
 
     public final UserDao userDao = new UserDao();
 
-    //    public UserService(UserDao userDao){
-//        this.userDao = userDao;
-//    }
     public boolean saveUser(User user) {
-        boolean result = userDao.createUser(user);
-        return result;
+        return userDao.createUser(user);
     }
 
 

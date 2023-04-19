@@ -1,0 +1,2 @@
+0,username1,!password,lastname1,firstname1,1989-11-11,email@gmail.com,+380671112233,true
+1,username2,!password2,last2,first2,2000-06-22,email2@gmail.com,+380669998822,true

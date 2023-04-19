@@ -22,7 +22,9 @@ public class UserDao {
             pstmt.setDate(5, Date.valueOf(user.getDate()));
             pstmt.setString(6, user.getEmail());
             pstmt.setString(7, user.getPhoneNumber());
-            return pstmt.execute();
+
+            int row = pstmt.executeUpdate();
+            return row == 1;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
