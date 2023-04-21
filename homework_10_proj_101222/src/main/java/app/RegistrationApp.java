@@ -2,6 +2,7 @@ package app;
 
 import app.service.UserService;
 import app.util.UserUtils;
+
 import java.io.*;
 import java.time.LocalDate;
 import java.time.Month;
@@ -13,6 +14,8 @@ public class RegistrationApp {
         UserService userService = new UserService();
         UserUtils userUtils = new UserUtils();
         List<User> users = userService.loadUsers(file);
+
+
         boolean exit = true;
         while (exit) {
             System.out.println("Hello, you can register user here." + "\n" +
@@ -28,18 +31,26 @@ public class RegistrationApp {
                     "to get the User object in the list with the earliest date field, and return a Map containing the id as key and birthdate as value of that object press 10," + "\n" +
                     "to get the User objects in the list that have a date field in the same year as a given date, and then group them by the month of their date field, and return a Map where the key is the month and the value is a list of User objects with that month press 11," + "\n" +
                     "to exit press 0");
-            try {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+            try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
                 int input = Integer.parseInt(bufferedReader.readLine());
                 switch (input) {
                     case 1 -> {
                         User user = new User();
                         user.setId(users.size());
                         userUtils.fillUserFields(bufferedReader, user);
-                        users.add(user);
-                        userService.saveUser(user, file);
-                        System.out.println("User is created!");
-                        System.out.println(user);
+
+
+                        boolean result = userService.saveUser(user);
+                        if (result) {
+                            userService.saveUser(user, file);
+                            users.add(user);
+                            System.out.println("User is created!");
+                            System.out.println(user);
+                        } else {
+                            System.out.println("Wrong!!!");
+                        }
+
+
                     }
                     case 2 -> {
                         System.out.println("List of available users: ");
