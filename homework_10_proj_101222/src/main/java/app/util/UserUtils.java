@@ -1,6 +1,8 @@
 package app.util;
 
 import app.User;
+import app.dao.UserDao;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.text.ParseException;
@@ -10,6 +12,32 @@ import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 public class UserUtils {
+
+    public final UserDao userDao = new UserDao();
+
+    public User verifyUsername(BufferedReader bufferedReader) throws IOException {
+        boolean check = true;
+        String username;
+        while (check) {
+            System.out.println("Enter username");
+            username = bufferedReader.readLine();
+            if (username.equals("X")) {
+                return null;
+            }
+            if (validateUsername(username)) {
+                User user = userDao.findUserByUserName(username);
+                if (user != null) {
+                    return user;
+                }
+                System.out.println("You entered username that is not exists");
+                System.out.println("If you want to exit press X");
+            } else {
+                System.out.println("You entered wrong username, it must contain only alpha-numeric values:");
+            }
+        }
+        return null;
+    }
+
     public void fillUserFields(BufferedReader bufferedReader, User user) throws IOException {
         setUserName(bufferedReader, user);
         setUserPassword(bufferedReader, user);
@@ -19,6 +47,17 @@ public class UserUtils {
         setUserEmail(bufferedReader, user);
         setPhoneNumber(bufferedReader, user);
         setUserAvailable(bufferedReader, user);
+    }
+
+    public void fillUserFieldsForEditing(BufferedReader bufferedReader, User userAfter, User userBefore) throws IOException {
+        userAfter.setId(userBefore.getId());
+        userAfter.setUsername(userBefore.getUsername());
+        userAfter.setPassword(userBefore.getPassword());
+        setUserFirstName(bufferedReader, userAfter);
+        setUserLastName(bufferedReader, userAfter);
+        setUserBirthday(bufferedReader, userAfter);
+        setUserEmail(bufferedReader, userAfter);
+        setPhoneNumber(bufferedReader, userAfter);
     }
 
     private void setUserName(BufferedReader bufferedReader, User user) throws IOException {
@@ -33,7 +72,6 @@ public class UserUtils {
                 System.out.println("You entered wrong username, it must contain only alpha-numeric values:");
             }
         }
-
     }
 
     private void setUserPassword(BufferedReader bufferedReader, User user) throws IOException {

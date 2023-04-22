@@ -4,13 +4,9 @@ import app.User;
 import app.dao.UserDao;
 
 import java.io.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
@@ -23,6 +19,9 @@ public class UserService {
         return userDao.createUser(user);
     }
 
+    public void saveUserAfterEditing(User user) {
+        userDao.updateUser(user);
+    }
 
     public void saveUser(User user, File file) {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true))) {
@@ -39,6 +38,15 @@ public class UserService {
             System.out.println(e);
         }
     }
+
+    public void editUser(User user) {
+        if (user == null) {
+            System.out.println("You entered NULL!");
+        } else {
+            System.out.println("Your user has username " + user.getUsername());
+        }
+    }
+
 
     public List<User> loadUsers(File file) {
         List<User> users = new ArrayList<>();

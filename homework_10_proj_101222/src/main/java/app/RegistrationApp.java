@@ -14,8 +14,6 @@ public class RegistrationApp {
         UserService userService = new UserService();
         UserUtils userUtils = new UserUtils();
         List<User> users = userService.loadUsers(file);
-
-
         boolean exit = true;
         while (exit) {
             System.out.println("Hello, you can register user here." + "\n" +
@@ -30,16 +28,16 @@ public class RegistrationApp {
                     "to get the User objects in the list that have a firstName field that matches a given regular expression pattern, and return them sorted by their lastName field (ignoring case) press 9," + "\n" +
                     "to get the User object in the list with the earliest date field, and return a Map containing the id as key and birthdate as value of that object press 10," + "\n" +
                     "to get the User objects in the list that have a date field in the same year as a given date, and then group them by the month of their date field, and return a Map where the key is the month and the value is a list of User objects with that month press 11," + "\n" +
+                    "to edit user by it's id press 12," + "\n" +
                     "to exit press 0");
-            try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
                 int input = Integer.parseInt(bufferedReader.readLine());
                 switch (input) {
                     case 1 -> {
                         User user = new User();
                         user.setId(users.size());
                         userUtils.fillUserFields(bufferedReader, user);
-
-
                         boolean result = userService.saveUser(user);
                         if (result) {
                             userService.saveUser(user, file);
@@ -49,8 +47,6 @@ public class RegistrationApp {
                         } else {
                             System.out.println("Wrong!!!");
                         }
-
-
                     }
                     case 2 -> {
                         System.out.println("List of available users: ");
@@ -117,6 +113,13 @@ public class RegistrationApp {
                             System.out.println("Month: " + element.getKey() + ", " + "Users: " + element.getValue());
                         }
                         System.out.println();
+                    }
+                    case 12 -> {
+                        User userBeforeEdit = userUtils.verifyUsername(bufferedReader);
+                        User userAfterEdit = new User();
+                        userUtils.fillUserFieldsForEditing(bufferedReader, userAfterEdit, userBeforeEdit);
+                        userService.saveUserAfterEditing(userAfterEdit);
+                        userService.editUser(userBeforeEdit);
                     }
                     case 0 -> {
                         exit = false;
