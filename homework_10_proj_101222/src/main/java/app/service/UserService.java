@@ -19,10 +19,6 @@ public class UserService {
         return userDao.createUser(user);
     }
 
-    public void saveUserAfterEditing(User user) {
-        userDao.updateUser(user);
-    }
-
     public void saveUser(User user, File file) {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true))) {
             bufferedWriter.write(user.getId() + ",");

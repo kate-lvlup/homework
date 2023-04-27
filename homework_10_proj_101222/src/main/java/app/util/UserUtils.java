@@ -49,15 +49,18 @@ public class UserUtils {
         setUserAvailable(bufferedReader, user);
     }
 
-    public void fillUserFieldsForEditing(BufferedReader bufferedReader, User userAfter, User userBefore) throws IOException {
-        userAfter.setId(userBefore.getId());
-        userAfter.setUsername(userBefore.getUsername());
-        userAfter.setPassword(userBefore.getPassword());
-        setUserFirstName(bufferedReader, userAfter);
-        setUserLastName(bufferedReader, userAfter);
-        setUserBirthday(bufferedReader, userAfter);
-        setUserEmail(bufferedReader, userAfter);
-        setPhoneNumber(bufferedReader, userAfter);
+    public void updateUserFields(BufferedReader bufferedReader, User userForEdit) throws IOException {
+        System.out.println("For " + userForEdit.getUsername() + " previous first name is: " + userForEdit.getFirstName());
+        setUserFirstName(bufferedReader, userForEdit);
+        System.out.println("For " + userForEdit.getUsername() + " previous last name is: " + userForEdit.getLastName());
+        setUserLastName(bufferedReader, userForEdit);
+        System.out.println("For " + userForEdit.getUsername() + " previous user birthday is: " + userForEdit.getDate());
+        setUserBirthday(bufferedReader, userForEdit);
+        System.out.println("For " + userForEdit.getUsername() + " previous email is: " + userForEdit.getEmail());
+        setUserEmail(bufferedReader, userForEdit);
+        System.out.println("For " + userForEdit.getUsername() + " previous phone number is: " + userForEdit.getPhoneNumber());
+        setPhoneNumber(bufferedReader, userForEdit);
+        userDao.updateUser(userForEdit);
     }
 
     private void setUserName(BufferedReader bufferedReader, User user) throws IOException {
