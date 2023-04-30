@@ -1,2 +1,4 @@
 0,username1,!password,lastname1,firstname1,1989-11-11,email@gmail.com,+380671112233,true
 1,username2,!password2,last2,first2,2000-06-22,email2@gmail.com,+380669998822,true
+2,fvhvfhd,fggh@,kbvdkf,ghgdv,2000-02-02,ddd@yygy.com,+380976633521,false
+3,dfghj,!ertghj,vbnm,dfgh,2000-11-11,sdf@fg.com,+380657778899,false
