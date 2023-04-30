@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.dao.MovieDao;
 import org.example.entity.Movie;
+import util.HibernateUtil;
 
 import java.util.List;
 
@@ -27,5 +28,6 @@ public class Main {
         } catch (IllegalStateException illegalStateException) {
             System.out.println("The following exception can be thrown: " + illegalStateException);
         }
+        HibernateUtil.closeSessionFactoryConnection();
     }
 }

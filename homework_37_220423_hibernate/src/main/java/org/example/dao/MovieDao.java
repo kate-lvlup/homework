@@ -12,8 +12,6 @@ public class MovieDao {
             Transaction transaction = session.beginTransaction();
             session.save(movie);
             transaction.commit();
-            session.close();
-            HibernateUtil.getSessionFactory().close();
         }
     }
 
@@ -22,8 +20,6 @@ public class MovieDao {
             Transaction transaction = session.beginTransaction();
             Movie readMovie = session.get(Movie.class, id);
             transaction.commit();
-            session.close();
-            HibernateUtil.getSessionFactory().close();
             return readMovie;
 
         }
@@ -38,8 +34,6 @@ public class MovieDao {
             updatedMovie.setLanguage(language);
             session.update(updatedMovie);
             transaction.commit();
-            session.close();
-            HibernateUtil.getSessionFactory().close();
         }
     }
 
@@ -50,8 +44,6 @@ public class MovieDao {
             updatedMovie.setMovieName(movieName);
             session.update(updatedMovie);
             transaction.commit();
-            session.close();
-            HibernateUtil.getSessionFactory().close();
         }
     }
 
@@ -62,8 +54,6 @@ public class MovieDao {
             updatedMovie.setReleaseYear(releaseYear);
             session.update(updatedMovie);
             transaction.commit();
-            session.close();
-            HibernateUtil.getSessionFactory().close();
         }
     }
 
@@ -74,8 +64,6 @@ public class MovieDao {
             updatedMovie.setLanguage(language);
             session.update(updatedMovie);
             transaction.commit();
-            session.close();
-            HibernateUtil.getSessionFactory().close();
         }
     }
 
@@ -85,11 +73,7 @@ public class MovieDao {
             Movie deleteMovie = session.get(Movie.class, id);
             session.delete(deleteMovie);
             transaction.commit();
-            session.close();
-            HibernateUtil.getSessionFactory().close();
         }
     }
-
-
 
 }
