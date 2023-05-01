@@ -36,7 +36,7 @@ public class RegistrationApp {
                     switch (input) {
                         case 1 -> {
                             User user = new User();
-                            user.setId(users.size());
+                            user.setId((long) users.size());
                             userUtils.fillUserFields(bufferedReader, user);
                             boolean result = userService.saveUser(user);
                             if (result) {
@@ -98,7 +98,7 @@ public class RegistrationApp {
                         }
                         case 10 -> {
                             System.out.println("Find the User object in the list with the earliest date field, and return a Map containing the id as key and birthdate as value of that object: ");
-                            Map<Integer, LocalDate> newMap = userService.getEarliestDateUserInfo(users);
+                            Map<Long, LocalDate> newMap = userService.getEarliestDateUserInfo(users);
                             for (Map.Entry element : newMap.entrySet()) {
                                 System.out.println("Id: " + element.getKey() + ", " + "Date: " + element.getValue());
                             }

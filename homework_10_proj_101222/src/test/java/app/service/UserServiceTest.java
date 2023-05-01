@@ -2,10 +2,12 @@ package app.service;
 
 import app.User;
 import org.junit.jupiter.api.Test;
+
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
 import java.util.stream.Collectors;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserServiceTest {
@@ -32,9 +34,9 @@ class UserServiceTest {
     void checkGettingListOfUserWithLastNameStartWithChar() {
         UserService userService = new UserService();
         List<User> userList = createUsers();
-        userList.add(createUser(111, "username" + 0, "First Name" + 0, "Sega" + 0,
+        userList.add(createUser(111L, "username" + 0, "First Name" + 0, "Sega" + 0,
                 "someEmail@gmail.com1", LocalDate.of(1990, 11, 10), true, null));
-        userList.add(createUser(112, "username" + 112, "First Name" + 112, "Saymon" + 112,
+        userList.add(createUser(112L, "username" + 112, "First Name" + 112, "Saymon" + 112,
                 "someEmail@gmail.com1", LocalDate.of(1990, 11, 10), true, null));
 
         List<User> filteredList = userService.getListOfUserWithLastNameStartWithChar(userList, 'S');
@@ -47,9 +49,9 @@ class UserServiceTest {
     void filterByMailEndingWithString() {
         UserService userService = new UserService();
         List<User> usersList = createUsers();
-        usersList.add(createUser(111, "username" + 0, "First Name" + 0, "Last Name" + 0,
+        usersList.add(createUser(111L, "username" + 0, "First Name" + 0, "Last Name" + 0,
                 "someEmail@gmail.com1", LocalDate.of(1990, 11, 10), true, null));
-        usersList.add(createUser(112, "username" + 112, "First Name" + 112, "Last Name" + 112,
+        usersList.add(createUser(112L, "username" + 112, "First Name" + 112, "Last Name" + 112,
                 "someEmail@gmail.com1", LocalDate.of(1990, 11, 10), true, null));
 
         List<User> filteredUsers = userService.filterByMailEndingWithString(usersList, ".com");
@@ -59,7 +61,7 @@ class UserServiceTest {
         assertIterableEquals(createUsers(), filteredUsers);
     }
 
-    private User createUser(int id, String userName, String firstName, String lastName, String email, LocalDate birthDate,
+    private User createUser(Long id, String userName, String firstName, String lastName, String email, LocalDate birthDate,
                             boolean isAvailable, String phoneNumber) {
         User user = new User();
         user.setId(id);
@@ -77,7 +79,7 @@ class UserServiceTest {
         User user;
         List<User> list = new ArrayList<>();
         for (int i = 1; i < 6; i++) {
-            user = createUser(i, "username", "First Name", "Last Name" + i,
+            user = createUser((long) i, "username", "First Name", "Last Name" + i,
                     "test@email.com", LocalDate.of(1990 + i, i, 10 + i), true, null);
             list.add(user);
         }
@@ -88,9 +90,9 @@ class UserServiceTest {
     void checkGettingListOfUserIsAvailable() {
         UserService userService = new UserService();
         List<User> userList = createUsers();
-        userList.add(createUser(111, "username" + 0, "First Name" + 0, "Last Name" + 0,
+        userList.add(createUser(111L, "username" + 0, "First Name" + 0, "Last Name" + 0,
                 "someEmail@gmail.com1", LocalDate.of(1990, 11, 10), false, null));
-        userList.add(createUser(112, "username" + 112, "First Name" + 112, "Last Name" + 112,
+        userList.add(createUser(112L, "username" + 112, "First Name" + 112, "Last Name" + 112,
                 "someEmail@gmail.com1", LocalDate.of(1990, 11, 10), false, null));
 
         List<User> filteredList = userService.getListOfUserIsAvailable(userList);
@@ -106,13 +108,13 @@ class UserServiceTest {
     void checkGettingSetOfUserWithPhoneNumber() {
         UserService userService = new UserService();
         List<User> userList = createUsers();
-        userList.add(createUser(111, "username" + 0, "First Name" + 0, "Last Name" + 0,
+        userList.add(createUser(111L, "username" + 0, "First Name" + 0, "Last Name" + 0,
                 "someEmail@gmail.com1", LocalDate.of(1990, 11, 10), false, "+380931112233"));
-        userList.add(createUser(112, "username" + 112, "First Name" + 112, "Last Name" + 112,
+        userList.add(createUser(112L, "username" + 112, "First Name" + 112, "Last Name" + 112,
                 "someEmail@gmail.com1", LocalDate.of(1990, 11, 10), false, "+380931112244"));
-        userList.add(createUser(113, "username" + 113, "First Name" + 113, "Last Name" + 113,
+        userList.add(createUser(113L, "username" + 113, "First Name" + 113, "Last Name" + 113,
                 "someEmail@gmail.com1", LocalDate.of(1990, 11, 10), true, null));
-        userList.add(createUser(114, "username" + 114, "First Name" + 114, "Last Name" + 114,
+        userList.add(createUser(114L, "username" + 114, "First Name" + 114, "Last Name" + 114,
                 "someEmail@gmail.com1", LocalDate.of(1990, 11, 10), true, ""));
 
         Set<User> filteredSet = userService.getSetOfUserWithPhoneNumber(userList);
@@ -125,9 +127,9 @@ class UserServiceTest {
     @Test
     void checkPrintingGroupedUsers() {
         List<User> userList = createUsers();
-        userList.add(createUser(111, "username" + 0, "First Name1", "Last Name" + 2,
+        userList.add(createUser(111L, "username" + 0, "First Name1", "Last Name" + 2,
                 "someEmail@gmail.com1", LocalDate.of(1990, 11, 10), false, null));
-        userList.add(createUser(112, "username" + 112, "First Name1", "Last Name" + 1,
+        userList.add(createUser(112L, "username" + 112, "First Name1", "Last Name" + 1,
                 "someEmail@gmail.com1", LocalDate.of(1990, 11, 10), false, null));
 
         Map<String, List<User>> stringListMap = userList.stream()
@@ -154,11 +156,11 @@ class UserServiceTest {
     void checkGettingSortUserGroupedByPattern() {
         UserService userService = new UserService();
         List<User> userList = createUsers();
-        userList.add(createUser(111, "username" + 0, "First Name", "Last Name" + 7,
+        userList.add(createUser(111L, "username" + 0, "First Name", "Last Name" + 7,
                 "someEmail@gmail.com1", LocalDate.of(1990, 11, 10), false, null));
-        userList.add(createUser(112, "username" + 112, "First Name", "Last Name" + 6,
+        userList.add(createUser(112L, "username" + 112, "First Name", "Last Name" + 6,
                 "someEmail@gmail.com1", LocalDate.of(1990, 11, 10), false, null));
-        userList.add(createUser(112, "username" + 112, "First Name1", "Last Name" + 6,
+        userList.add(createUser(112L, "username" + 112, "First Name1", "Last Name" + 6,
                 "someEmail@gmail.com1", LocalDate.of(1990, 11, 10), false, null));
 
         List<User> filteredList = userService.getSortUserGroupedByPattern(userList, "First Name");
@@ -178,32 +180,31 @@ class UserServiceTest {
     void getEarliestDateUserInfo() {
         UserService userService = new UserService();
         List<User> userList = createUsers();
-        userList.add(createUser(111, "username" + 0, "First Name", "Last Name" + 7,
+        userList.add(createUser(111L, "username" + 0, "First Name", "Last Name" + 7,
                 "someEmail@gmail.com1", LocalDate.of(1989, 11, 10), false, null));
-        userList.add(createUser(112, "username" + 112, "First Name", "Last Name" + 6,
+        userList.add(createUser(112L, "username" + 112, "First Name", "Last Name" + 6,
                 "someEmail@gmail.com1", LocalDate.of(1999, 11, 10), false, null));
-        userList.add(createUser(112, "username" + 112, "First Name1", "Last Name" + 6,
+        userList.add(createUser(112L, "username" + 112, "First Name1", "Last Name" + 6,
                 "someEmail@gmail.com1", LocalDate.of(1990, 11, 10), false, null));
-        Map<Integer, LocalDate> integerLocalDateMap = userService.getEarliestDateUserInfo(userList);
-        Set<Integer> integerSet = Set.of(111);
-        Map.Entry<Integer, LocalDate> integerLocalDateEntry = integerLocalDateMap.entrySet()
+        Map<Long, LocalDate> integerLocalDateMap = userService.getEarliestDateUserInfo(userList);
+        Set<Long> integerSet = Set.of(111L);
+        Map.Entry<Long, LocalDate> integerLocalDateEntry = integerLocalDateMap.entrySet()
                 .stream()
                 .findAny()
                 .get();
-
         assertEquals(integerSet, integerLocalDateMap.keySet());
         assertEquals(1989, integerLocalDateEntry.getValue().getYear());
         assertEquals(11, integerLocalDateEntry.getValue().getMonthValue());
-        assertEquals(10,integerLocalDateEntry.getValue().getDayOfMonth());
+        assertEquals(10, integerLocalDateEntry.getValue().getDayOfMonth());
     }
 
     @Test
     void getGropedUserByMonthWithExactYear() {
         UserService userService = new UserService();
         List<User> users = createUsers();
-        users.add(createUser(111, "username" + 111, "First Name" + 111, "Last Name" + 111,
+        users.add(createUser(111L, "username" + 111, "First Name" + 111, "Last Name" + 111,
                 "someEmail@gmail.com1", LocalDate.of(1992, 3, 21), true, null));
-        users.add(createUser(112, "username" + 112, "First Name" + 112, "Last Name" + 112,
+        users.add(createUser(112L, "username" + 112, "First Name" + 112, "Last Name" + 112,
                 "someEmail@gmail.com1", LocalDate.of(1992, 2, 10), true, null));
 
         Map<Month, List<User>> groupedByMonthUsers = userService.getGropedUserByMonthWithExactYear(users, LocalDate.of(1992, 12, 12));

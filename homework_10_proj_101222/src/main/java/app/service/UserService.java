@@ -61,7 +61,7 @@ public class UserService {
                     } else {
                         String[] usersToString = line.split(",");
                         User user = new User();
-                        user.setId(Integer.parseInt(usersToString[0]));
+                        user.setId((long) Integer.parseInt(usersToString[0]));
                         user.setUsername(usersToString[1]);
                         user.setPassword(usersToString[2]);
                         user.setLastName(usersToString[3]);
@@ -142,8 +142,8 @@ public class UserService {
 
     //    Method8:  Find the User object in the list with the earliest date field,
     //    and return a Map containing the id as key and birthdate as value of that object.
-    public Map<Integer, LocalDate> getEarliestDateUserInfo(List<User> users) {
-        Map<Integer, LocalDate> earliestDateUserInfoMap = users.stream()
+    public Map<Long, LocalDate> getEarliestDateUserInfo(List<User> users) {
+        Map<Long, LocalDate> earliestDateUserInfoMap = users.stream()
                 .sorted(Comparator.comparing(user -> user.getDate()))
                 .findFirst()
                 .stream()
