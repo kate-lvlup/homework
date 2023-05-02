@@ -2,6 +2,8 @@ package app.util;
 
 import app.User;
 import app.dao.UserDao;
+import app.dao.UserDaoHibernate;
+import app.dao.UserDaoJDBC;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,7 +15,14 @@ import java.util.Random;
 
 public class UserUtils {
 
-    public final UserDao userDao = new UserDao();
+    public UserDao userDao;
+
+    public UserUtils() {
+    }
+
+    public UserUtils(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     public User verifyUsername(BufferedReader bufferedReader) throws IOException {
         boolean check = true;

@@ -1,6 +1,10 @@
 package app;
 
+import app.dao.UserDao;
+import app.dao.UserDaoHibernate;
+import app.dao.UserDaoJDBC;
 import app.service.UserService;
+import app.util.HibernateUtil;
 import app.util.UserUtils;
 
 import java.io.*;
@@ -11,9 +15,12 @@ import java.util.*;
 public class RegistrationApp {
     public void runApp() {
         File file = new File("users.txt");
-        UserService userService = new UserService();
-        UserUtils userUtils = new UserUtils();
+        UserService userService = new UserService(new UserDaoJDBC());
+        UserService userService2 = new UserService(new UserDaoHibernate());
+        UserUtils userUtils = new UserUtils(new UserDaoJDBC());
+        UserUtils userUtils2 = new UserUtils(new UserDaoHibernate());
         List<User> users = userService.loadUsers(file);
+
         boolean exit = true;
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
             while (exit) {
@@ -29,7 +36,8 @@ public class RegistrationApp {
                         "to get the User objects in the list that have a firstName field that matches a given regular expression pattern, and return them sorted by their lastName field (ignoring case) press 9," + "\n" +
                         "to get the User object in the list with the earliest date field, and return a Map containing the id as key and birthdate as value of that object press 10," + "\n" +
                         "to get the User objects in the list that have a date field in the same year as a given date, and then group them by the month of their date field, and return a Map where the key is the month and the value is a list of User objects with that month press 11," + "\n" +
-                        "to edit user by it's id press 12," + "\n" +
+                        "to edit user by it's id (JDBC) press 12," + "\n" +
+                        "to edit user by it's id (Hibernate) press 13," + "\n" +
                         "to exit press 0");
                 try {
                     int input = Integer.parseInt(bufferedReader.readLine());
@@ -118,6 +126,12 @@ public class RegistrationApp {
                             User userForEdit = userUtils.verifyUsername(bufferedReader);
                             userUtils.updateUserFields(bufferedReader, userForEdit);
                             userService.editUser(userForEdit);
+                        }
+                        case 13 -> {
+                            User userForEdit = userUtils2.verifyUsername(bufferedReader);
+                            userUtils2.updateUserFields(bufferedReader, userForEdit);
+                            userService2.editUser(userForEdit);
+                            HibernateUtil.closeSessionFactoryConnection();
                         }
                         case 0 -> {
                             exit = false;

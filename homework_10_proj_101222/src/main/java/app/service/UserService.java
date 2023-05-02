@@ -2,6 +2,7 @@ package app.service;
 
 import app.User;
 import app.dao.UserDao;
+import app.dao.UserDaoJDBC;
 
 import java.io.*;
 import java.time.LocalDate;
@@ -13,7 +14,14 @@ import static java.util.stream.Collectors.toList;
 
 public class UserService {
 
-    public final UserDao userDao = new UserDao();
+    public UserDao userDao;
+
+    public UserService() {
+    }
+
+    public UserService(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     public boolean saveUser(User user) {
         return userDao.createUser(user);
