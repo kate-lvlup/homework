@@ -7,6 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import javax.persistence.PersistenceException;
+
 public class UserDaoHibernate implements UserDao {
     @Override
     public boolean createUser(User user) {
@@ -26,30 +28,18 @@ public class UserDaoHibernate implements UserDao {
     public User findUserByUserName(String username) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-
-
             Query query = session.createQuery("FROM User WHERE username = :username");
             query.setParameter("username", username);
             User foundUser = (User) query.uniqueResult();
-
-
             transaction.commit();
             return foundUser;
         }
     }
 
-
     @Override
     public void updateUser(User user) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
-//            User updatedUser = session.get(User.class, user.getUsername());
-//            updatedUser.setFirstName(user.getFirstName());
-//            updatedUser.setLastName(user.getLastName());
-//            updatedUser.setDate(user.getDate());
-//            updatedUser.setEmail(user.getEmail());
-//            updatedUser.setEmail(user.getPhoneNumber());
-//            updatedUser.setEmail(user.getEmail());
             session.update(user);
             transaction.commit();
         }

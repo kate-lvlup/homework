@@ -43,15 +43,6 @@ public class UserService {
         }
     }
 
-    public void editUser(User user) {
-        if (user == null) {
-            System.out.println("You entered NULL!");
-        } else {
-            System.out.println("Your user has username " + user.getUsername());
-        }
-    }
-
-
     public List<User> loadUsers(File file) {
         List<User> users = new ArrayList<>();
         if (!file.exists()) {

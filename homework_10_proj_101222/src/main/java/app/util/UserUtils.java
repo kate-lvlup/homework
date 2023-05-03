@@ -2,8 +2,6 @@ package app.util;
 
 import app.User;
 import app.dao.UserDao;
-import app.dao.UserDaoHibernate;
-import app.dao.UserDaoJDBC;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -70,6 +68,11 @@ public class UserUtils {
         System.out.println("For " + userForEdit.getUsername() + " previous phone number is: " + userForEdit.getPhoneNumber());
         setPhoneNumber(bufferedReader, userForEdit);
         userDao.updateUser(userForEdit);
+    }
+
+    public void deleteUser(User userForDelete) throws IOException {
+        Long id = userForDelete.getId();
+        userDao.deleteUserById(id);
     }
 
     private void setUserName(BufferedReader bufferedReader, User user) throws IOException {

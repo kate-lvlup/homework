@@ -38,6 +38,7 @@ public class RegistrationApp {
                         "to get the User objects in the list that have a date field in the same year as a given date, and then group them by the month of their date field, and return a Map where the key is the month and the value is a list of User objects with that month press 11," + "\n" +
                         "to edit user by it's id (JDBC) press 12," + "\n" +
                         "to edit user by it's id (Hibernate) press 13," + "\n" +
+                        "to delete user by it's id (Hibernate) press 14," + "\n" +
                         "to exit press 0");
                 try {
                     int input = Integer.parseInt(bufferedReader.readLine());
@@ -125,12 +126,15 @@ public class RegistrationApp {
                         case 12 -> {
                             User userForEdit = userUtils.verifyUsername(bufferedReader);
                             userUtils.updateUserFields(bufferedReader, userForEdit);
-                            userService.editUser(userForEdit);
                         }
                         case 13 -> {
                             User userForEdit = userUtils2.verifyUsername(bufferedReader);
                             userUtils2.updateUserFields(bufferedReader, userForEdit);
-                            userService2.editUser(userForEdit);
+                            HibernateUtil.closeSessionFactoryConnection();
+                        }
+                        case 14 -> {
+                            User userForDeleting = userUtils2.verifyUsername(bufferedReader);
+                            userUtils2.deleteUser(userForDeleting);
                             HibernateUtil.closeSessionFactoryConnection();
                         }
                         case 0 -> {
