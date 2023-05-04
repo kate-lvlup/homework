@@ -1,6 +1,5 @@
 package app;
 
-import app.dao.UserDao;
 import app.dao.UserDaoHibernate;
 import app.dao.UserDaoJDBC;
 import app.service.UserService;
@@ -25,7 +24,7 @@ public class RegistrationApp {
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
             while (exit) {
                 System.out.println("Hello, you can register user here." + "\n" +
-                        "To create user press 1," + "\n" +
+                        "To create user press 1 (JDBC)," + "\n" +
                         "to list all available users press 2," + "\n" +
                         "to get a list of all the usernames in the list of Users press 3," + "\n" +
                         "to filter the list of User objects to only include users whose last name starts with 'S' press 4," + "\n" +
@@ -39,6 +38,7 @@ public class RegistrationApp {
                         "to edit user by it's id (JDBC) press 12," + "\n" +
                         "to edit user by it's id (Hibernate) press 13," + "\n" +
                         "to delete user by it's id (Hibernate) press 14," + "\n" +
+                        "to create user (Hibernate) press 15," + "\n" +
                         "to exit press 0");
                 try {
                     int input = Integer.parseInt(bufferedReader.readLine());
@@ -136,6 +136,19 @@ public class RegistrationApp {
                             User userForDeleting = userUtils2.verifyUsername(bufferedReader);
                             userUtils2.deleteUser(userForDeleting);
                             HibernateUtil.closeSessionFactoryConnection();
+                        }
+                        case 15 -> {
+                            User user = new User();
+                            userUtils2.fillUserFields(bufferedReader, user);
+                            boolean result = userService2.saveUser(user);
+                            if (result) {
+                                userService2.saveUser(user, file);
+                                users.add(user);
+                                System.out.println("User is created!");
+                                System.out.println(user);
+                            } else {
+                                System.out.println("Wrong!!!");
+                            }
                         }
                         case 0 -> {
                             exit = false;
