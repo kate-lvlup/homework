@@ -23,6 +23,7 @@ out/
 # **/out: This pattern tells Git to ignore any out directories in the entire project directory hierarchy.
 **/out
 
+
 # **/*.iml: This pattern tells Git to ignore any .iml files in the entire project directory hierarchy.
 **/*.iml
 
