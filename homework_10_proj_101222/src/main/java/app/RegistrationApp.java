@@ -130,12 +130,10 @@ public class RegistrationApp {
                         case 13 -> {
                             User userForEdit = userUtils2.verifyUsername(bufferedReader);
                             userUtils2.updateUserFields(bufferedReader, userForEdit);
-                            HibernateUtil.closeSessionFactoryConnection();
                         }
                         case 14 -> {
                             User userForDeleting = userUtils2.verifyUsername(bufferedReader);
                             userUtils2.deleteUser(userForDeleting);
-                            HibernateUtil.closeSessionFactoryConnection();
                         }
                         case 15 -> {
                             User user = new User();
@@ -149,10 +147,12 @@ public class RegistrationApp {
                             } else {
                                 System.out.println("Wrong!!!");
                             }
+
                         }
                         case 0 -> {
                             exit = false;
                             System.out.println("Thank you for using our application");
+                            HibernateUtil.closeSessionFactoryConnection();
                         }
                         default -> System.out.println("Wrong action, choose correct one (from 1 - to 11)");
                     }
