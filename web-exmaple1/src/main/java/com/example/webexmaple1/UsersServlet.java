@@ -46,10 +46,6 @@ public class UsersServlet extends HttpServlet {
         transaction.commit();
         request.setAttribute("users", users);
         request.getRequestDispatcher("users.jsp").forward(request, response);
-//        List<String> users = List.of(
-//                "user1",
-//                "user2"
-//        );
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
