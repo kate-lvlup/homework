@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Users</title>
-    <link rel="stylesheet" href="/css/StylesForListOfUsers.css">
+    <link rel="stylesheet" href="/css/users.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <body>
-<div class="block">
+<div class="container_header">
     <h1 class="name_h1">User Management</h1>
     <button class="btn" type="button">Add New User</button>
 </div>
