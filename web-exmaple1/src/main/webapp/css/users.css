@@ -1,101 +1,95 @@
-.container_header {
-    margin-left: 200px;
+body {
+    background-color: #e7e7e7;
+}
+
+.container {
+    margin: 50px auto;
+    max-width: 1300px;
+    min-width: 1000px;
+    border: 3px solid #b9c4c2;
+    border-radius: 10px;
+}
+
+.block {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #5095f5;
-    width: 1400px;
-    height: 50px;
+    background-color: #99b6dc;
+    padding: 10px 20px;
+    border-radius: 5px;
 }
 
-.name_h1 {
-    margin-left: 50px;
+.block_name {
+    margin: 0;
 }
 
-.table_size {
-    margin-left: 200px;
-    border-collapse: collapse;
+.add_user_btn {
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add_user_btn:hover {
+    background-color: rgba(204, 189, 189, 0.76);
+    border: 2px solid grey;
+}
+
+.table {
+    margin-top: 20px;
+    width: 100%;
 }
 
 .table_header {
     text-align: left;
-    padding: 20px 0 0 100px;
+    padding: 10px;
     border-bottom: 1px solid #C2C2C2;
 }
 
-.name {
-    border-bottom: 3px solid #C2C2C2;
-}
-
 .body_column {
-    padding: 10px 100px 10px 100px;
+    padding: 10px;
 }
 
 .first_column_block {
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-.first_column_block_inner {
-    padding-left: 10px;
+.last_column_block {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
-.link_name {
-    padding-bottom: 5px;
-    text-decoration: none;
-}
-
-.name_status {
-    font-size: 15px;
-    font-style: italic;
+.img_profile {
+    font-size: 25px;
+    color: #1e6bde;
+    padding-right: 5px;
 }
 
 .status {
     padding: 1px 7px 1px 7px;
     border-radius: 3px;
-}
-
-.status_color {
     background-color: rgba(128, 128, 128, 0.76);
     color: white;
 }
 
-.status_color_one {
-    background-color: rgba(7, 187, 39, 0.76);
-}
-
-.status_color_two {
-    background-color: rgba(241, 5, 5, 0.92);
-}
-
-.status_color_thee {
-    background-color: rgba(252, 146, 20, 0.76);
+.status_color {
+    background-color: rgba(24, 155, 47, 0.76);
 }
 
 .img_icon {
     padding: 5px;
     background-color: #4C96EFFF;
     border-radius: 3px;
+    color: black;
+}
+
+.img_icon:hover {
+    background-color: rgba(204, 189, 189, 0.76);
+    border: 2px solid grey;
 }
 
 .img_color {
     background-color: #ef4c4c;
-}
-
-.outer {
-    margin-right: 15px;
-}
-
-.btn {
-    margin-right: 50px;
-    padding: 5px 10px;
-    border-radius: 7px;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: rgba(89, 255, 118, 0.76);
 }

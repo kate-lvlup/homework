@@ -8,60 +8,54 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <body>
-<div class="container_header">
-    <h1 class="name_h1">User Management</h1>
-    <button class="btn" type="button">Add New User</button>
-</div>
-<table class="table_size">
-    <thead>
-    <tr>
-        <th class="table_header"><span class="name">User</span></th>
-        <th class="table_header"><span class="name">Created</span></th>
-        <th class="table_header"><span class="name">Status</span></th>
-        <th class="table_header"><span class="name">Email</span></th>
-        <th class="table_header"></th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach items="${users}" var="user">
+<div class="container">
+    <div class="block">
+        <h1 class="block_name">Users list</h1>
+        <button class="btn btn-primary add_user_btn" type="button">Add New User</button>
+    </div>
+    <table class="table table-bordered">
+        <thead>
         <tr>
-            <td class="body_column">
-                <div class="first_column_block">
-                    <div>
-                        <img width="50px" src="IMG\avatar1.png">
-                    </div>
-                    <div class="first_column_block_inner">
-                        <a class="link_name" href="#">${user.username}</a>
-                        <span class="name_status">Admin</span>
-                    </div>
-                </div>
-            </td>
-            <td class="body_column">${user.date}</td>
-            <td class="body_column"><span class="status status_color">Inactive</span>
-            </td>
-            <td class="body_column"><a href="#">${user.email}</a></td>
-            <td>
-                <div class="first_column_block">
-                    <a class="outer" href="#">
-                        <i class="bi bi-search img_icon"></i>
-                    </a>
-                    <a class="outer" href="#">
-                        <i class="bi bi-pencil img_icon"></i>
-                    </a>
-                    <a class="outer" href="#">
-                        <i class="bi bi-trash img_icon img_color"></i>
-                    </a>
-                </div>
-            </td>
+            <th class="table_header"><span class="name">Username</span></th>
+            <th class="table_header"><span class="name">First Name</span></th>
+            <th class="table_header"><span class="name">Last Name</span></th>
+            <th class="table_header"><span class="name">Birthday</span></th>
+            <th class="table_header"><span class="name">Email</span></th>
+            <th class="table_header"><span class="name">Phone number</span></th>
+            <th class="table_header"><span class="name">Address</span></th>
+            <th class="table_header"><span class="name">Status</span></th>
+            <th class="table_header"><span class="name">Actions</span></th>
         </tr>
-    </c:forEach>
-    </tbody>
-</table>
-
-<%--<c:forEach items="${users}" var="user">--%>
-<%--    <p>--%>
-<%--            ${user}--%>
-<%--    </p>--%>
-<%--</c:forEach>--%>
+        </thead>
+        <tbody>
+        <c:forEach items="${users}" var="user">
+            <tr>
+                <td class="body_column">
+                    <div class="first_column_block">
+                        <i class="bi bi-person-circle img_profile"></i>
+                        <span>${user.username}</span>
+                    </div>
+                </td>
+                <td class="body_column"><span>${user.firstName}</span></td>
+                <td class="body_column"><span>${user.lastName}</span></td>
+                <td class="body_column"><span>${user.date}</span></td>
+                <td class="body_column"><span>${user.email}</span></td>
+                <td class="body_column"><span>${user.phoneNumber}</span></td>
+                <td class="body_column"><span>${user.address}</span></td>
+                <td class="body_column"><span>${user.isAvailable}</span></td>
+                <td>
+                    <div class="last_column_block">
+                        <a class="outer" href="#">
+                            <i class="bi bi-pencil img_icon"></i>
+                        </a>
+                        <a class="outer" href="#">
+                            <i class="bi bi-trash img_icon img_color"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 </body>
 </html>
