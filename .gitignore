@@ -21,6 +21,7 @@ out/
 # entire project directory hierarchy, not just in the root directory.
 **/.idea
 
+**/.mvn
 
 # **/out: This pattern tells Git to ignore any out directories in the entire project directory hierarchy.
 **/out
