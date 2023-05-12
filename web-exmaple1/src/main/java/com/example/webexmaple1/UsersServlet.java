@@ -1,13 +1,16 @@
 package com.example.webexmaple1;
 
-import java.io.*;
+import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 import com.example.webexmaple1.model.User;
 import com.example.webexmaple1.util.HibernateUtil;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -17,31 +20,13 @@ import javax.persistence.criteria.CriteriaQuery;
 
 @WebServlet(name = "users-servlet", value = "/users")
 public class UsersServlet extends HttpServlet {
-
-//    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        response.setContentType("text/html");
-//
-//        // Hello
-//        PrintWriter out = response.getWriter();
-//        out.println("<html><body>");
-//        out.println("<h1>" + "USERS DEPLOYED" + "</h1>");
-//        out.println("</body></html>");
-//        out.close();
-//    }
-
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         CriteriaBuilder builder = session.getCriteriaBuilder();
-
-//        Create CriteriaQuery
         CriteriaQuery<User> criteria = builder.createQuery(User.class);
-
-//        Specify criteria root
         criteria.from(User.class);
-
-//        Execute query
         List<User> users = session.createQuery(criteria).getResultList();
         transaction.commit();
         request.setAttribute("users", users);
@@ -49,9 +34,29 @@ public class UsersServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String username = request.getParameter("username");
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        LocalDate birthday = LocalDate.parse(request.getParameter("birthday"));
+        String email = request.getParameter("email");
+        String phoneNumber = request.getParameter("phoneNumber");
+        String address = request.getParameter("address");
 
-    }
-
-    public void destroy() {
+        User user = User.builder()
+                .username(username)
+                .firstName(firstName)
+                .lastName(lastName)
+                .date(birthday)
+                .email(email)
+                .phoneNumber(phoneNumber)
+                .address(address)
+                .build();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(user);
+        transaction.commit();
+        session.close();
+        response.sendRedirect("users");
     }
 }

@@ -4,14 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Users</title>
-    <link rel="stylesheet" href="/css/users.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/users.css">
 </head>
 <body>
+<div class="modal" id="modal">
+    <div class="modal-form">
+        <span class="close" id="modal-close">&times;</span>
+        <h2 class="title">Create new user for organization</h2>
+        <form action="users" method="post">
+            <br>
+            <input class="modal-input" type="text" name="username" placeholder="Username" required>
+            <br>
+            <input class="modal-input" type="text" name="firstName" placeholder="First name" required>
+            <br>
+            <input class="modal-input" type="text" name="lastName" placeholder="Last name" required>
+            <br>
+            <input class="modal-input" type="date" name="birthday" placeholder="Birthday" required>
+            <br>
+            <input class="modal-input" type="email" name="email" placeholder="Email" required>
+            <br>
+            <input class="modal-input" type="text" name="phoneNumber" placeholder="Phone number" required>
+            <br>
+            <input class="modal-input" type="text" name="address" placeholder="Address" required>
+            <br>
+            <br>
+            <button class="modal-input btn btn-primary" type="submit">Save</button>
+        </form>
+    </div>
+</div>
 <div class="container">
     <div class="block">
         <h1 class="block_name">Users list</h1>
-        <button class="btn btn-primary add_user_btn" type="button">Add New User</button>
+        <button class="btn btn-primary" id="add-btn" type="button">Add user</button>
     </div>
     <table class="table table-bordered">
         <thead>
@@ -29,7 +56,7 @@
         </thead>
         <tbody>
         <c:forEach items="${users}" var="user">
-            <tr>
+            <tr class="table_row">
                 <td class="body_column">
                     <div class="first_column_block">
                         <i class="bi bi-person-circle img_profile"></i>
@@ -57,5 +84,9 @@
         </c:forEach>
         </tbody>
     </table>
+</div>
+
+<script src="/js/users.js"></script>
+
 </body>
 </html>
