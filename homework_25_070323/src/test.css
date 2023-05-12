@@ -45,6 +45,10 @@ body {
     border-bottom: 1px solid #C2C2C2;
 }
 
+.table_row{
+    background-color: rgb(208, 213, 231);
+}
+
 .body_column {
     padding: 10px;
 }
