@@ -3,6 +3,8 @@
 # IDE-specific settings and configurations.
 .idea/
 
+.mvn/
+
 # out/: This pattern tells Git to ignore the out directory,
 # which is often used as a default output directory for compiled Java code or other build artifacts.
 out/
