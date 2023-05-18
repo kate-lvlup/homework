@@ -14,7 +14,7 @@
     <div class="modal-form">
         <span class="close" id="modal-close">&times;</span>
         <h2 class="title">Create new user for organization</h2>
-        <form action="users" method="post">
+        <form action="/save" method="post">
             <br>
             <input class="modal-input" type="text" name="username" placeholder="Username" required>
             <br>
@@ -43,6 +43,7 @@
     <table class="table table-bordered">
         <thead>
         <tr>
+            <th class="table_header"><span class="name">Seq#</span></th>
             <th class="table_header"><span class="name">Username</span></th>
             <th class="table_header"><span class="name">First Name</span></th>
             <th class="table_header"><span class="name">Last Name</span></th>
@@ -50,13 +51,14 @@
             <th class="table_header"><span class="name">Email</span></th>
             <th class="table_header"><span class="name">Phone number</span></th>
             <th class="table_header"><span class="name">Address</span></th>
-            <th class="table_header"><span class="name">Status</span></th>
+<%--            <th class="table_header"><span class="name">Status</span></th>--%>
             <th class="table_header"><span class="name">Actions</span></th>
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${users}" var="user">
             <tr class="table_row">
+                <td class="body_column"><span>${user.number}</span></td>
                 <td class="body_column">
                     <div class="first_column_block">
                         <i class="bi bi-person-circle img_profile"></i>
@@ -69,13 +71,13 @@
                 <td class="body_column"><span>${user.email}</span></td>
                 <td class="body_column"><span>${user.phoneNumber}</span></td>
                 <td class="body_column"><span>${user.address}</span></td>
-                <td class="body_column"><span>${user.isAvailable}</span></td>
+<%--                <td class="body_column"><span>${user.isAvailable}</span></td>--%>
                 <td>
                     <div class="last_column_block">
                         <a class="outer" href="#">
                             <i class="bi bi-pencil img_icon"></i>
                         </a>
-                        <a class="outer" href="#">
+                        <a class="outer" href="delete?id=${user.id}">
                             <i class="bi bi-trash img_icon img_color"></i>
                         </a>
                     </div>

@@ -1,5 +1,6 @@
 package com.example.webexmaple1.util;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -15,6 +16,10 @@ public class HibernateUtil {
         return sessionFactory;
     }
 
+    public static Session openSession() {
+       return getSessionFactory().openSession();
+    }
+
     public static void closeSessionFactoryConnection() {
         if (sessionFactory != null) {
             sessionFactory.close();
@@ -22,4 +27,6 @@ public class HibernateUtil {
             System.out.println("Session factory not found");
         }
     }
+
+
 }
