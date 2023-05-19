@@ -35,6 +35,38 @@
         </form>
     </div>
 </div>
+
+
+<div class="modal" id="edit-modal">
+    <div class="modal-form">
+        <span class="close" id="edit-modal-close">&times;</span>
+        <h2 class="title">Update user</h2>
+        <form action="/update" method="post">
+            <input class="modal-input" type="text" id="edit-id" name="id" hidden>
+            <br>
+            <input class="modal-input" type="text" id="edit-username" name="username" placeholder="Username" required>
+            <br>
+            <input class="modal-input" type="text" id="edit-firstName" name="firstName" placeholder="First name"
+                   required>
+            <br>
+            <input class="modal-input" type="text" id="edit-lastName" name="lastName" placeholder="Last name" required>
+            <br>
+            <input class="modal-input" type="date" id="edit-birthday" name="birthday" placeholder="Birthday" required>
+            <br>
+            <input class="modal-input" type="email" id="edit-email" name="email" placeholder="Email" required>
+            <br>
+            <input class="modal-input" type="text" id="edit-phoneNumber" name="phoneNumber" placeholder="Phone number"
+                   required>
+            <br>
+            <input class="modal-input" type="text" id="edit-address" name="address" placeholder="Address" required>
+            <br>
+            <br>
+            <button class="modal-input btn btn-primary" type="submit">Update</button>
+        </form>
+    </div>
+</div>
+
+
 <div class="container">
     <div class="block">
         <h1 class="block_name">Users list</h1>
@@ -43,7 +75,7 @@
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th class="table_header"><span class="name">Seq#</span></th>
+            <th class="table_header"><span class="name">#</span></th>
             <th class="table_header"><span class="name">Username</span></th>
             <th class="table_header"><span class="name">First Name</span></th>
             <th class="table_header"><span class="name">Last Name</span></th>
@@ -51,7 +83,7 @@
             <th class="table_header"><span class="name">Email</span></th>
             <th class="table_header"><span class="name">Phone number</span></th>
             <th class="table_header"><span class="name">Address</span></th>
-<%--            <th class="table_header"><span class="name">Status</span></th>--%>
+            <%--            <th class="table_header"><span class="name">Status</span></th>--%>
             <th class="table_header"><span class="name">Actions</span></th>
         </tr>
         </thead>
@@ -71,10 +103,11 @@
                 <td class="body_column"><span>${user.email}</span></td>
                 <td class="body_column"><span>${user.phoneNumber}</span></td>
                 <td class="body_column"><span>${user.address}</span></td>
-<%--                <td class="body_column"><span>${user.isAvailable}</span></td>--%>
+                    <%--                <td class="body_column"><span>${user.isAvailable}</span></td>--%>
                 <td>
                     <div class="last_column_block">
-                        <a class="outer" href="#">
+                        <a class="outer" href="#"
+                           onclick="openEditModal('${user.id}', '${user.username}', '${user.firstName}', '${user.lastName}', '${user.date}', '${user.email}', '${user.phoneNumber}', '${user.address}')">
                             <i class="bi bi-pencil img_icon"></i>
                         </a>
                         <a class="outer" href="delete?id=${user.id}">

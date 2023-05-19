@@ -1,9 +1,14 @@
 package com.example.webexmaple1.model.command;
 
 import com.example.webexmaple1.model.User;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-import javax.persistence.Column;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,13 +46,13 @@ public class UserCommand {
     }
 
     public static List<UserCommand> usersToCommand(List<User> users) {
-        List<UserCommand> userCommand = new ArrayList<>();
+        List<UserCommand> usersCommandList = new ArrayList<>();
         for (int i = 0; i < users.size(); i++) {
             UserCommand command = userToCommand(users.get(i));
             command.setNumber(1 + i);
-            userCommand.add(command);
+            usersCommandList.add(command);
         }
-        return userCommand;
+        return usersCommandList;
     }
 
 }

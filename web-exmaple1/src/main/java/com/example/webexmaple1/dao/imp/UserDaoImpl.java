@@ -2,9 +2,9 @@ package com.example.webexmaple1.dao.imp;
 
 import com.example.webexmaple1.dao.UserDao;
 import com.example.webexmaple1.model.User;
+import com.example.webexmaple1.model.command.UserUpdateCommand;
 import com.example.webexmaple1.util.HibernateUtil;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -33,5 +33,23 @@ public class UserDaoImpl implements UserDao {
         session.remove(user);
         transaction.commit();
         session.close();
+    }
+
+    @Override
+    public void updateUserById(Long id, UserUpdateCommand command) {
+        Session session = HibernateUtil.openSession();
+        Transaction transaction = session.beginTransaction();
+        User user = session.get(User.class, id);
+        user.setUsername(command.getUsername());
+        user.setFirstName(command.getFirstName());
+        user.setLastName(command.getLastName());
+        user.setDate(command.getDate());
+        user.setEmail(command.getEmail());
+        user.setPhoneNumber(command.getPhoneNumber());
+        user.setAddress(command.getAddress());
+        session.update(user);
+        transaction.commit();
+        session.close();
+
     }
 }
