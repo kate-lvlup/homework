@@ -12,30 +12,45 @@
 <body>
 <div class="modal" id="modal">
     <div class="modal-form">
-        <span class="close" id="modal-close">&times;</span>
-        <h2 class="title">Create new user for organization</h2>
+        <div class="modal-div">
+            <h2 class="title">Add new user</h2>
+            <span class="close" id="modal-close">&times;</span>
+        </div>
         <form action="/save" method="post">
-            <br>
-            <input class="modal-input" type="text" name="username" placeholder="Username" required>
-            <br>
-            <input class="modal-input" type="text" name="firstName" placeholder="First name" required>
-            <br>
-            <input class="modal-input" type="text" name="lastName" placeholder="Last name" required>
-            <br>
-            <input class="modal-input" type="date" name="birthday" placeholder="Birthday" required>
-            <br>
-            <input class="modal-input" type="email" name="email" placeholder="Email" required>
-            <br>
-            <input class="modal-input" type="text" name="phoneNumber" placeholder="Phone number" required>
-            <br>
-            <input class="modal-input" type="text" name="address" placeholder="Address" required>
-            <br>
-            <br>
+            <label>Username</label>
+            <input class="modal-input" type="text" name="username" placeholder="Username" id="username-input"
+                   onblur="usernameValidation()" required>
+            <span class="error"
+                  id="error-userName">Username is invalid, please enter at least 4 letters or numbers</span>
+            <label>First name</label>
+            <input class="modal-input" type="text" name="firstName" placeholder="First name" id="firstName-input"
+                   onblur="firstNameValidation()" required>
+            <span class="error" id="error-firstName">First name must not be empty and contain only letters</span>
+            <label>Last name</label>
+            <input class="modal-input" type="text" name="lastName" placeholder="Last name" id="lastName-input"
+                   onblur="lastNameValidation()" required>
+            <span class="error" id="error-lastName">Last name must not be empty and contain only letters</span>
+            <label>Birthday</label>
+            <input class="modal-input" type="date" name="birthday" placeholder="Birthday" id="birthday-input"
+                   onblur="birthdayValidation()" required>
+            <span class="error" id="error-birthday">You entered a future date</span>
+            <label>Email</label>
+            <input class="modal-input" type="email" name="email" placeholder="example@email.com" id="email-input"
+                   onblur="emailValidation()" required>
+            <span class="error" id="error-email">Please enter a valid email address</span>
+            <label>Phone number</label>
+            <input class="modal-input" type="text" name="phoneNumber" placeholder="e.g. +123456789012"
+                   id="phoneNumber-input"
+                   onblur="phoneNumberValidation()" required>
+            <span class="error" id="error-phoneNumber">Enter correct phone number starting with a plus sign (+) followed by exactly 12 digits</span>
+            <label>Address</label>
+            <input class="modal-input address-input" type="text" name="address" placeholder="Address" id="address-input"
+                   onblur="addressValidation()" required>
+            <span class="error" id="error-address">Address shouldn't be empty</span>
             <button class="modal-input btn btn-primary" type="submit">Save</button>
         </form>
     </div>
 </div>
-
 
 <div class="modal" id="edit-modal">
     <div class="modal-form">
@@ -43,29 +58,28 @@
         <h2 class="title">Update user</h2>
         <form action="/update" method="post">
             <input class="modal-input" type="text" id="edit-id" name="id" hidden>
-            <br>
+            <label>Username</label>
             <input class="modal-input" type="text" id="edit-username" name="username" placeholder="Username" required>
-            <br>
+            <label>First name</label>
             <input class="modal-input" type="text" id="edit-firstName" name="firstName" placeholder="First name"
                    required>
-            <br>
+            <label>Last name</label>
             <input class="modal-input" type="text" id="edit-lastName" name="lastName" placeholder="Last name" required>
-            <br>
+            <label>Birthday</label>
             <input class="modal-input" type="date" id="edit-birthday" name="birthday" placeholder="Birthday" required>
-            <br>
-            <input class="modal-input" type="email" id="edit-email" name="email" placeholder="Email" required>
-            <br>
-            <input class="modal-input" type="text" id="edit-phoneNumber" name="phoneNumber" placeholder="Phone number"
+            <label>Email</label>
+            <input class="modal-input" type="email" id="edit-email" name="email" placeholder="example@email.com"
                    required>
-            <br>
-            <input class="modal-input" type="text" id="edit-address" name="address" placeholder="Address" required>
-            <br>
-            <br>
+            <label>Phone number</label>
+            <input class="modal-input" type="text" id="edit-phoneNumber" name="phoneNumber"
+                   placeholder="e.g. +123456789012" required>
+            <label>Address</label>
+            <input class="modal-input address-input" type="text" id="edit-address" name="address" placeholder="Address"
+                   required>
             <button class="modal-input btn btn-primary" type="submit">Update</button>
         </form>
     </div>
 </div>
-
 
 <div class="container">
     <div class="block">
