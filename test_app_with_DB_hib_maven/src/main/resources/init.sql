@@ -1,8 +1,8 @@
-CREATE DATABASE test_app_db;
-
-DROP TABLE public.ingredient_recipe;
-DROP TABLE public.ingredients;
-DROP TABLE public.recipes;
+-- CREATE DATABASE test_app_db;
+--
+-- DROP TABLE public.ingredient_recipe;
+-- DROP TABLE public.ingredients;
+-- DROP TABLE public.recipes;
 
 
 CREATE TABLE public.ingredients
@@ -1010,7 +1010,7 @@ FROM public.ingredients i
          CROSS JOIN recipe_data r
 WHERE i.ingredient_name IN (
                             'Beef', 'Tomato', 'Onion', 'Carrot', 'Cabbage', 'Cauliflower',
-                            'Rice', 'Noodles','Barley groats'
+                            'Rice', 'Noodles', 'Barley groats'
     );
 
 WITH recipe_data AS (SELECT recipe_id
@@ -1037,7 +1037,7 @@ FROM public.ingredients i
          CROSS JOIN recipe_data r
 WHERE i.ingredient_name IN (
                             'Lettuce', 'Tomato', 'Cucumber', 'Feta Cheese', 'Orange', 'Vegetable oil',
-                            'Chorizo', 'Pastrami','Ground Beef'
+                            'Chorizo', 'Pastrami', 'Ground Beef'
     );
 
 WITH recipe_data AS (SELECT recipe_id
@@ -1051,7 +1051,7 @@ FROM public.ingredients i
          CROSS JOIN recipe_data r
 WHERE i.ingredient_name IN (
                             'Butter', 'Potato', 'Cucumber', 'Tomato', 'Radish', 'Vegetable oil',
-                            'Pork', 'Veal','Beef','Lamb'
+                            'Pork', 'Veal', 'Beef', 'Lamb'
     );
 
 WITH recipe_data AS (SELECT recipe_id
@@ -1093,6 +1093,916 @@ FROM public.ingredients i
          CROSS JOIN recipe_data r
 WHERE i.ingredient_name IN (
                             'Strawberry', 'Ice Cream', 'Cream', 'Beer', 'Blueberry', 'Coffee'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Roasted Vegetable Quinoa Salad')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Eggplant', 'Zucchini', 'Bell Pepper', 'Onion', 'Blueberry'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Creamy Garlic Parmesan Pasta')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Pasta', 'Cream', 'Cheese', 'Pineapple', 'Peach', 'Bread', 'Vegetable oil',
+                            'Wheat flour', 'Pastrami'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Teriyaki Chicken Stir-Fry')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Chicken', 'Noodles', 'Rice', 'Eggplant', 'Tomato', 'Broccoli', 'Vegetable oil',
+                            'Cabbage', 'Asparagus'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Mediterranean Hummus')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Bread', 'Tomato', 'Carrot', 'Eggplant', 'Cauliflower', 'Broccoli', 'Vegetable oil',
+                            'Lettuce', 'Radish', 'Poppy'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Lemon Poppy Seed Muffins')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Kiwi', 'Pear', 'Plum', 'Yeast', 'Sugar', 'Eggs', 'Soda',
+                            'Poppy', 'Wheat flour', 'Apricot'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Garlic Butter Shrimp Scampi')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Shrimps', 'Butter', 'Wine', 'Vegetable oil', 'Pasta', 'Cream Cheese', 'Cheese'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Stuffed Eggplant Parmesan')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Eggplant', 'Tomato', 'Onion', 'Vegetable oil', 'Mozzarella', 'Cheese', 'Honey', 'Liquor'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Thai Red Curry with Chicken')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Chicken', 'Milk', 'Cabbage', 'Vegetable oil', 'Zucchini', 'Broccoli',
+                            'Radish', 'Cauliflower', 'Rice', 'Buckwheat', 'Barley groats'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Creamy Spinach and Artichoke Dip')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Spinach', 'Cream Cheese', 'Sour cream', 'Cheese',
+                            'Sour cream', 'Coffee', 'Honey', 'Tea', 'Cocoa'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Roasted Vegetable Frittata')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Eggs', 'Cream Cheese', 'Cheese', 'Sour cream', 'Mushrooms',
+                            'Coffee', 'Feta Cheese', 'Bell Pepper', 'Zucchini', 'Spinach', 'Onion',
+                            'Turkey', 'Bacon', 'Pepperoni', 'Duck', 'Salami'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Cucumber and Tomato Salad')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Tomato', 'Cucumber', 'Onion', 'Vegetable oil', 'Bread',
+                            'Vodka', 'Pork', 'Shrimps', 'Anchovies', 'Caviar', 'Sour cream'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Honey Glazed Salmon')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Fish', 'Honey', 'Onion', 'Vegetable oil', 'Bread',
+                            'Asparagus', 'Beer', 'Anchovies', 'Zucchini', 'Eggplant', 'Bell Pepper'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Mediterranean Couscous Salad')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Pearl barley', 'Tomato', 'Barley groats', 'Vegetable oil', 'Semolina',
+                            'Cucumber', 'Feta Cheese', 'Anchovies', 'Millet', 'Lentils', 'Sago'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Italian Sausage and Peppers')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Sausage', 'Bell Pepper', 'Bread', 'Vegetable oil', 'Pasta',
+                            'Noodles', 'Wine'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Chicken Caesar Salad')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Lettuce', 'Chicken', 'Cheese', 'Vegetable oil', 'Bread',
+                            'Eggs', 'Sour cream'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Teriyaki Glazed Beef Skewers')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Beef', 'Rice', 'Bell Pepper', 'Vegetable oil', 'Tomato',
+                            'Lentils', 'Cabbage'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Spinach and Cheese Stuffed Mushrooms')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Mushrooms', 'Spinach', 'Chicken', 'Cheese', 'Cream'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Lemon Herb Roasted Chicken')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Chicken', 'Potato', 'Turkey', 'Duck', 'Carrot',
+                            'Eggplant', 'Cucumber'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Caprese Stuffed Chicken')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Chicken', 'Tomato', 'Turkey', 'Mozzarella', 'Cauliflower',
+                            'Eggplant', 'Cucumber', 'Cabbage', 'Pineapple', 'Mango'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Zucchini Noodles with Pesto')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Zucchini', 'Tomato', 'Cheese', 'Mozzarella', 'Cottage Cheese',
+                            'Cream Cheese', 'Gouda', 'Pasta', 'Sago', 'Noodles'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Honey Mustard Chicken Salad')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Chicken', 'Tomato', 'Cucumber', 'Honey', 'Eggs',
+                            'Wine', 'Gouda', 'Pasta', 'Sago', 'Noodles'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Roasted Garlic Mashed Potatoes')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Cream', 'Potato', 'Butter', 'Veal', 'Pork',
+                            'Chicken', 'Beef', 'Lamb', 'Duck', 'Vegetable oil',
+                            'Vodka'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Veggie Spring Rolls with Peanut Sauce')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Rice', 'Fish', 'Oysters', 'Mussels', 'Crab sticks',
+                            'Caviar', 'Sour cream', 'Cream', 'Cheese', 'Cream Cheese'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Greek Lemon Chicken Soup')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Rice', 'Lentils', 'Millet', 'Buckwheat', 'Chicken',
+                            'Bread', 'Pearl barley'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Blueberry Pancakes with Maple Syrup')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Wheat flour', 'Potato flour', 'Yeast', 'Sugar', 'Soda',
+                            'Eggs', 'Chocolate', 'Blueberry', 'Butter', 'Milk', 'Strawberry',
+                            'Banana', 'Tea', 'Coffee', 'Cognac'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Creamy Tomato Basil Soup')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Tomato', 'Cheese', 'Cream', 'Cream Cheese', 'Bread'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Balsamic Glazed Roasted Vegetables')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Eggplant', 'Bell Pepper', 'Zucchini', 'Onion', 'Bread',
+                            'Veal', 'Duck', 'Lamb'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Mediterranean Stuffed Peppers')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Bell Pepper', 'Rice', 'Tomato', 'Shrimps', 'Mussels',
+                            'Oysters', 'Fish', 'Anchovies', 'Feta Cheese', 'Wine', 'Beer'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Chicken Alfredo Pasta')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Pasta', 'Chicken', 'Spinach', 'Shrimps', 'Mussels',
+                            'Cheese', 'Fish', 'Cream Cheese', 'Cream'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Grilled Pineapple Chicken Skewers')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Rice', 'Chicken', 'Turkey', 'Pineapple', 'Cucumber',
+                            'Radish', 'Vegetable oil', 'Bell Peppe', 'Mozzarella'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Creamy Garlic Mashed Cauliflower')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Cauliflower', 'Chicken', 'Butter', 'Cream', 'Sausage',
+                            'Pepperoni', 'Ham', 'Bell Peppe'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Mango Salsa')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Fish', 'Mango', 'Bell Pepper', 'Onion', 'Chicken',
+                            'Shrimps', 'Mussels','Wine'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Honey Sesame Chicken')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Chicken', 'Honey', 'Bell Pepper', 'Onion', 'Hercules',
+                            'Semolina', 'Pearl barley','Millet','Lentils'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Strawberry Spinach Salad')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Spinach', 'Strawberry', 'Onion', 'Feta Cheese', 'Cottage Cheese',
+                            'Yogurt', 'Cherry','Peach','Plum','Grape'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Coconut Curry Shrimp')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Shrimps', 'Mussels', 'Cream Cheese', 'Cream', 'Rice',
+                            'Fish', 'Bread'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Roasted Red Pepper and Tomato Soup')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Bell Pepper', 'Tomato', 'Apple', 'Apricot', 'Duck',
+                            'Beef', 'Bread'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'BBQ Pulled Pork Sandwiches')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Pork', 'Bread', 'Vodka', 'Veal', 'Watermelon',
+                            'Beef', 'Mushrooms'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Teriyaki Glazed Salmon')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Fish', 'Bread', 'Carrot', 'Onion', 'Eggplant',
+                            'Cabbage', 'Mushrooms'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Quinoa Salad with Roasted Vegetables')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Sago', 'Hercules', 'Lentils', 'Eggplant', 'Zucchini',
+                            'Onion', 'Bell Pepper'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Blueberry Lemon Loaf')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Yeast', 'Sugar', 'Semolina', 'Wheat flour', 'Eggs',
+                            'Milk', 'Blueberry','Apricot','Pear','Cherry','Plum'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Garlic Herb Roasted Potatoes')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Potato', 'Pork', 'Duck', 'Bread', 'Bacon',
+                            'Ham', 'Beef','Sausage','Pastrami','Ground Beef','Salami'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Italian Meatball Subs')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Ground Beef', 'Pork', 'Beef', 'Bread', 'Tomato',
+                            'Cream Cheese', 'Mozzarella','Cheese','Tea','Coffee'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Chicken and Vegetable Stir-Fry')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Chicken', 'Rice', 'Noodles', 'Pasta', 'Tomato',
+                            'Onion', 'Bell Pepper','Vegetable oil'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Apple Cinnamon Pancakes')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Milk', 'Wheat flour', 'Sugar', 'Eggs', 'Chocolate',
+                            'Apricot', 'Apple','Vegetable oil','Strawberry',
+                            'Banana','Peach','Tea'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Greek Gyro Salad')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Lamb', 'Chicken', 'Beef', 'Tomato', 'Cucumber',
+                            'Onion'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Honey Roasted Carrots and Parsnips')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Carrot', 'Honey', 'Vegetable oil', 'Sugar', 'Chorizo',
+                            'Sausage','Duck','Turkey'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Baked Zucchini Fries')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Zucchini', 'Wheat flour', 'Tomato', 'Cabbage',
+                            'Wine','Beer','Turkey'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Mexican Chicken Enchiladas')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Chicken', 'Rice', 'Cottage Cheese', 'Sour cream',
+                            'Cheese','Cream','Provolone'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Lemon Herb Grilled')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Eggplant', 'Bell Pepper', 'Zucchini', 'Asparagus',
+                            'Cauliflower','Mushrooms','Veal'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Maple Glazed Bacon-Wrapped Dates')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Bacon', 'Plum', 'Peach', 'Mango',
+                            'Apricot','Cheese','Cream Cheese','Cottage Cheese'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Sausage and Mushroom Pizza')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Mozzarella', 'Wheat flour', 'Potato flour', 'Eggs',
+                            'Soda','Cheese','Mushrooms','Pepperoni','Sausage',
+                           'Tomato'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Baked Stuffed Apples')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Apple', 'Hercules', 'Honey', 'Ice Cream',
+                            'Cream','Tea'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Cabbage Roll Casserole')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Ground Beef', 'Rice', 'Cauliflower', 'Tomato',
+                            'Onion','Zucchini'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Mediterranean Grilled Chicken Skewers')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Chicken', 'Watermelon', 'Cucumber', 'Tomato',
+                            'Onion','Cheese','Eggplant','Orange','Cognac'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Chocolate Chip Banana Bread')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Bread', 'Banana', 'Chocolate', 'Butter',
+                            'Condensed Milk','Tea','Cocoa','Coffee'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Creamy Tuscan Shrimp Pasta')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Shrimps', 'Mussels', 'Tomato', 'Butter',
+                            'Cheese','Cream','Cream Cheese','Spinach',
+                           'Pasta'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Honey Glazed Chicken Drumsticks')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Chicken', 'Honey', 'Tomato', 'Potato',
+                            'Cabbage','Bell Pepper','Broccoli','Eggplant',
+                            'Mushrooms'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Caprese Salad Skewers')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Tomato', 'Mozzarella', 'Vegetable oil', 'Wine',
+                            'Cognac','Bread','Oysters'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Sweet and Sour Pork Stir-Fry')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Pork', 'Bell Pepper', 'Vegetable oil', 'Pineapple',
+                            'Noodles','Bread','Rice'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Creamy Broccoli and Cheddar Soup')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Broccoli', 'Bell Pepper', 'Cheese', 'Cream',
+                            'Cauliflower','Bread'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Mediterranean Quinoa Stuffed Bell Peppers')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Tomato', 'Bell Pepper', 'Feta Cheese','Sago','Millet'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Stuffed Mushroom Caps')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Mushrooms', 'Spinach', 'Feta Cheese','Cheese'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Greek Style Lamb Kebabs')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Lamb', 'Bell Pepper', 'Onion','Tomato',
+                           'Bread','Buckwheat','Lettuce','Turkey','Pastrami'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Grilled Chicken Caesar Salad')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Chicken', 'Bell Pepper', 'Eggs','Tomato',
+                            'Bread','Cheese','Lettuce','Cream Cheese','Cream'
+    );
+
+WITH recipe_data AS (SELECT recipe_id
+                     FROM public.recipes
+                     WHERE recipe_name = 'Spicy Thai Basil Beef Stir-Fry')
+-- Insert ingredient-recipe associations
+INSERT
+INTO public.ingredient_recipe (ingredient_id, recipe_id)
+SELECT i.ingredient_id, r.recipe_id
+FROM public.ingredients i
+         CROSS JOIN recipe_data r
+WHERE i.ingredient_name IN (
+                            'Beef', 'Bell Pepper', 'Rice','Tomato',
+                            'Bread','Pearl barley','Lettuce','Cream Cheese','Cream'
     );
 
 
