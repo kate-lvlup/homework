@@ -61,6 +61,8 @@ function usernameValidation() {
         error.style.display = "none"
     } else {
         error.style.display = "block"
+        document.getElementById('username-input').style.border = "2px solid red"
+        document.getElementById('username-input').style.boxShadow = "10px 5px 5px red"
     }
 }
 
