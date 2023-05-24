@@ -10,10 +10,10 @@
 </head>
 <body>
 <div class="header">
-    <a href="#"><i class="bi bi-house-door"></i>Main page</a>
-    <a href="#"><i class="bi bi-send-plus"></i>Add product</a>
-    <a href="#"><i class="bi bi-send-plus"></i>Add recipe</a>
-    <a href="#"><i class="bi bi-journal-check"></i>Recipe catalog</a>
+    <a href="startpage.html"><i class="bi bi-house-door"></i>Main page</a>
+    <a href="#" onclick="showModalAddProduct()"><i class="bi bi-send-plus"></i>Add product</a>
+    <a href="#" onclick="showModalAddRecipe()"><i class="bi bi-send-plus"></i>Add recipe</a>
+    <a href="recipeCatalog.html"><i class="bi bi-journal-check"></i>Recipe catalog</a>
     <a href="#"><i class="bi bi-box-arrow-in-right me-2"></i>Login</a>
 </div>
 <form>
@@ -171,8 +171,67 @@
         </div>
         <button type="button" class="btn btn-success">Search recipes</button>
 </form>
+
+
+<div id="addProductModal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Product</h5>
+                <button type="button" class="btn-close" onclick="hideModalAddProduct()"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="productName" class="form-label">Product Name</label>
+                        <input type="text" class="form-control" id="productName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="productType" class="form-label">Product Type</label>
+                        <select class="form-select" id="productType" required>
+                            <option value="">Select a product type...</option>
+                            <option value="vegetables">Vegetables</option>
+                            <option value="fruits">Fruits</option>
+                            <option value="dairy-products">Dairy products</option>
+                            <option value="meat-products">Meat products</option>
+                            <option value="seafood">Seafood</option>
+                            <option value="cereals">Cereals</option>
+                            <option value="flour">Flour</option>
+                            <option value="drinks">Drinks</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
+<div id="addRecipeModal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Recipe</h5>
+                <button type="button" class="btn-close" onclick="hideModalAddRecipe()"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="recipeName" class="form-label">Recipe Name</label>
+                        <input type="text" class="form-control" id="recipeName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description-text" class="col-form-label">Description:</label>
+                        <textarea class="form-control" id="description-text" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
+<script src="addProductModal.js"></script>
 </body>
 </html>
