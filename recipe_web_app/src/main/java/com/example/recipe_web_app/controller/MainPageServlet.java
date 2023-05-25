@@ -9,15 +9,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(value = "/mainpage")
+@WebServlet(name = "main-page-servlet", value = "/mainpage")
 public class MainPageServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Forward the request to the JSP file
-        request.getRequestDispatcher("/main/webapp/mainpage.jsp").forward(request, response);
+        request.getRequestDispatcher("mainpage.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Forward the request to the JSP file
-//        request.getRequestDispatcher("/main/webapp/mainpage.jsp").forward(request, response);
-    }
 }
