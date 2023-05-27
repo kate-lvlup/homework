@@ -8,7 +8,9 @@
           integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <%--    <link rel="stylesheet" href="/css/mainpage.css">--%>
-    <link rel="stylesheet" href="<c:url value="/css/mainpage.css"/>">
+    <%--    <link rel="stylesheet" href="<c:url value="/css/mainpage.css"/>">--%>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mainpage.css">
+
 </head>
 <body>
 <div class="header">
@@ -20,7 +22,7 @@
 </div>
 <form>
     <div class="container">
-        <div class="product-block" style="background-image: url('/img/broccoli.png');">
+        <div class="product-block" style="background-image: url(${pageContext.request.contextPath}/img/broccoli.png);">
             <div class="product-type">Vegetables</div>
             <ul class="product-list">
                 <li><input type="checkbox" id="eggplant"><label for="eggplant">Eggplant</label></li>
@@ -41,7 +43,7 @@
             </ul>
         </div>
 
-        <div class="product-block" style="background-image: url('/img/peach.png');">
+        <div class="product-block" style="background-image: url(${pageContext.request.contextPath}/img/peach.png);">
             <div class="product-type">Fruits</div>
             <ul class="product-list">
                 <li><input type="checkbox" id="apricot"><label for="apricot">Apricot</label></li>
@@ -62,7 +64,7 @@
             </ul>
         </div>
 
-        <div class="product-block" style="background-image: url('/img/cheese.png');">
+        <div class="product-block" style="background-image: url(${pageContext.request.contextPath}/img/cheese.png);">
             <div class="product-type">Dairy products</div>
             <ul class="product-list">
                 <li><input type="checkbox" id="milk"><label for="milk">Milk</label></li>
@@ -83,7 +85,7 @@
             </ul>
         </div>
 
-        <div class="product-block" style="background-image: url('/img/meat.png');">
+        <div class="product-block" style="background-image: url(${pageContext.request.contextPath}/img/meat.png);">
             <div class="product-type">Meat products</div>
             <ul class="product-list">
                 <li><input type="checkbox" id="pork"><label for="pork">Pork</label></li>
@@ -103,7 +105,7 @@
                 <li><input type="checkbox" id="ground-beef"><label for="ground-beef">Ground Beef</label></li>
             </ul>
         </div>
-        <div class="product-block" style="background-image: url('/img/fish.png');">
+        <div class="product-block" style="background-image: url(${pageContext.request.contextPath}/img/fish.png);">
             <div class="product-type">Seafood</div>
             <ul class="product-list">
                 <li><input type="checkbox" id="anchovies"><label for="anchovies">Anchovies</label></li>
@@ -116,7 +118,7 @@
             </ul>
         </div>
 
-        <div class="product-block" style="background-image: url('/img/wheat.png');">
+        <div class="product-block" style="background-image: url(${pageContext.request.contextPath}/img/wheat.png);">
             <div class="product-type">Cereals</div>
             <ul class="product-list">
                 <li><input type="checkbox" id="hercules"><label for="hercules">Hercules</label></li>
@@ -131,7 +133,8 @@
             </ul>
         </div>
 
-        <div class="product-block" style="background-image: url('/main/webapp/img/bread.png');">
+        <div class="product-block"
+             style="background-image: url(${pageContext.request.contextPath}/img/bread.png);">
             <div class="product-type">Flour</div>
             <ul class="product-list">
                 <li><input type="checkbox" id="noodles"><label for="noodles">Noodles</label></li>
@@ -142,7 +145,7 @@
             </ul>
         </div>
 
-        <div class="product-block" style="background-image: url('/img/drinks.png');">
+        <div class="product-block" style="background-image: url(${pageContext.request.contextPath}/img/drinks.png);">
             <div class="product-type">Drinks</div>
             <ul class="product-list">
                 <li><input type="checkbox" id="wine"><label for="wine">Wine</label></li>
@@ -154,7 +157,7 @@
             </ul>
         </div>
 
-        <div class="product-block" style="background-image: url('/img/mushroom.png');">
+        <div class="product-block" style="background-image: url(${pageContext.request.contextPath}/img/mushroom.png);">
             <div class="product-type">Other</div>
             <ul class="product-list">
                 <li><input type="checkbox" id="mushrooms"><label for="mushrooms">Mushrooms</label></li>
