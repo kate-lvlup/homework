@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +11,7 @@
 </head>
 <body>
 <div class="header">
-    <a href="mainpage.jsp"><i class="bi bi-house-door"></i>Main page</a>
+    <a href="ingredients"><i class="bi bi-house-door"></i>Main page</a>
     <a href="#" onclick="showModalAddProduct()"><i class="bi bi-send-plus"></i>Add product</a>
     <a href="#" onclick="showModalAddRecipe()"><i class="bi bi-send-plus"></i>Add recipe</a>
     <a href="recipecatalog.jsp"><i class="bi bi-journal-check"></i>Recipe catalog</a>
@@ -224,7 +223,6 @@
     </div>
 </form>
 
-
 <div id="addProductModal" class="modal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -284,6 +282,6 @@
     </div>
 </div>
 
-<script src="addProductModal.js"></script>
+<script src="${pageContext.request.contextPath}/js/addProductModal.js"></script>
 </body>
 </html>

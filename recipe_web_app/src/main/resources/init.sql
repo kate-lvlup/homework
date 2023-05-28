@@ -47,8 +47,8 @@ CREATE TABLE public.ingredient_recipe
 INSERT INTO public.ingredient_type (ingredient_type_name)
 VALUES ('Vegetables'),
        ('Fruits'),
-       ('Dairy products'),
-       ('Meat products'),
+       ('Dairy'),
+       ('Meat'),
        ('Seafood'),
        ('Cereals'),
        ('Flour'),
