@@ -44,10 +44,8 @@ public class IngredientsServlet extends HttpServlet {
             Collections.sort(dbIngredients, Comparator.comparing(ingredient -> ingredient.getName()));
             ingredientMap.put(ingredientType, dbIngredients);
         }
-
         request.setAttribute("ingredientMap", ingredientMap);
-
-        // Forward the request to the JSP file
         request.getRequestDispatcher("ingredients.jsp").forward(request, response);
     }
+
 }

@@ -26,6 +26,6 @@ public class RecipeServlet extends HttpServlet {
         Collections.sort(dbRecipes, Comparator.comparing(recipe -> recipe.getName()));
         request.setAttribute("recipes", dbRecipes);
         request.getRequestDispatcher("recipecatalog.jsp").forward(request, response);
-
     }
+
 }

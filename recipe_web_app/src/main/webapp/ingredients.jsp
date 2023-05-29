@@ -18,7 +18,6 @@
     <a href="#"><i class="bi bi-box-arrow-in-right me-2"></i>Login</a>
 </div>
 <form id="myForm" action="${pageContext.request.contextPath}/searchRecipe" method="post">
-<%--<form id="myForm">--%>
     <div class="container">
 
         <c:forEach var="ingredientType" items="${ingredientMap}">
@@ -37,8 +36,7 @@
                 </ul>
             </div>
         </c:forEach>
-        <input type="text" id="inputField" readonly>
-<%--        <a href="searchRecipe" class="btn btn-success" onclick="submitForm()">Search recipes</a>--%>
+        <input type="hidden" id="inputField" readonly>
         <a class="btn btn-success" onclick="submitForm()">Search recipes</a>
     </div>
 </form>
