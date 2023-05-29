@@ -36,5 +36,5 @@ public class Ingredient {
 
     @ManyToOne
     @JoinColumn(name = "ingredient_type_id")
-    private IngredientType ingredientType;
+    private IngredientType ingredientTypeId;
 }

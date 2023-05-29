@@ -1,9 +1,7 @@
 package com.example.recipe_web_app.controller;
 
-import com.example.recipe_web_app.dao.impl.IngredientDaoImpl;
 import com.example.recipe_web_app.dao.impl.RecipeDaoImpl;
 import com.example.recipe_web_app.modal.Recipes;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,10 +15,10 @@ import java.util.List;
 
 @WebServlet(name = "recipe-servlet", value = "/recipes")
 public class RecipeServlet extends HttpServlet {
-    public final RecipeDaoImpl recipeDao;
+    public RecipeDaoImpl recipeDao ;
 
     public RecipeServlet() {
-        this.recipeDao = new RecipeDaoImpl();
+        this.recipeDao = new RecipeDaoImpl(recipeDao);
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

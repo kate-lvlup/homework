@@ -3,11 +3,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Recipes Book</title>
+    <title>Recipe Catalog</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/ingredients.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/searchResults.css">
 </head>
 <body>
 <div class="header">
@@ -17,29 +17,48 @@
     <a href="recipes"><i class="bi bi-journal-check"></i>Recipe catalog</a>
     <a href="#"><i class="bi bi-box-arrow-in-right me-2"></i>Login</a>
 </div>
-<form id="myForm" action="${pageContext.request.contextPath}/searchRecipe" method="post">
-<%--<form id="myForm">--%>
-    <div class="container">
+<form>
+    <div class="container_recipe">
 
-        <c:forEach var="ingredientType" items="${ingredientMap}">
-            <div class="product-block"
-                 style="background-image: url(${pageContext.request.contextPath}/img/${ingredientType.key.toLowerCase()}.png);">
-                <div class="product-type">${ingredientType.key}</div>
-                <ul class="product-list">
-                    <c:forEach var="ingredient" items="${ingredientType.value}">
-                        <li>
-                            <label>
-                                <input type="checkbox" name="checkbox" value="${ingredient.name}"
-                                       onclick="handleCheckboxClick('${ingredient.name}', 'inputField')">${ingredient.name}
-                            </label>
-                        </li>
-                    </c:forEach>
-                </ul>
+        <div class="form-row">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="breakfast" value="breakfast" checked>
+                <label class="form-check-label" for="breakfast">Breakfast<i class="bi bi-cup-hot icon-meal"></i></label>
             </div>
-        </c:forEach>
-        <input type="text" id="inputField" readonly>
-<%--        <a href="searchRecipe" class="btn btn-success" onclick="submitForm()">Search recipes</a>--%>
-        <a class="btn btn-success" onclick="submitForm()">Search recipes</a>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="lunch" value="lunch" checked>
+                <label class="form-check-label" for="lunch">Lunch<i class="bi bi-egg-fried icon-meal"></i></label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="dinner" value="dinner" checked>
+                <label class="form-check-label" for="dinner">Dinner<i class="bi bi-moon-stars icon-meal"></i></i>
+                </label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="desserts" value="desserts" checked>
+                <label class="form-check-label" for="desserts">Desserts<i class="bi bi-hypnotize icon-meal"></i></label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="snacks" value="snacks" checked>
+                <label class="form-check-label" for="snacks">Snacks <i class="bi bi-palette icon-meal"></i></label>
+            </div>
+            <button type="button" class="btn btn-success" id="applyBtn">Apply</button>
+        </div>
+
+        <div class="recipe-list">
+            <h3>Recipes:</h3>
+            <ul>
+                <c:forEach var="recipe" items="${searchRecipes}">
+                    <li>
+                        <div class="recipe-item">
+                            <h5>${recipe.name}</h5>
+                            <p>${recipe.description}</p>
+                        </div>
+                    </li>
+                </c:forEach>
+            </ul>
+        </div>
+
     </div>
 </form>
 
@@ -106,3 +125,4 @@
 <script src="${pageContext.request.contextPath}/js/addProductModal.js"></script>
 </body>
 </html>
+
