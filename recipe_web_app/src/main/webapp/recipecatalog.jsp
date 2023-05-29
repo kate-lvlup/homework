@@ -14,11 +14,12 @@
     <a href="ingredients"><i class="bi bi-house-door"></i>Main page</a>
     <a href="#" onclick="showModalAddProduct()"><i class="bi bi-send-plus"></i>Add product</a>
     <a href="#" onclick="showModalAddRecipe()"><i class="bi bi-send-plus"></i>Add recipe</a>
-    <a href="recipecatalog.jsp"><i class="bi bi-journal-check"></i>Recipe catalog</a>
+    <a href="recipes"><i class="bi bi-journal-check"></i>Recipe catalog</a>
     <a href="#"><i class="bi bi-box-arrow-in-right me-2"></i>Login</a>
 </div>
 <form>
     <div class="container_recipe">
+
         <div class="form-row">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="breakfast" value="breakfast" checked>
@@ -44,184 +45,23 @@
             <button type="button" class="btn btn-success" id="applyBtn">Apply</button>
         </div>
 
-
         <div class="recipe-list">
             <h3>Recipes:</h3>
             <ul>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="recipe-item">
-                        <h5>Lemon Herb Grilled</h5>
-                        <p>Assorted Vegetables such as Bell Peppers, Zucchini, Eggplant, and Asparagus marinated in a
-                            tangy Lemon-Herb dressing, then grilled to perfection. A flavorful and healthy side
-                            dish.</p>
-                    </div>
-                </li>
+                <c:forEach var="recipe" items="${recipes}">
+                    <li>
+                        <div class="recipe-item">
+                            <h5>${recipe.name}</h5>
+                            <p>${recipe.description}</p>
+                        </div>
+                    </li>
+                </c:forEach>
             </ul>
         </div>
 
-
     </div>
 </form>
+
 
 <div id="addProductModal" class="modal">
     <div class="modal-dialog">

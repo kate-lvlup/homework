@@ -14,7 +14,7 @@
     <a href="ingredients"><i class="bi bi-house-door"></i>Main page</a>
     <a href="#" onclick="showModalAddProduct()"><i class="bi bi-send-plus"></i>Add product</a>
     <a href="#" onclick="showModalAddRecipe()"><i class="bi bi-send-plus"></i>Add recipe</a>
-    <a href="recipecatalog.jsp"><i class="bi bi-journal-check"></i>Recipe catalog</a>
+    <a href="recipes"><i class="bi bi-journal-check"></i>Recipe catalog</a>
     <a href="#"><i class="bi bi-box-arrow-in-right me-2"></i>Login</a>
 </div>
 <form>
