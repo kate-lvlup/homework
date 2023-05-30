@@ -20,62 +20,79 @@
             <label>Username</label>
             <input class="modal-input" type="text" name="username" placeholder="Username" id="username-input"
                    onblur="usernameValidation()" required>
-            <span class="error"
-                  id="error-userName">Username is invalid, please enter at least 4 letters or numbers</span>
+            <span class="error" id="error-userName">Username is invalid, please enter at least 4 letters or numbers</span>
+
             <label>First name</label>
             <input class="modal-input" type="text" name="firstName" placeholder="First name" id="firstName-input"
                    onblur="firstNameValidation()" required>
             <span class="error" id="error-firstName">First name must not be empty and contain only letters</span>
+
             <label>Last name</label>
             <input class="modal-input" type="text" name="lastName" placeholder="Last name" id="lastName-input"
                    onblur="lastNameValidation()" required>
             <span class="error" id="error-lastName">Last name must not be empty and contain only letters</span>
+
             <label>Birthday</label>
             <input class="modal-input" type="date" name="birthday" placeholder="Birthday" id="birthday-input"
                    onblur="birthdayValidation()" required>
             <span class="error" id="error-birthday">You entered a future date</span>
+
             <label>Email</label>
             <input class="modal-input" type="email" name="email" placeholder="example@email.com" id="email-input"
                    onblur="emailValidation()" required>
             <span class="error" id="error-email">Please enter a valid email address</span>
+
             <label>Phone number</label>
             <input class="modal-input" type="text" name="phoneNumber" placeholder="e.g. +123456789012"
                    id="phoneNumber-input"
                    onblur="phoneNumberValidation()" required>
             <span class="error" id="error-phoneNumber">Enter correct phone number starting with a plus sign (+) followed by exactly 12 digits</span>
+
             <label>Address</label>
             <input class="modal-input address-input" type="text" name="address" placeholder="Address" id="address-input"
                    onblur="addressValidation()" required>
             <span class="error" id="error-address">Address shouldn't be empty</span>
+
             <button class="modal-input btn btn-primary" type="submit">Save</button>
         </form>
     </div>
 </div>
 
-<div class="modal" id="edit-modal">
+<div class="modal ${errors != null ? 'm-visible' : ''}" id="edit-modal">
     <div class="modal-form">
         <span class="close" id="edit-modal-close">&times;</span>
         <h2 class="title">Update user</h2>
-        <form action="/update" method="post">
-            <input class="modal-input" type="text" id="edit-id" name="id" hidden>
+        <form action="update" method="post">
+            <input class="modal-input" type="text" id="edit-id" name="id" value="${id !=null ? id : ''}" hidden>
+
             <label>Username</label>
-            <input class="modal-input" type="text" id="edit-username" name="username" placeholder="Username" required>
+            <input class="modal-input" type="text" id="edit-username" name="username" value="${username !=null ? username : ''}" placeholder="Username">
+            <span class="error ${errors['username'] != null ? 's-visible' : ''}"  id="error-edit-userName">Username is invalid, please enter at least 4 letters or numbers</span>
+
             <label>First name</label>
-            <input class="modal-input" type="text" id="edit-firstName" name="firstName" placeholder="First name"
-                   required>
+            <input class="modal-input" type="text" id="edit-firstName" name="firstName" value="${firstName !=null ? firstName : ''}" placeholder="First name">
+            <span class="error ${errors['firstName'] != null ? 's-visible' : ''}"  id="error-edit-firstName">First name must not be empty and contain only letters</span>
+
             <label>Last name</label>
-            <input class="modal-input" type="text" id="edit-lastName" name="lastName" placeholder="Last name" required>
+            <input class="modal-input" type="text" id="edit-lastName" name="lastName" value="${lastName !=null ? lastName : ''}" placeholder="Last name">
+            <span class="error ${errors['lastName'] != null ? 's-visible' : ''}"  id="error-edit-lastName">Last name must not be empty and contain only letters</span>
+
             <label>Birthday</label>
-            <input class="modal-input" type="date" id="edit-birthday" name="birthday" placeholder="Birthday" required>
+            <input class="modal-input" type="date" id="edit-birthday" name="birthday" value="${birthday !=null ? birthday : ''}" placeholder="Birthday">
+            <span class="error ${errors['birthday'] != null ? 's-visible' : ''}"  id="error-edit-birthday">You entered a future date</span>
+
             <label>Email</label>
-            <input class="modal-input" type="email" id="edit-email" name="email" placeholder="example@email.com"
-                   required>
+            <input class="modal-input" type="email" id="edit-email" name="email" value="${email !=null ? email : ''}" placeholder="example@email.com">
+            <span class="error ${errors['email'] != null ? 's-visible' : ''}"  id="error-edit-email">Please enter a valid email address</span>
+
             <label>Phone number</label>
-            <input class="modal-input" type="text" id="edit-phoneNumber" name="phoneNumber"
-                   placeholder="e.g. +123456789012" required>
+            <input class="modal-input" type="text" id="edit-phoneNumber" name="phoneNumber" value="${phoneNumber !=null ? phoneNumber : ''}" placeholder="e.g. +123456789012">
+            <span class="error ${errors['phoneNumber'] != null ? 's-visible' : ''}"  id="error-edit-phoneNumber">Enter correct phone number starting with a plus sign (+) followed by exactly 12 digits</span>
+
             <label>Address</label>
-            <input class="modal-input address-input" type="text" id="edit-address" name="address" placeholder="Address"
-                   required>
+            <input class="modal-input address-input" type="text" id="edit-address" name="address" value="${address !=null ? address : ''}" placeholder="Address">
+            <span class="error ${errors['address'] != null ? 's-visible' : ''}"  id="error-edit-address">Address shouldn't be empty</span>
+
             <button class="modal-input btn btn-primary" type="submit">Update</button>
         </form>
     </div>
@@ -117,7 +134,6 @@
                 <td class="body_column"><span>${user.email}</span></td>
                 <td class="body_column"><span>${user.phoneNumber}</span></td>
                 <td class="body_column"><span>${user.address}</span></td>
-                    <%--                <td class="body_column"><span>${user.isAvailable}</span></td>--%>
                 <td>
                     <div class="last_column_block">
                         <a class="outer" href="#"

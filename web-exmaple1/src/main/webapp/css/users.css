@@ -162,3 +162,11 @@ label {
 .btn-primary {
     background-color: #007bff;
 }
+
+.s-visible {
+    display: block;
+}
+
+.m-visible {
+    display: flex;
+}
