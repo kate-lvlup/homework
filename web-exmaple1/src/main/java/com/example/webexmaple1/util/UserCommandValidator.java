@@ -1,5 +1,6 @@
 package com.example.webexmaple1.util;
 
+import com.example.webexmaple1.dao.imp.UserDaoImpl;
 import com.example.webexmaple1.model.command.UserUpdateCommand;
 
 import java.text.ParseException;
@@ -9,7 +10,14 @@ import java.util.Map;
 
 public class UserCommandValidator {
 
+    private final UserDaoImpl userDao;
+
+    public UserCommandValidator() {
+        this.userDao = new UserDaoImpl();
+    }
+
     public static Map<String, String> validateUserCommand(UserUpdateCommand updateCommand) {
+
         Map<String, String> errors = new HashMap<>();
 
         String username = updateCommand.getUsername();
@@ -20,25 +28,25 @@ public class UserCommandValidator {
         String number = updateCommand.getPhoneNumber();
         String address = updateCommand.getAddress();
 
-        if(!validateUsername(username)){
+        if (!validateUsername(username)) {
             errors.put("username", "Username is invalid, please enter at least 4 letters or numbers");
         }
-        if(!validateFirstName(firstName)){
+        if (!validateFirstName(firstName)) {
             errors.put("firstName", "First name must not be empty and contain only letters");
         }
-        if(!validateLastName(lastName)){
+        if (!validateLastName(lastName)) {
             errors.put("lastName", "Last name must not be empty and contain only letters");
         }
 //        if(!validateDate(date)){
 //            errors.put("date", "You entered a future date");
 //        }
-        if(!validateEmail(email)){
+        if (!validateEmail(email)) {
             errors.put("email", "Please enter a valid email address");
         }
-        if(!validatePhoneNumber(number)){
+        if (!validatePhoneNumber(number)) {
             errors.put("number", "Enter correct phone number starting with a plus sign (+) followed by exactly 12 digits");
         }
-        if(!validateAddress(address)){
+        if (!validateAddress(address)) {
             errors.put("address", "Address shouldn't be empty");
         }
         return errors;
@@ -46,6 +54,7 @@ public class UserCommandValidator {
 
 
     private static boolean validateUsername(String username) {
+
         return username.matches("[a-zA-Z0-9]{4,}");
     }
 
