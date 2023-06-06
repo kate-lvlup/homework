@@ -5,7 +5,14 @@ import com.example.webexmaple1.model.User;
 import com.example.webexmaple1.model.command.UserCommand;
 import com.example.webexmaple1.model.command.UserUpdateCommand;
 import com.example.webexmaple1.util.UserCommandValidator;
-import jakarta.ws.rs.*;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
@@ -72,15 +79,11 @@ public class UsersRESTServlet {
                 .phoneNumber(user.getPhoneNumber())
                 .address(user.getAddress())
                 .build();
-
         Map<String, String> errors = UserCommandValidator.validateUserCommand(userUpdateCommand);
-
         List<User> users = userDao.findUsersByUserName(user.getUsername());
         if (users.size() > 0) {
             errors.put("username", "username already exists, must be unique");
         }
-
-
         if (!errors.isEmpty()) {
             return Response
                     .status(Response.Status.BAD_REQUEST)
@@ -95,16 +98,22 @@ public class UsersRESTServlet {
         }
     }
 
-
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Path("users/{id}")
     public Response deleteUserById(@PathParam("id") long id) {
-        userDao.deleteUserById(id);
-        return Response
-                .status(Response.Status.ACCEPTED)
-                .entity("User DELETED")
-                .build();
+        Optional<User> optional = userDao.getUserById(id);
+        if(optional.isPresent()){
+            userDao.deleteUserById(id);
+            return Response
+                    .status(Response.Status.ACCEPTED)
+                    .entity("User DELETED")
+                    .build();
+        } else {
+            return Response
+                    .status(Response.Status.BAD_REQUEST)
+                    .entity("USER NOT FOUND")
+                    .build();
+        }
     }
-
 }
