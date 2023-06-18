@@ -11,7 +11,11 @@
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="musicBean"
-          class="org.example.ClassicalMusic">
+          class="org.example.ClassicalMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          factory-method="getClassicalMusic">
+
     </bean>
 
     <!--    via Constructor-->
@@ -39,13 +43,14 @@
     <!--    </bean>-->
 
     <!--    via file "musicPlayer.properties" scope - prototype -->
-    <bean id="musicPlayer"
-          class="org.example.MusicPlayer"
-          scope="prototype">
-        <property name="music"
-                  ref="musicBean"/> <!-- name="music" = setMusic in class MusicPlayer without set and in lowercase (music)-->
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+    <!--    <bean id="musicPlayer"-->
+    <!--          class="org.example.MusicPlayer"-->
+    <!--          scope="prototype">-->
+    <!--        <property name="music"-->
+    <!--                  ref="musicBean"/> &lt;!&ndash; name="music" = setMusic in class MusicPlayer without set and in lowercase (music)&ndash;&gt;-->
+    <!--        <property name="name" value="${musicPlayer.name}"/>-->
+    <!--        <property name="volume" value="${musicPlayer.volume}"/>-->
+    <!--    </bean>-->
+
 
 </beans>
