@@ -21,17 +21,27 @@
     <!--    </bean>-->
 
     <!--    via Setter-->
-<!--    <bean id="musicPlayer"-->
-<!--          class="org.example.MusicPlayer">-->
-<!--        <property name="music"-->
-<!--                  ref="musicBean"/> &lt;!&ndash; name="music" = setMusic in class MusicPlayer without set and in lowercase (music)&ndash;&gt;-->
-<!--        <property name="name" value="Some name"/>-->
-<!--        <property name="volume" value="50"/>-->
-<!--    </bean>-->
+    <!--    <bean id="musicPlayer"-->
+    <!--          class="org.example.MusicPlayer">-->
+    <!--        <property name="music"-->
+    <!--                  ref="musicBean"/> &lt;!&ndash; name="music" = setMusic in class MusicPlayer without set and in lowercase (music)&ndash;&gt;-->
+    <!--        <property name="name" value="Some name"/>-->
+    <!--        <property name="volume" value="50"/>-->
+    <!--    </bean>-->
 
-<!--    via file "musicPlayer.properties"-->
+    <!--    via file "musicPlayer.properties" scope - singleton-->
+    <!--    <bean id="musicPlayer"-->
+    <!--          class="org.example.MusicPlayer">-->
+    <!--        <property name="music"-->
+    <!--                  ref="musicBean"/> &lt;!&ndash; name="music" = setMusic in class MusicPlayer without set and in lowercase (music)&ndash;&gt;-->
+    <!--        <property name="name" value="${musicPlayer.name}"/>-->
+    <!--        <property name="volume" value="${musicPlayer.volume}"/>-->
+    <!--    </bean>-->
+
+    <!--    via file "musicPlayer.properties" scope - prototype -->
     <bean id="musicPlayer"
-          class="org.example.MusicPlayer">
+          class="org.example.MusicPlayer"
+          scope="prototype">
         <property name="music"
                   ref="musicBean"/> <!-- name="music" = setMusic in class MusicPlayer without set and in lowercase (music)-->
         <property name="name" value="${musicPlayer.name}"/>
