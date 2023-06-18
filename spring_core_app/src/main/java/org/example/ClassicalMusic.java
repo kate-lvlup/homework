@@ -1,19 +1,25 @@
 package org.example;
 
-public class ClassicalMusic implements Music{
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
-    private ClassicalMusic(){
-    }
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
-    public static ClassicalMusic getClassicalMusic(){
-        return new ClassicalMusic();
-    }
-    public void doMyInit(){
+@Component
+//@Scope("singleton")
+//@Scope("prototype")
+public class ClassicalMusic implements Music {
+    @PostConstruct
+    public void doMyInit() {
         System.out.println("Doing my initialization");
     }
-    public void doMyDestroy(){
+
+    @PreDestroy
+    public void doMyDestroy() {
         System.out.println("Doing my destruction");
     }
+
     @Override
     public String getSong() {
         return "Hungarian Rhapsody";
