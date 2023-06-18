@@ -7,50 +7,5 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--    Import file "musicPlayer.properties". File "musicPlayer.properties" is located in classpath (classpath = resources folder)-->
-    <context:property-placeholder location="classpath:musicPlayer.properties"/>
-
-    <bean id="musicBean"
-          class="org.example.ClassicalMusic"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy"
-          factory-method="getClassicalMusic">
-
-    </bean>
-
-    <!--    via Constructor-->
-    <!--    <bean id="musicPlayer"-->
-    <!--          class="org.example.MusicPlayer">-->
-    <!--        <constructor-arg ref="musicBean"/>-->
-    <!--    </bean>-->
-
-    <!--    via Setter-->
-    <!--    <bean id="musicPlayer"-->
-    <!--          class="org.example.MusicPlayer">-->
-    <!--        <property name="music"-->
-    <!--                  ref="musicBean"/> &lt;!&ndash; name="music" = setMusic in class MusicPlayer without set and in lowercase (music)&ndash;&gt;-->
-    <!--        <property name="name" value="Some name"/>-->
-    <!--        <property name="volume" value="50"/>-->
-    <!--    </bean>-->
-
-    <!--    via file "musicPlayer.properties" scope - singleton-->
-    <!--    <bean id="musicPlayer"-->
-    <!--          class="org.example.MusicPlayer">-->
-    <!--        <property name="music"-->
-    <!--                  ref="musicBean"/> &lt;!&ndash; name="music" = setMusic in class MusicPlayer without set and in lowercase (music)&ndash;&gt;-->
-    <!--        <property name="name" value="${musicPlayer.name}"/>-->
-    <!--        <property name="volume" value="${musicPlayer.volume}"/>-->
-    <!--    </bean>-->
-
-    <!--    via file "musicPlayer.properties" scope - prototype -->
-    <!--    <bean id="musicPlayer"-->
-    <!--          class="org.example.MusicPlayer"-->
-    <!--          scope="prototype">-->
-    <!--        <property name="music"-->
-    <!--                  ref="musicBean"/> &lt;!&ndash; name="music" = setMusic in class MusicPlayer without set and in lowercase (music)&ndash;&gt;-->
-    <!--        <property name="name" value="${musicPlayer.name}"/>-->
-    <!--        <property name="volume" value="${musicPlayer.volume}"/>-->
-    <!--    </bean>-->
-
-
+    <context:component-scan base-package="org.example"/>
 </beans>
