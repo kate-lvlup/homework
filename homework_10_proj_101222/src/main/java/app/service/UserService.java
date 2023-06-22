@@ -2,6 +2,7 @@ package app.service;
 
 import app.User;
 import app.dao.UserDao;
+import app.dao.UserDaoJDBC;
 
 import java.io.*;
 import java.time.LocalDate;
@@ -13,7 +14,14 @@ import static java.util.stream.Collectors.toList;
 
 public class UserService {
 
-    public final UserDao userDao = new UserDao();
+    public UserDao userDao;
+
+    public UserService() {
+    }
+
+    public UserService(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     public boolean saveUser(User user) {
         return userDao.createUser(user);
@@ -35,15 +43,6 @@ public class UserService {
         }
     }
 
-    public void editUser(User user) {
-        if (user == null) {
-            System.out.println("You entered NULL!");
-        } else {
-            System.out.println("Your user has username " + user.getUsername());
-        }
-    }
-
-
     public List<User> loadUsers(File file) {
         List<User> users = new ArrayList<>();
         if (!file.exists()) {
@@ -61,7 +60,7 @@ public class UserService {
                     } else {
                         String[] usersToString = line.split(",");
                         User user = new User();
-                        user.setId(Integer.parseInt(usersToString[0]));
+                        user.setId((long) Integer.parseInt(usersToString[0]));
                         user.setUsername(usersToString[1]);
                         user.setPassword(usersToString[2]);
                         user.setLastName(usersToString[3]);
@@ -142,8 +141,8 @@ public class UserService {
 
     //    Method8:  Find the User object in the list with the earliest date field,
     //    and return a Map containing the id as key and birthdate as value of that object.
-    public Map<Integer, LocalDate> getEarliestDateUserInfo(List<User> users) {
-        Map<Integer, LocalDate> earliestDateUserInfoMap = users.stream()
+    public Map<Long, LocalDate> getEarliestDateUserInfo(List<User> users) {
+        Map<Long, LocalDate> earliestDateUserInfoMap = users.stream()
                 .sorted(Comparator.comparing(user -> user.getDate()))
                 .findFirst()
                 .stream()

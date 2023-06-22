@@ -13,7 +13,14 @@ import java.util.Random;
 
 public class UserUtils {
 
-    public final UserDao userDao = new UserDao();
+    public UserDao userDao;
+
+    public UserUtils() {
+    }
+
+    public UserUtils(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     public User verifyUsername(BufferedReader bufferedReader) throws IOException {
         boolean check = true;
@@ -61,6 +68,11 @@ public class UserUtils {
         System.out.println("For " + userForEdit.getUsername() + " previous phone number is: " + userForEdit.getPhoneNumber());
         setPhoneNumber(bufferedReader, userForEdit);
         userDao.updateUser(userForEdit);
+    }
+
+    public void deleteUser(User userForDelete) throws IOException {
+        Long id = userForDelete.getId();
+        userDao.deleteUserById(id);
     }
 
     private void setUserName(BufferedReader bufferedReader, User user) throws IOException {
