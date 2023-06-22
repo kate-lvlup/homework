@@ -1,0 +1,89 @@
+body {
+    background: rgb(152, 80, 9);
+    background: linear-gradient(90deg, rgba(152, 80, 9, 1) 5%, rgba(244, 123, 3, 0.8519782913165266) 61%);
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    background-color: antiquewhite;
+    border-radius: 15px;
+    box-shadow: rgba(40, 1, 54, 0.56) 0px 22px 70px 4px;
+}
+
+.product-block {
+    flex-basis: 30%;
+    margin-bottom: 20px;
+    background-size: 50%;
+    background-position: right;
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+
+.product-type {
+    font-weight: bold;
+}
+
+.product-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.product-list li {
+    display: flex;
+    align-items: center;
+}
+
+.product-list li input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.header a {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #825fcd;
+    margin: 0 25px;
+}
+
+.header a:hover {
+    background-color: #6a3bcf;
+}
+
+.btn-success {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bi {
+    margin-right: 5px;
+}
+
+.modal-content{
+    box-shadow: rgba(40, 1, 54, 0.56) 0px 22px 70px 4px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #825fcd;
+}
+
+.btn-primary:hover {
+    background-color: #6a3bcf;
+}
