@@ -7,8 +7,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Getter
@@ -24,7 +26,7 @@ import java.time.LocalDate;
 @NamedQueries(
         {
                 @NamedQuery(
-                        name="User.findByUserName",
+                        name = "User.findByUserName",
                         query = "FROM User u WHERE u.username =: username"
                 )
         }
@@ -49,6 +51,7 @@ public class User {
     String firstName;
 
     @Column(name = "birth_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     LocalDate date;
 
     @Column(name = "email")

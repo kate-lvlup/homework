@@ -2,6 +2,7 @@
 <%--<%@taglib prefix="c" uri="jakarta.tags.core" %>--%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -19,7 +20,7 @@
             <h2 class="title">Add new user</h2>
             <span class="close" id="modal-close">&times;</span>
         </div>
-        <form action="/save" method="post">
+        <form action="users/save" method="post">
             <label>Username</label>
             <input class="modal-input" type="text" name="username" placeholder="Username" id="username-input"
                    onblur="usernameValidation()" required>
@@ -59,26 +60,45 @@
     <div class="modal-form">
         <span class="close" id="edit-modal-close">&times;</span>
         <h2 class="title">Update user</h2>
-        <form action="/update" method="post">
+        <form action="users/update" method="post">
             <input class="modal-input" type="text" id="edit-id" name="id" hidden>
+
             <label>Username</label>
-            <input class="modal-input" type="text" id="edit-username" name="username" placeholder="Username" required>
+            <input class="modal-input" type="text" id="edit-username" name="username" placeholder="Username"
+                   onblur="usernameValidation()" required>
+            <span class="error" id="error-username_update">Username is invalid, please enter at least 4 letters or numbers</span>
+
             <label>First name</label>
             <input class="modal-input" type="text" id="edit-firstName" name="firstName" placeholder="First name"
-                   required>
+                   onblur="firstNameValidation()" required>
+            <span class="error"
+                  id="error-firstName_update">First name must not be empty and should contain only letters</span>
+
             <label>Last name</label>
-            <input class="modal-input" type="text" id="edit-lastName" name="lastName" placeholder="Last name" required>
+            <input class="modal-input" type="text" id="edit-lastName" name="lastName" placeholder="Last name"
+                   onblur=" lastNameValidation()" required>
+            <span class="error"
+                  id="error-lastName_update">Last name must not be empty and should contain only letters</span>
+
             <label>Birthday</label>
-            <input class="modal-input" type="date" id="edit-birthday" name="birthday" placeholder="Birthday" required>
+            <input class="modal-input" type="date" id="edit-birthday" name="date" placeholder="Birthday"
+                   onblur="birthdayValidation()" required>
+            <span class="error" id="error-birthday_update">You entered a future date</span>
+
             <label>Email</label>
             <input class="modal-input" type="email" id="edit-email" name="email" placeholder="example@email.com"
-                   required>
+                   onblur="emailValidation()" required>
+            <span class="error" id="error-email_update">Please enter a valid email address</span>
+
             <label>Phone number</label>
             <input class="modal-input" type="text" id="edit-phoneNumber" name="phoneNumber"
-                   placeholder="e.g. +123456789012" required>
+                   placeholder="e.g. +123456789012" onblur="phoneNumberValidation()" required>
+            <span class="error" id="error-phoneNumber_update">Enter a correct phone number starting with a plus sign (+) followed by exactly 12 digits</span>
+
             <label>Address</label>
             <input class="modal-input address-input" type="text" id="edit-address" name="address" placeholder="Address"
-                   required>
+                   onblur="addressValidation()" required>
+            <span class="error" id="error-address_update">Address should not be empty</span>
             <button class="modal-input btn btn-primary" type="submit">Update</button>
         </form>
     </div>
@@ -125,7 +145,7 @@
                            onclick="openEditModal('${user.id}', '${user.username}', '${user.firstName}', '${user.lastName}', '${user.date}', '${user.email}', '${user.phoneNumber}', '${user.address}')">
                             <i class="bi bi-pencil img_icon"></i>
                         </a>
-                        <a class="outer" href="delete?id=${user.id}">
+                        <a class="outer" href="users/delete?id=${user.id}">
                             <i class="bi bi-trash img_icon img_color"></i>
                         </a>
                     </div>

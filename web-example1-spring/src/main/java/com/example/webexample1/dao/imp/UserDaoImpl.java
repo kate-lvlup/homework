@@ -34,7 +34,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void createUser(User user) {
+    public void saveUser(User user) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.save(user);

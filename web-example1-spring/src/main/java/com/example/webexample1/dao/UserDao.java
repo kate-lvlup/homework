@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface UserDao {
     Optional<User>  getUserById(long id);
 
-    void createUser(User user);
+    void saveUser(User user);
     List<User> getAllUsers();
 
     void deleteUserById(Long id);
