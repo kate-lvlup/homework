@@ -71,24 +71,24 @@
                 <button type="button" class="btn-close" onclick="hideModalAddProduct()"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="/add" method="post">
                     <div class="mb-3">
                         <label for="productName" class="form-label">Product Name</label>
-                        <input type="text" class="form-control" id="productName" required>
+                        <input type="text" class="form-control" id="productName" name="name" required>
                     </div>
                     <div class="mb-3">
                         <label for="productType" class="form-label">Product Type</label>
-                        <select class="form-select" id="productType" required>
-                            <option value="">Select a product type...</option>
-                            <option value="vegetables">Vegetables</option>
-                            <option value="fruits">Fruits</option>
-                            <option value="dairy-products">Dairy products</option>
-                            <option value="meat-products">Meat products</option>
-                            <option value="seafood">Seafood</option>
-                            <option value="cereals">Cereals</option>
-                            <option value="flour">Flour</option>
-                            <option value="drinks">Drinks</option>
-                            <option value="other">Other</option>
+                        <select class="form-select" id="productType" name="ingredientTypeName" required>
+                            <option value="">Select product type...</option>
+                            <option value="Vegetables" name="ingredientTypeName">Vegetables</option>
+                            <option value="Fruits" name="ingredientTypeName">Fruits</option>
+                            <option value="Dairy" name="ingredientTypeName">Dairy products</option>
+                            <option value="Meat" name="ingredientTypeName">Meat products</option>
+                            <option value="Seafood" name="ingredientTypeName">Seafood</option>
+                            <option value="Cereals" name="ingredientTypeName">Cereals</option>
+                            <option value="Flour" name="ingredientTypeName">Flour</option>
+                            <option value="Drinks" name="ingredientTypeName">Drinks</option>
+                            <option value="Other" name="ingredientTypeName">Other</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Add</button>
