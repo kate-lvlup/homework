@@ -50,24 +50,24 @@
                 <button type="button" class="btn-close" onclick="hideModalAddProduct()"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="/addproduct" method="post">
                     <div class="mb-3">
                         <label for="productName" class="form-label">Product Name</label>
-                        <input type="text" class="form-control" id="productName" required>
+                        <input type="text" class="form-control" id="productName" name="name" required>
                     </div>
                     <div class="mb-3">
                         <label for="productType" class="form-label">Product Type</label>
-                        <select class="form-select" id="productType" required>
-                            <option value="">Select a product type...</option>
-                            <option value="vegetables">Vegetables</option>
-                            <option value="fruits">Fruits</option>
-                            <option value="dairy-products">Dairy products</option>
-                            <option value="meat-products">Meat products</option>
-                            <option value="seafood">Seafood</option>
-                            <option value="cereals">Cereals</option>
-                            <option value="flour">Flour</option>
-                            <option value="drinks">Drinks</option>
-                            <option value="other">Other</option>
+                        <select class="form-select" id="productType" name="ingredientTypeName" required>
+                            <option value="">Select product type...</option>
+                            <option value="Vegetables" name="ingredientTypeName">Vegetables</option>
+                            <option value="Fruits" name="ingredientTypeName">Fruits</option>
+                            <option value="Dairy" name="ingredientTypeName">Dairy products</option>
+                            <option value="Meat" name="ingredientTypeName">Meat products</option>
+                            <option value="Seafood" name="ingredientTypeName">Seafood</option>
+                            <option value="Cereals" name="ingredientTypeName">Cereals</option>
+                            <option value="Flour" name="ingredientTypeName">Flour</option>
+                            <option value="Drinks" name="ingredientTypeName">Drinks</option>
+                            <option value="Other" name="ingredientTypeName">Other</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Add</button>
@@ -85,16 +85,47 @@
                 <button type="button" class="btn-close" onclick="hideModalAddRecipe()"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form id="myForm2" action="/addrecipe" method="post">
                     <div class="mb-3">
                         <label for="recipeName" class="form-label">Recipe Name</label>
-                        <input type="text" class="form-control" id="recipeName" required>
+                        <input type="text" class="form-control" id="recipeName" name="nameRecipe" required>
                     </div>
                     <div class="mb-3">
                         <label for="description-text" class="col-form-label">Description:</label>
-                        <textarea class="form-control" id="description-text" required></textarea>
+                        <textarea class="form-control" id="description-text" name="nameDescription" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Add</button>
+
+
+
+
+
+
+
+                    <div class="container_modal">
+
+                        <c:forEach var="ingredientType" items="${ingredientMap}">
+                            <div class="product-block_modal">
+                                <div class="product-type">${ingredientType.key}</div>
+                                <ul class="product-list">
+                                    <c:forEach var="ingredient" items="${ingredientType.value}">
+                                        <li>
+                                            <label>
+                                                <input type="checkbox" name="checkbox" value="${ingredient.name}"
+                                                       onclick="handleCheckboxClick2('${ingredient.name}', 'inputField2')">${ingredient.name}
+                                            </label>
+                                        </li>
+                                    </c:forEach>
+                                </ul>
+                            </div>
+                        </c:forEach>
+                        <input type="hidden" id="inputField2" readonly>
+                    </div>
+
+
+
+
+
+                    <button type="submit" class="btn btn-primary" onclick="submitForm2()">Add</button>
                 </form>
             </div>
         </div>

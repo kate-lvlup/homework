@@ -15,6 +15,14 @@ body {
     box-shadow: rgba(40, 1, 54, 0.56) 0px 22px 70px 4px;
 }
 
+.container_modal {
+    font-size: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto 20px auto;
+}
+
 .product-block {
     flex-basis: 30%;
     margin-bottom: 20px;
@@ -22,6 +30,10 @@ body {
     background-position: right;
     background-repeat: no-repeat;
     padding: 20px;
+}
+
+.product-block_modal {
+    flex-basis: 30%;
 }
 
 .product-type {
