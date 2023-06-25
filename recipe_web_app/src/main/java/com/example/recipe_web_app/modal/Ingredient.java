@@ -25,7 +25,7 @@ import lombok.ToString;
 @Builder
 @Entity
 @Table(name = "ingredients")
-public class Ingredients {
+public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ingredient_id")
@@ -36,5 +36,5 @@ public class Ingredients {
 
     @ManyToOne
     @JoinColumn(name = "ingredient_type_id")
-    private IngredientType ingredientType;
+    private IngredientType ingredientTypeId;
 }
