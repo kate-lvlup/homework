@@ -4,7 +4,6 @@ import com.example.webexample1.dao.RoleDao;
 import com.example.webexample1.model.Role;
 import com.example.webexample1.model.User;
 import com.example.webexample1.service.UserService;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

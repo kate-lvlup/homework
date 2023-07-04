@@ -10,11 +10,13 @@ public class SecurityUser implements UserDetails {
     private final String username;
     private final String password;
     private final List<GrantedAuthority> authorities;
+    private final Long id;
 
-    public SecurityUser(String username, String password, List<GrantedAuthority> authorities) {
+    public SecurityUser(String username, String password, List<GrantedAuthority> authorities, Long id) {
         this.username = username;
         this.password = password;
         this.authorities = authorities;
+        this.id = id;
     }
 
     @Override
@@ -30,6 +32,10 @@ public class SecurityUser implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
+    }
+
+    public Long getId() {
+        return this.id;
     }
 
     @Override

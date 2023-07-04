@@ -2,7 +2,6 @@ package com.example.webexample1.dao;
 
 import com.example.webexample1.model.User;
 import com.example.webexample1.model.command.UserUpdateCommand;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.List;
 import java.util.Optional;

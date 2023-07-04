@@ -6,14 +6,10 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
 @EnableWebSecurity
@@ -22,9 +18,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public static final String SINGUP_ENDPOINT = "/register";
     public static final String SINGIN_ENDPOINT = "/login";
     private final UserDetailsService userDetailsService;
+    private final AuthenticationHandler authenticationHandler;
 
-    public SecurityConfig(UserDetailsService userDetailsService) {
+    public SecurityConfig(UserDetailsService userDetailsService, AuthenticationHandler authenticationHandler) {
         this.userDetailsService = userDetailsService;
+        this.authenticationHandler = authenticationHandler;
     }
 
     @Override
@@ -39,7 +37,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage(SINGIN_ENDPOINT)
                 .permitAll()
-                .defaultSuccessUrl("/");
+//                .defaultSuccessUrl("/");
+                .successHandler(authenticationHandler);
 
         http
                 .authorizeRequests()
@@ -47,13 +46,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
         http
                 .authorizeRequests()
-                .antMatchers("/users").hasAnyAuthority("ADMIN")
+                .antMatchers("/users/**").hasAnyAuthority("ADMIN")
                 .anyRequest()
                 .authenticated();
 
 
         http
                 .logout()
+                .invalidateHttpSession(true)
                 .permitAll();
     }
 

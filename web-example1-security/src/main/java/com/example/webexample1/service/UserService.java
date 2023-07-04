@@ -1,6 +1,7 @@
 package com.example.webexample1.service;
 
 import com.example.webexample1.dao.UserDao;
+import com.example.webexample1.exeption.UserNotFoundException;
 import com.example.webexample1.model.SecurityUser;
 import com.example.webexample1.model.User;
 import com.example.webexample1.model.command.UserUpdateCommand;
@@ -15,15 +16,16 @@ import java.util.Optional;
 
 @Service
 public class UserService implements UserDetailsService {
-
-
-
     private final UserDao userDao;
 
     public UserService(UserDao userDao) {
         this.userDao = userDao;
     }
 
+    public User getUserById(Long id) {
+        return userDao.getUserById(id)
+                .orElseThrow(() -> new UserNotFoundException("User with id: " + id + " hasn't been found"));
+    }
 
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
@@ -48,7 +50,7 @@ public class UserService implements UserDetailsService {
 //        return securityUser;
 //    }
 
-//    @Override
+    //    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userDao.findUserByUserName(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User with name: " + username + " hasn't been found"));

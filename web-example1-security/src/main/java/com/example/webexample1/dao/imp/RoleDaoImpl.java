@@ -2,7 +2,6 @@ package com.example.webexample1.dao.imp;
 
 import com.example.webexample1.dao.RoleDao;
 import com.example.webexample1.model.Role;
-import com.example.webexample1.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

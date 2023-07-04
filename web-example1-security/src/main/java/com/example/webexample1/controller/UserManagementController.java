@@ -11,11 +11,11 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value = "users")
-public class UsersController {
+public class UserManagementController {
 
     private UserService userService;
 
-    public UsersController(UserService userService) {
+    public UserManagementController(UserService userService) {
         this.userService = userService;
     }
 
