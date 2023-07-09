@@ -17,7 +17,6 @@
 </div>
 <form>
     <div class="container_recipe">
-
         <div class="recipe-list">
             <h3>Recipes:</h3>
             <ul>

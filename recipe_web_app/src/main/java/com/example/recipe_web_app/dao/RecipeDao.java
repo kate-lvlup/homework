@@ -7,5 +7,9 @@ import java.util.List;
 public interface RecipeDao {
     List<Recipes> getAllRecipesFromDB();
 
-    public List<Recipes> searchRecipesByIngredients(List<String> selectedIngredients);
+    List<Recipes> searchRecipesByIngredients(List<String> selectedIngredients);
+
+    List<Recipes> searchRecipesByMeals(List<String> selectedMeals);
+
+
 }
