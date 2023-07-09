@@ -52,4 +52,21 @@ public class RecipeDaoImpl implements RecipeDao {
         return recipesList;
     }
 
+    @Override
+    public List<Recipes> searchRecipesByMeals(List<String> selectedMeals) {
+        Session session = HibernateUtil.openSession();
+        Transaction transaction = session.beginTransaction();
+        Query<Recipes> recipesQuery = session.createQuery(""" 
+                    SELECT r
+                    FROM Recipes r
+                    JOIN Meal m ON r.meal.id = m.id
+                    WHERE m.name IN (:selectedMeals)
+                """, Recipes.class);
+        recipesQuery.setParameter("selectedMeals", selectedMeals);
+        List<Recipes> recipesList = recipesQuery.getResultList();
+        transaction.commit();
+        session.close();
+        return recipesList;
+    }
+
 }

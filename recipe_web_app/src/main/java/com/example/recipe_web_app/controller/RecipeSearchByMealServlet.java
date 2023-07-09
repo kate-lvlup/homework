@@ -10,29 +10,27 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-@WebServlet(name = "recipe-search-servlet", value = "/searchRecipe")
-public class RecipeSearchServlet extends HttpServlet {
+@WebServlet(name = "recipe-search-servlet-by-meal", value = "/searchRecipeByMeal")
+public class RecipeSearchByMealServlet extends HttpServlet {
     public RecipeDaoImpl recipeDao;
 
-    public RecipeSearchServlet() {
+    public RecipeSearchByMealServlet() {
         this.recipeDao = new RecipeDaoImpl(recipeDao);
     }
-
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String hiddenValue = request.getParameter("selectedValues");
         ObjectMapper objectMapper = new ObjectMapper();
         String[] selectedValues = objectMapper.readValue(hiddenValue, String[].class);
-        List<String> selectedIngredientList = Arrays.asList(selectedValues);
-        List<Recipes> recipes = recipeDao.searchRecipesByIngredients(selectedIngredientList);
+        List<String> selectedMealList = Arrays.asList(selectedValues);
+        List<Recipes> recipes = recipeDao.searchRecipesByMeals(selectedMealList);
         Collections.sort(recipes, Comparator.comparing(recipe -> recipe.getName()));
         request.setAttribute("searchRecipes", recipes);
-        request.getRequestDispatcher("searchResults.jsp").forward(request, response);
+        request.getRequestDispatcher("searchResultsByMeal.jsp").forward(request, response);
     }
 }

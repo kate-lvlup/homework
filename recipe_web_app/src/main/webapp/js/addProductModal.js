@@ -43,9 +43,6 @@ function submitForm() {
 }
 
 
-
-
-
 function handleCheckboxClick2(labelName, inputFieldId) {
     var checkboxes = document.getElementsByName('checkbox');
     var inputField2 = document.getElementById(inputFieldId);
@@ -73,3 +70,35 @@ function submitForm2() {
     form2.appendChild(input);
     form2.submit();
 }
+
+
+function handleCheckboxClick3(labelName, inputFieldId) {
+    var checkboxes = document.getElementsByName('checkbox');
+    var inputField3 = document.getElementById(inputFieldId);
+
+    var selectedLabels = [];
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            selectedLabels.push(checkboxes[i].value);
+        }
+    }
+
+    inputField3.value = selectedLabels.join(', ');
+}
+
+function submitForm3() {
+    var inputField3 = document.getElementById('inputField3');
+    var selectedValues = inputField3.value.split(', ');
+
+    var form3 = document.getElementById('myForm3');
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'selectedValues';
+    input.value = JSON.stringify(selectedValues);
+
+    form3.appendChild(input);
+    form3.submit();
+}
+
+
+
