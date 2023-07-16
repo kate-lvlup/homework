@@ -23,7 +23,7 @@
             <c:forEach var="meal" items="${meals}">
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" name="checkbox" id="${meal.name}"
-                           value="${meal.name}" onclick="handleCheckboxClick3('${meal.name}', 'inputField3')" checked>
+                           value="${meal.name}" onclick="handleCheckboxClick3('${meal.name}', 'inputField3')">
                     <label class="form-check-label" for="${meal.name}">${meal.name}</label>
                 </div>
             </c:forEach>
