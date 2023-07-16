@@ -46,3 +46,9 @@ button:hover {
 button:active {
     background-color: #522e93;
 }
+
+.invalid{
+    font-size: 14px;
+    font-style: italic;
+    color: red;
+}

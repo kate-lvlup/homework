@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--<%@taglib prefix="c" uri="jakarta.tags.core" %>--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,17 +13,18 @@
 </head>
 <body>
 <div class="container">
-    <c:if test="${param.error!= null}">
-        Invalid username and password.
-    </c:if>
-    <c:if test="${param.logout!= null}">
-        You`ve been logged out.
-    </c:if>
+
     <form action="login" method="POST" class="signin-form">
         <h2>Sign In</h2>
         <input type="text" name="username" placeholder="Username" required>
         <input type="password" name="password" placeholder="Password" required>
         <button type="submit">Sign In</button>
+        <c:if test="${param.error!= null}">
+            <span class="invalid">Invalid username and password</span>
+        </c:if>
+        <c:if test="${param.logout!= null}">
+            <span class="invalid">You`ve been logged out</span>
+        </c:if>
     </form>
     <a href="/register">Not register yet?</a>
 </div>

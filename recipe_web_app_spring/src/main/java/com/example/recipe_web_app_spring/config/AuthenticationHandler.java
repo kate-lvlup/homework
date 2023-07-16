@@ -30,7 +30,7 @@ public class AuthenticationHandler implements AuthenticationSuccessHandler {
                 return;
             }
         }
-        userSuccessHandler.setDefaultTargetUrl("/" + principal.getId() + "/" + principal.getUsername());
+//        userSuccessHandler.setDefaultTargetUrl("/" + principal.getId() + "/" + principal.getUsername());
         this.userSuccessHandler.onAuthenticationSuccess(request, response, authentication);
     }
 }

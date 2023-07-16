@@ -14,7 +14,7 @@
 <div class="header">
     <a href="ingredients"><i class="bi bi-house-door"></i>Main page</a>
     <a href="recipes"><i class="bi bi-journal-check"></i>Recipe catalog</a>
-    <a href="#"><i class="bi bi-box-arrow-in-right me-2"></i>Login</a>
+    <a href="/logout"><i class="bi bi-box-arrow-in-right me-2"></i>Logout</a>
 </div>
 <form>
     <div class="container_recipe">

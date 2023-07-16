@@ -11,11 +11,9 @@
 </head>
 
 <body>
-<div class="page">
-    <div class="modal-div">
-        <h2 class="title">Welcome to registration page</h2>
-    </div>
-    <form action="register" method="post">
+<div class="container">
+    <form action="register" method="post" class="signin-form">
+        <h2>Please Register</h2>
         <label>Username</label>
         <input class="modal-input" type="text" name="username" placeholder="Username" id="username-input"
                onblur="usernameValidation()" required>
@@ -53,7 +51,7 @@
         <input class="modal-input address-input" type="text" name="address" placeholder="Address" id="address-input"
                onblur="addressValidation()" required>
         <span class="error" id="error-address">Address shouldn't be empty</span>
-        <button class="modal-input btn btn-primary" type="submit">Register</button>
+        <button class="modal-input btn" type="submit">Register</button>
     </form>
 </div>
 
