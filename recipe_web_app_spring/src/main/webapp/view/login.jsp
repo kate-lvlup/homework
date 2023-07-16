@@ -12,12 +12,19 @@
 </head>
 <body>
 <div class="container">
-    <form class="signin-form">
+    <c:if test="${param.error!= null}">
+        Invalid username and password.
+    </c:if>
+    <c:if test="${param.logout!= null}">
+        You`ve been logged out.
+    </c:if>
+    <form action="login" method="POST" class="signin-form">
         <h2>Sign In</h2>
         <input type="text" name="username" placeholder="Username" required>
         <input type="password" name="password" placeholder="Password" required>
         <button type="submit">Sign In</button>
     </form>
+    <a href="/register">Not register yet?</a>
 </div>
 </body>
 </html>
