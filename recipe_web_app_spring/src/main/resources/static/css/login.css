@@ -1,0 +1,48 @@
+body {
+    background: rgb(152, 80, 9);
+    background: linear-gradient(90deg, rgba(152, 80, 9, 1) 5%, rgba(244, 123, 3, 0.8519782913165266) 61%);
+}
+
+.container {
+    width: 300px;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+
+.signin-form {
+    padding: 20px;
+    background-color: antiquewhite;
+    border-radius: 15px;
+    box-shadow: rgba(40, 1, 54, 0.56) 0px 22px 70px 4px;
+}
+
+h2 {
+    text-align: center;
+}
+
+
+input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    background-color: #825fcd;
+}
+
+button:hover {
+    background-color: #6a3bcf;
+}
+
+button:active {
+    background-color: #522e93;
+}
