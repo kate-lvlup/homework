@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-    width: 300px;
+    width: 500px;
     margin: 0 auto;
     padding-top: 100px;
 }
@@ -51,4 +51,19 @@ button:active {
     font-size: 14px;
     font-style: italic;
     color: red;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.error {
+    display: none;
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
 }

@@ -15,8 +15,8 @@
 <div class="header">
     <a href="ingredients"><i class="bi bi-house-door"></i>Main page</a>
     <sec:authorize access="hasAuthority('ADMIN')">
-    <a href="#" onclick="showModalAddProduct()"><i class="bi bi-send-plus"></i>Add product</a>
-    <a href="#" onclick="showModalAddRecipe()"><i class="bi bi-send-plus"></i>Add recipe</a>
+        <a href="#" onclick="showModalAddProduct()"><i class="bi bi-send-plus"></i>Add product</a>
+        <a href="#" onclick="showModalAddRecipe()"><i class="bi bi-send-plus"></i>Add recipe</a>
     </sec:authorize>
     <a href="recipes"><i class="bi bi-journal-check"></i>Recipe catalog</a>
     <a href="/logout"><i class="bi bi-box-arrow-in-right me-2"></i>Logout</a>
@@ -46,7 +46,7 @@
 </form>
 
 
-<div id="addProductModal" class="modal">
+<div id="addProductModal" class="modal ${errors != null ? 'm-visible' : ''}">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -54,10 +54,14 @@
                 <button type="button" class="btn-close" onclick="hideModalAddProduct()"></button>
             </div>
             <div class="modal-body">
-                <form action="/addproduct" method="post">
+                <form action="/addproduct" method="post" id="add-product-form">
                     <div class="mb-3">
                         <label for="productName" class="form-label">Product Name</label>
-                        <input type="text" class="form-control" id="productName" name="name" required>
+
+
+                        <input type="text" class="form-control" id="productName" name="name" value="${name != null ? name : ''}" required>
+                        <span class="error" id="productNameError">${errors != null ? (errors['error1'] != null ? errors['error1'] : errors['error2']) : ''}</span>
+
                     </div>
                     <div class="mb-3">
                         <label for="productType" class="form-label">Product Type</label>
@@ -80,7 +84,6 @@
         </div>
     </div>
 </div>
-
 
 
 <div id="addRecipeModal" class="modal">

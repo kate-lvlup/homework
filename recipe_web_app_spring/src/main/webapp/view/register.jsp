@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/css/users.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 
 <body>
-<div class="container">
+<div class="container" id="register">
     <form action="register" method="post" class="signin-form">
+        <a href="/login">Back</a>
         <h2>Please Register</h2>
         <label>Username</label>
         <input class="modal-input" type="text" name="username" placeholder="Username" id="username-input"
@@ -35,9 +36,9 @@
                onblur="lastNameValidation()" required>
         <span class="error" id="error-lastName">Last name must not be empty and contain only letters</span>
         <label>Birthday</label>
-        <input class="modal-input" type="date" name="birthday" placeholder="Birthday" id="birthday-input"
+        <input class="modal-input" type="date" name="birthday" pattern="\d{4}-\d{2}-\d{2}" placeholder="Birthday" id="birthday-input"
                onblur="birthdayValidation()" required>
-        <span class="error" id="error-birthday">You entered a future date</span>
+        <span class="error" id="error-birthday">Birthday must not be empty (Future Date Selection Restricted)</span>
         <label>Email</label>
         <input class="modal-input" type="email" name="email" placeholder="example@email.com" id="email-input"
                onblur="emailValidation()" required>
@@ -51,10 +52,10 @@
         <input class="modal-input address-input" type="text" name="address" placeholder="Address" id="address-input"
                onblur="addressValidation()" required>
         <span class="error" id="error-address">Address shouldn't be empty</span>
-        <button class="modal-input btn" type="submit">Register</button>
+        <button type="submit">Register</button>
     </form>
 </div>
 
-<script src="/js/users.js"></script>
+<script src="/js/login.js"></script>
 </body>
 </html>

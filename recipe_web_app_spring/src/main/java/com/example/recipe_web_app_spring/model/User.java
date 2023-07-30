@@ -62,7 +62,7 @@ public class User {
     String firstName;
 
     @Column(name = "birth_date")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
     LocalDate date;
 
     @Column(name = "email")

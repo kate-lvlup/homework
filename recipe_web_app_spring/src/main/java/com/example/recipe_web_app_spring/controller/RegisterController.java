@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,7 +41,9 @@ public class RegisterController {
     }
 
     @PostMapping
-    public String register(@ModelAttribute("user") User user) {
+    public String register(@ModelAttribute("user") User user, HttpServletRequest request) {
+        String dateParam = request.getParameter("birthday");
+        user.setDate(LocalDate.parse(dateParam));
         Optional<Role> role = roleDao.findRoleByName("USER");
         user.setRoles(List.of(role.get()));
 
