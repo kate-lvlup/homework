@@ -23,13 +23,29 @@ add_close_span.onclick = function () {
     clear_email.value = ""
     clear_phoneNumber.value = ""
     clear_address.value = ""
+
+    const error_username = document.getElementById('error-userName')
+    const error_firstName = document.getElementById('error-firstName')
+    const error_lastName = document.getElementById('error-lastName')
+    const error_birthday = document.getElementById('error-birthday')
+    const error_email = document.getElementById('error-email')
+    const error_phoneNumber = document.getElementById('error-phoneNumber')
+    const error_address = document.getElementById('error-address')
+
+    error_username.classList.remove('s-visible')
+    error_firstName.classList.remove('s-visible')
+    error_lastName.classList.remove('s-visible')
+    error_birthday.classList.remove('s-visible')
+    error_email.classList.remove('s-visible')
+    error_phoneNumber.classList.remove('s-visible')
+    error_address.classList.remove('s-visible')
 }
 
 const edit_modal = document.getElementById('edit-modal')
 const edit_close_span = document.getElementById('edit-modal-close')
 
 function openEditModal(id, username, firstName, lastName, birthday, email, phoneNumber, address) {
-    edit_modal.style.display = "flex"
+    edit_modal.classList.add('m-visible')
     const edit_id = document.getElementById('edit-id')
     const edit_username = document.getElementById('edit-username')
     const edit_firstName = document.getElementById('edit-firstName')
@@ -50,7 +66,7 @@ function openEditModal(id, username, firstName, lastName, birthday, email, phone
 }
 
 edit_close_span.onclick = function () {
-    edit_modal.style.display = "none"
+    edit_modal.classList.remove('m-visible')
 }
 
 function usernameValidation() {
@@ -58,9 +74,9 @@ function usernameValidation() {
     const input_value = document.getElementById('username-input').value
     const regex = /[a-zA-Z0-9]{4,}/
     if (regex.test(input_value)) {
-        error.style.display = "none"
+        error.classList.remove('s-visible')
     } else {
-        error.style.display = "block"
+        error.classList.add('s-visible')
         document.getElementById('username-input').style.border = "2px solid red"
         document.getElementById('username-input').style.boxShadow = "10px 5px 5px red"
     }
@@ -71,9 +87,9 @@ function firstNameValidation() {
     const input_value = document.getElementById('firstName-input').value
     const regex = /[a-zA-Z]{1,}/
     if (regex.test(input_value)) {
-        error.style.display = "none"
+        error.error.classList.remove('s-visible')
     } else {
-        error.style.display = "block"
+        error.classList.add('s-visible')
     }
 }
 
@@ -82,9 +98,9 @@ function lastNameValidation() {
     const input_value = document.getElementById('lastName-input').value
     const regex = /[a-zA-Z]{1,}/
     if (regex.test(input_value)) {
-        error.style.display = "none"
+        error.error.classList.remove('s-visible')
     } else {
-        error.style.display = "block"
+        error.classList.add('s-visible')
     }
 }
 
@@ -97,12 +113,12 @@ function birthdayValidation() {
         const birthday = new Date(input_value);
 
         if (birthday <= today) {
-            error.style.display = "none";
+            error.error.classList.remove('s-visible')
         } else {
-            error.style.display = "block";
+            error.classList.add('s-visible')
         }
     } else {
-        error.style.display = "block";
+        error.classList.add('s-visible')
     }
 }
 
@@ -112,9 +128,9 @@ function emailValidation() {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (regex.test(input_value)) {
-        error.style.display = "none";
+        error.classList.remove('s-visible')
     } else {
-        error.style.display = "block";
+        error.classList.add('s-visible')
     }
 }
 
@@ -123,9 +139,9 @@ function phoneNumberValidation() {
     const input_value = document.getElementById('phoneNumber-input').value
     const regex = /^[+][0-9]{12}/
     if (regex.test(input_value)) {
-        error.style.display = "none"
+        error.classList.remove('s-visible')
     } else {
-        error.style.display = "block"
+        error.classList.add('s-visible')
     }
 }
 
@@ -134,8 +150,8 @@ function addressValidation() {
     const input_value = document.getElementById('address-input').value
     const regex = /[a-zA-Z0-9]{1,}/
     if (regex.test(input_value)) {
-        error.style.display = "none"
+        error.classList.remove('s-visible')
     } else {
-        error.style.display = "block"
+        error.classList.add('s-visible')
     }
 }

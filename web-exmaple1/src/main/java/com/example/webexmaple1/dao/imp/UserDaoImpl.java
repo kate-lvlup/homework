@@ -6,12 +6,34 @@ import com.example.webexmaple1.model.command.UserUpdateCommand;
 import com.example.webexmaple1.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
+import java.util.Optional;
 
 public class UserDaoImpl implements UserDao {
+    @Override
+    public Optional<User> getUserById(long id) {
+        Session session = HibernateUtil.openSession();
+        Transaction transaction = session.beginTransaction();
+        User user = session.get(User.class, id);
+        transaction.commit();
+        session.close();
+        return Optional.ofNullable(user);
+    }
+
+    @Override
+    public void createUser(User user) {
+        Session session = HibernateUtil.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(user);
+        transaction.commit();
+        session.close();
+    }
+
     @Override
     public List<User> getAllUsers() {
         Session session = HibernateUtil.openSession();
@@ -23,6 +45,17 @@ public class UserDaoImpl implements UserDao {
         transaction.commit();
         session.close();
         return users;
+    }
+
+    public List<User> findUsersByUserName(String username) {
+        Session session = HibernateUtil.openSession();
+        Transaction transaction = session.beginTransaction();
+        Query<User> query = session.createNamedQuery("User.findByUserName", User.class);
+        query.setParameter("username",username);
+        List<User> usernames = query.getResultList();
+        transaction.commit();
+        session.close();
+        return usernames;
     }
 
     @Override
