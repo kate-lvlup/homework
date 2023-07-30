@@ -1,9 +1,15 @@
 function showModalAddProduct() {
     document.getElementById('addProductModal').style.display = 'block';
+    document.getElementById('productNameError').style.display = 'none';
+    const clear_product_name = document.getElementById('productName')
+    clear_product_name.value = ""
 }
 
 function hideModalAddProduct() {
     document.getElementById('addProductModal').style.display = 'none';
+    document.getElementById('productNameError').style.display = 'none';
+    const clear_product_name = document.getElementById('productName')
+    clear_product_name.value = ""
 }
 
 function showModalAddRecipe() {
@@ -68,7 +74,7 @@ function submitForm2() {
     input.value = JSON.stringify(selectedValues);
 
     form2.appendChild(input);
-    form2.submit();
+    // form2.submit();
 }
 
 

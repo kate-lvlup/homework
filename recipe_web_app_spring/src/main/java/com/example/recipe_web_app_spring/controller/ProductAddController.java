@@ -1,9 +1,11 @@
 package com.example.recipe_web_app_spring.controller;
 
+import com.example.recipe_web_app_spring.dao.IngredientDao;
+import com.example.recipe_web_app_spring.dao.impl.IngredientDaoImpl;
 import com.example.recipe_web_app_spring.model.Ingredient;
 import com.example.recipe_web_app_spring.model.IngredientType;
 import com.example.recipe_web_app_spring.service.RecipeService;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.example.recipe_web_app_spring.util.IngredientValidator;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -22,14 +24,17 @@ public class ProductAddController {
     private RecipeService recipeService;
     private final SessionFactory sessionFactory;
 
-    public ProductAddController(RecipeService recipeService, SessionFactory sessionFactory) {
+    private final IngredientDao ingredientDao;
+
+    public ProductAddController(RecipeService recipeService, SessionFactory sessionFactory, IngredientDao ingredientDao) {
         this.recipeService = recipeService;
         this.sessionFactory = sessionFactory;
+        this.ingredientDao = ingredientDao;
     }
 
 
     @PostMapping
-    public String searchRecipesByMeals(HttpServletRequest request) {
+    public String addProductByMeal(HttpServletRequest request) {
         String name = request.getParameter("name");
         String ingredientTypeName = request.getParameter("ingredientTypeName");
         IngredientType ingredientType = null;
@@ -59,6 +64,15 @@ public class ProductAddController {
                 .ingredientTypeId(ingredientType)
                 .build();
 
+        IngredientValidator ingredientValidator = new IngredientValidator(ingredientDao);
+        Map<String, String> errors = ingredientValidator.validateIngredient(name);
+        if (errors.size() > 0) {
+            request.getSession().setAttribute("errors", errors);
+            request.getSession().setAttribute("name", name);
+            return "redirect:/ingredients";
+
+        }
+        request.getSession().setAttribute("errors", null);
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.save(ingredient);

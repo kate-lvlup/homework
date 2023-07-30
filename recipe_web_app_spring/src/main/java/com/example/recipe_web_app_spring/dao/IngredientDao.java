@@ -7,4 +7,6 @@ import java.util.List;
 public interface IngredientDao {
     List<Ingredient> getAllIngredientsByType(String ingredientTypeName);
 
+    List<Ingredient> getAllIngredients();
+
 }

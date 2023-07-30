@@ -99,3 +99,17 @@ body {
 .btn-primary:hover {
     background-color: #6a3bcf;
 }
+
+.s-visible {
+    display: block;
+}
+
+.m-visible {
+    display: block;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}

@@ -32,4 +32,17 @@ public class IngredientDaoImpl implements IngredientDao {
         return ingredients;
     }
 
+    @Override
+    public List<Ingredient> getAllIngredients() {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        Query<Ingredient> ingredientQuery = session.createQuery("""
+                SELECT i from Ingredient i
+                """, Ingredient.class);
+        List<Ingredient> ingredients = ingredientQuery.getResultList();
+        transaction.commit();
+        session.close();
+        return ingredients;
+    }
+
 }

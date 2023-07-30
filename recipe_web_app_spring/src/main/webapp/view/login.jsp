@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--<%@taglib prefix="c" uri="jakarta.tags.core" %>--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,12 +13,31 @@
 </head>
 <body>
 <div class="container">
-    <form class="signin-form">
+
+    <form action="login" method="POST" class="signin-form">
         <h2>Sign In</h2>
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Password" required>
+        <input class="modal-input" type="text" name="username" placeholder="Username" id="username-input"
+               onblur="usernameValidation()" required>
+        <span class="error"
+              id="error-userName">Username is invalid, please enter at least 4 letters or numbers</span>
+        <input class="modal-input" type="password" name="password" placeholder="Password" id="password-input"
+               onblur="passwordValidation()" required>
+        <span class="error"
+              id="error-password">Password is invalid,please enter at least 4 letters or numbers
+                with special symbols: !, @, #, $, %</span>
         <button type="submit">Sign In</button>
+        <a href="/register">Not register yet?</a>
+        <c:if test="${param.error!= null}">
+            <span class="invalid">Invalid username and password</span>
+        </c:if>
+        <c:if test="${param.logout!= null}">
+            <br>
+            <span class="invalid">You`ve been logged out</span>
+        </c:if>
     </form>
+
 </div>
+
+<script src="/js/login.js"></script>
 </body>
 </html>
