@@ -36,7 +36,7 @@ public class RecipeSearchController {
         List<Recipes> recipes = recipeService.searchRecipesByIngredients(selectedIngredientList);
         Collections.sort(recipes, Comparator.comparing(recipe -> recipe.getName()));
         model.addAttribute("searchRecipes", recipes);
-       return "/searchResults";
+        return "/searchResults";
     }
 
 }

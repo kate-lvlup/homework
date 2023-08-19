@@ -21,11 +21,11 @@ function hideModalAddRecipe() {
 }
 
 function handleCheckboxClick(labelName, inputFieldId) {
-    var checkboxes = document.getElementsByName('checkbox');
-    var inputField = document.getElementById(inputFieldId);
+    let checkboxes = document.getElementsByName('checkbox');
+    let inputField = document.getElementById(inputFieldId);
 
-    var selectedLabels = [];
-    for (var i = 0; i < checkboxes.length; i++) {
+    let selectedLabels = [];
+    for (let i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].checked) {
             selectedLabels.push(checkboxes[i].value);
         }
@@ -35,11 +35,11 @@ function handleCheckboxClick(labelName, inputFieldId) {
 }
 
 function submitForm() {
-    var inputField = document.getElementById('inputField');
-    var selectedValues = inputField.value.split(', ');
+    let inputField = document.getElementById('inputField');
+    let selectedValues = inputField.value.split(', ');
 
-    var form = document.getElementById('myForm');
-    var input = document.createElement('input');
+    let form = document.getElementById('myForm');
+    let input = document.createElement('input');
     input.type = 'hidden';
     input.name = 'selectedValues';
     input.value = JSON.stringify(selectedValues);
@@ -50,11 +50,11 @@ function submitForm() {
 
 
 function handleCheckboxClick2(labelName, inputFieldId) {
-    var checkboxes = document.getElementsByName('checkbox');
-    var inputField2 = document.getElementById(inputFieldId);
+    let checkboxes = document.getElementsByName('checkbox');
+    let inputField2 = document.getElementById(inputFieldId);
 
-    var selectedLabels = [];
-    for (var i = 0; i < checkboxes.length; i++) {
+    let selectedLabels = [];
+    for (let i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].checked) {
             selectedLabels.push(checkboxes[i].value);
         }
@@ -64,11 +64,11 @@ function handleCheckboxClick2(labelName, inputFieldId) {
 }
 
 function submitForm2() {
-    var inputField2 = document.getElementById('inputField2');
-    var selectedValues = inputField2.value.split(', ');
+    let inputField2 = document.getElementById('inputField2');
+    let selectedValues = inputField2.value.split(', ');
 
-    var form2 = document.getElementById('myForm2');
-    var input = document.createElement('input');
+    let form2 = document.getElementById('myForm2');
+    let input = document.createElement('input');
     input.type = 'hidden';
     input.name = 'selectedValues';
     input.value = JSON.stringify(selectedValues);
@@ -79,11 +79,11 @@ function submitForm2() {
 
 
 function handleCheckboxClick3(labelName, inputFieldId) {
-    var checkboxes = document.getElementsByName('checkbox');
-    var inputField3 = document.getElementById(inputFieldId);
+    let checkboxes = document.getElementsByName('checkbox');
+    let inputField3 = document.getElementById(inputFieldId);
 
-    var selectedLabels = [];
-    for (var i = 0; i < checkboxes.length; i++) {
+    let selectedLabels = [];
+    for (let i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].checked) {
             selectedLabels.push(checkboxes[i].value);
         }
@@ -93,11 +93,11 @@ function handleCheckboxClick3(labelName, inputFieldId) {
 }
 
 function submitForm3() {
-    var inputField3 = document.getElementById('inputField3');
-    var selectedValues = inputField3.value.split(', ');
+    let inputField3 = document.getElementById('inputField3');
+    let selectedValues = inputField3.value.split(', ');
 
-    var form3 = document.getElementById('myForm3');
-    var input = document.createElement('input');
+    let form3 = document.getElementById('myForm3');
+    let input = document.createElement('input');
     input.type = 'hidden';
     input.name = 'selectedValues';
     input.value = JSON.stringify(selectedValues);

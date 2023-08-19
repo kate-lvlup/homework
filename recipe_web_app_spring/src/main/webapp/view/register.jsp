@@ -36,7 +36,8 @@
                onblur="lastNameValidation()" required>
         <span class="error" id="error-lastName">Last name must not be empty and contain only letters</span>
         <label>Birthday</label>
-        <input class="modal-input" type="date" name="birthday" pattern="\d{4}-\d{2}-\d{2}" placeholder="Birthday" id="birthday-input"
+        <input class="modal-input" type="date" name="birthday" pattern="\d{4}-\d{2}-\d{2}" placeholder="Birthday"
+               id="birthday-input"
                onblur="birthdayValidation()" required>
         <span class="error" id="error-birthday">Birthday must not be empty (Future Date Selection Restricted)</span>
         <label>Email</label>

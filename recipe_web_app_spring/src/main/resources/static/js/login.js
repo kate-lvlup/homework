@@ -3,13 +3,13 @@ function usernameValidation() {
     const input_value = document.getElementById('username-input').value
     const regex = /[a-zA-Z0-9]{4,}/
     if (regex.test(input_value)) {
-        document.getElementById('username-input').style.border = "2px solid green"
-        document.getElementById('username-input').style.boxShadow = "10px 5px 5px green"
+        document.getElementById('username-input').style.border = "1px solid green"
+        document.getElementById('username-input').style.boxShadow = "1px 1px 5px green"
         error.style.display = "none"
     } else {
         error.style.display = "block"
-        document.getElementById('username-input').style.border = "2px solid red"
-        document.getElementById('username-input').style.boxShadow = "10px 5px 5px red"
+        document.getElementById('username-input').style.border = "1px solid red"
+        document.getElementById('username-input').style.boxShadow = "1px 1px 5px red"
     }
 }
 
@@ -18,13 +18,13 @@ function passwordValidation() {
     const input_value = document.getElementById('password-input').value
     const regex = /^(?=.*[!@#$%])(?=\S+$).{4,}$/
     if (regex.test(input_value)) {
-        document.getElementById('password-input').style.border = "2px solid green"
-        document.getElementById('password-input').style.boxShadow = "10px 5px 5px green"
+        document.getElementById('password-input').style.border = "1px solid green"
+        document.getElementById('password-input').style.boxShadow = "1px 1px 5px green"
         error.style.display = "none"
     } else {
         error.style.display = "block"
-        document.getElementById('password-input').style.border = "2px solid red"
-        document.getElementById('password-input').style.boxShadow = "10px 5px 5px red"
+        document.getElementById('password-input').style.border = "1px solid red"
+        document.getElementById('password-input').style.boxShadow = "1px 1px 5px red"
     }
 }
 
@@ -34,12 +34,12 @@ function firstNameValidation() {
     const regex = /[a-zA-Z]{1,}/
     if (regex.test(input_value)) {
         error.style.display = "none"
-        document.getElementById('firstName-input').style.border = "2px solid green"
-        document.getElementById('firstName-input').style.boxShadow = "10px 5px 5px green"
+        document.getElementById('firstName-input').style.border = "1px solid green"
+        document.getElementById('firstName-input').style.boxShadow = "1px 1px 5px green"
     } else {
         error.style.display = "block"
-        document.getElementById('firstName-input').style.border = "2px solid red"
-        document.getElementById('firstName-input').style.boxShadow = "10px 5px 5px red"
+        document.getElementById('firstName-input').style.border = "1px solid red"
+        document.getElementById('firstName-input').style.boxShadow = "1px 1px 5px red"
     }
 }
 
@@ -49,12 +49,12 @@ function lastNameValidation() {
     const regex = /[a-zA-Z]{1,}/
     if (regex.test(input_value)) {
         error.style.display = "none"
-        document.getElementById('lastName-input').style.border = "2px solid green"
-        document.getElementById('lastName-input').style.boxShadow = "10px 5px 5px green"
+        document.getElementById('lastName-input').style.border = "1px solid green"
+        document.getElementById('lastName-input').style.boxShadow = "1px 1px 5px green"
     } else {
         error.style.display = "block"
-        document.getElementById('lastName-input').style.border = "2px solid red"
-        document.getElementById('lastName-input').style.boxShadow = "10px 5px 5px red"
+        document.getElementById('lastName-input').style.border = "1px solid red"
+        document.getElementById('lastName-input').style.boxShadow = "1px 1px 5px red"
     }
 }
 
@@ -67,21 +67,21 @@ function birthdayValidation() {
 
         if (birthday <= today) {
             error.style.display = "none";
-            document.getElementById('birthday-input').style.border = "2px solid green"
-            document.getElementById('birthday-input').style.boxShadow = "10px 5px 5px green"
+            document.getElementById('birthday-input').style.border = "1px solid green"
+            document.getElementById('birthday-input').style.boxShadow = "1px 1px 5px green"
             const year = birthday.getFullYear();
             const month = String(birthday.getMonth() + 1).padStart(2, "0");
             const day = String(birthday.getDate()).padStart(2, "0");
             return `${year}-${month}-${day}`;
         } else {
             error.style.display = "block";
-            document.getElementById('birthday-input').style.border = "2px solid red"
-            document.getElementById('birthday-input').style.boxShadow = "10px 5px 5px red"
+            document.getElementById('birthday-input').style.border = "1px solid red"
+            document.getElementById('birthday-input').style.boxShadow = "1px 1px 5px red"
         }
     } else {
         error.style.display = "block";
-        document.getElementById('birthday-input').style.border = "2px solid red"
-        document.getElementById('birthday-input').style.boxShadow = "10px 5px 5px red"
+        document.getElementById('birthday-input').style.border = "1px solid red"
+        document.getElementById('birthday-input').style.boxShadow = "1px 1px 5px red"
     }
 }
 
@@ -92,12 +92,12 @@ function emailValidation() {
 
     if (regex.test(input_value)) {
         error.style.display = "none";
-        document.getElementById('email-input').style.border = "2px solid green"
-        document.getElementById('email-input').style.boxShadow = "10px 5px 5px green"
+        document.getElementById('email-input').style.border = "1px solid green"
+        document.getElementById('email-input').style.boxShadow = "1px 1px 5px green"
     } else {
         error.style.display = "block";
-        document.getElementById('email-input').style.border = "2px solid red"
-        document.getElementById('email-input').style.boxShadow = "10px 5px 5px red"
+        document.getElementById('email-input').style.border = "1px solid red"
+        document.getElementById('email-input').style.boxShadow = "1px 1px 5px red"
     }
 }
 
@@ -107,12 +107,12 @@ function phoneNumberValidation() {
     const regex = /^[+][0-9]{12}/
     if (regex.test(input_value)) {
         error.style.display = "none"
-        document.getElementById('phoneNumber-input').style.border = "2px solid green"
-        document.getElementById('phoneNumber-input').style.boxShadow = "10px 5px 5px green"
+        document.getElementById('phoneNumber-input').style.border = "1px solid green"
+        document.getElementById('phoneNumber-input').style.boxShadow = "1px 1px 5px green"
     } else {
         error.style.display = "block"
-        document.getElementById('phoneNumber-input').style.border = "2px solid red"
-        document.getElementById('phoneNumber-input').style.boxShadow = "10px 5px 5px red"
+        document.getElementById('phoneNumber-input').style.border = "1px solid red"
+        document.getElementById('phoneNumber-input').style.boxShadow = "1px 1px 5px red"
     }
 }
 
@@ -122,12 +122,12 @@ function addressValidation() {
     const regex = /[a-zA-Z0-9]{1,}/
     if (regex.test(input_value)) {
         error.style.display = "none"
-        document.getElementById('address-input').style.border = "2px solid green"
-        document.getElementById('address-input').style.boxShadow = "10px 5px 5px green"
+        document.getElementById('address-input').style.border = "1px solid green"
+        document.getElementById('address-input').style.boxShadow = "1px 1px 5px green"
     } else {
         error.style.display = "block"
-        document.getElementById('address-input').style.border = "2px solid red"
-        document.getElementById('address-input').style.boxShadow = "10px 5px 5px red"
+        document.getElementById('address-input').style.border = "1px solid red"
+        document.getElementById('address-input').style.boxShadow = "1px 1px 5px red"
     }
 }
 
